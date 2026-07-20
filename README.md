@@ -6,7 +6,7 @@ This collection covers public original repositories created between **October 20
 
 ## Portfolio summary
 
-Over the last nine months, I used AI-assisted development to build around 30 public projects, including complete web applications, AI agents, RAG systems, developer tools, editor extensions, local-model utilities and productivity apps.
+Over the last nine months, I used AI-assisted development to build around 31 public projects, including complete web applications, AI agents, RAG systems, developer tools, editor extensions, local-model utilities and productivity apps.
 
 ## Web and user-facing applications
 
@@ -158,6 +158,11 @@ Over the last nine months, I used AI-assisted development to build around 30 pub
 - **Description**: Docker management or inspection interface.
 - **Approach**: Browser-based workflow for Docker inspection and management.
 - **Demo**: Not ready yet.
+
+### [devlog](https://github.com/jellydn/devlog)
+- **Description**: Zero-code log capture for local development.
+- **Approach**: Captures server logs via tmux and browser console logs via a native messaging host from a single YAML config.
+- **Demo**: https://jellydn.github.io/devlog/
 
 ### [dotenv-tui](https://github.com/jellydn/dotenv-tui)
 - **Description**: Terminal interface for managing environment variables.
