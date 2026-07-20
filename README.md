@@ -1,24 +1,10 @@
 # personal-ai
 
-A curated portfolio of AI projects built over the last nine months.
+AI projects from the last nine months.
 
-## Summary
+I treated “projects built with AI” as repositories created since October 20, 2025 where AI, LLMs, agents, RAG, or AI-assisted development workflows are a core part of the project. I excluded obvious forks and repositories that merely received recent updates.
 
-This project presents a portfolio narrative around the AI work you built during the last nine months:
-
-- AI applications
-- agents and agent platforms
-- AI coding and developer tooling
-- AI learning projects
-- local AI infrastructure and provider integrations
-
-The strongest summary is:
-
-> I built AI applications, RAG systems, autonomous coding agents, local-model tooling, provider integrations, and portable infrastructure for AI-native software development.
-
-## Projects
-
-### AI applications
+## AI applications
 
 - **ai-photo-coach** — AI photography coach that analyses photos and provides composition or improvement feedback.
 - **ai-smart-gmail** — AI-assisted Gmail management and email intelligence.
@@ -27,7 +13,9 @@ The strongest summary is:
 - **echo-note** — Voice or conversational note-taking application with AI-assisted processing.
 - **logpilot** — AI-oriented log investigation and developer assistance tool.
 
-### Agents and agent platforms
+The GitHub search directly identified **ai-photo-coach**, **ai-smart-gmail**, and **smart-resume-matcher** among your newly created AI repositories.
+
+## Agents and agent platforms
 
 - **tiny-coding-agent** — Minimal coding agent for understanding and experimenting with agent loops and tool execution.
 - **hermes-hub** — Self-hosted hub for running Hermes Agent, scheduled jobs, personas, and delegated agent workflows.
@@ -35,7 +23,9 @@ The strongest summary is:
 - **my-ai-tools** — Portable AI-agent workspace containing reusable skills, MCP configuration, memory, and agent instructions.
 - **ai-flow** — Workflow tooling for organising or running AI-assisted development processes.
 
-### AI coding and developer tooling
+These repositories were returned as projects created during the nine-month window.
+
+## AI coding and developer tooling
 
 - **ai-launcher** — Desktop or developer launcher for accessing multiple AI coding tools.
 - **vscode-seal-code** — VS Code integration for your SealCode AI coding workflow.
@@ -45,20 +35,40 @@ The strongest summary is:
 - **pi-qwencloud-provider** — Pi provider for using Qwen Cloud token plans and models.
 - **tiny-local-ai** — Small local-AI environment for running and testing local language models.
 
-### AI learning projects
+GitHub confirms that **ai-launcher**, **vscode-seal-code**, **vscode-mux**, **zed-codemux**, both Pi providers, and **tiny-local-ai** were created during the period.
+
+## AI learning projects
 
 - **ai-architect-4-weeks** — Structured four-week AI architecture learning programme with practical exercises.
 - **rag-learning-guide** — Focused learning material and exercises covering retrieval-augmented generation.
 - **rag-blog** — Practical RAG implementation tied to your blog content.
 
-## Portfolio-ready narrative
+**ai-architect-4-weeks** and the RAG repositories appear in the date-filtered AI search results.
 
-If you want a concise positioning statement, use this:
+## Summary
 
-> Built AI applications, RAG systems, autonomous coding agents, local-model tooling, provider integrations, and portable infrastructure for AI-native software development.
+I identified 19 likely original AI projects:
 
-## Notes
+- my-ai-tools
+- tiny-coding-agent
+- hermes-hub
+- openralph
+- ai-flow
+- ai-launcher
+- ai-photo-coach
+- ai-smart-gmail
+- smart-resume-matcher
+- rag-blog
+- rag-learning-guide
+- ai-architect-4-weeks
+- tiny-local-ai
+- vscode-seal-code
+- vscode-mux
+- zed-codemux
+- pi-clinepass-provider
+- pi-qwencloud-provider
+- logpilot
 
-- Repositories were selected from the last nine months.
-- Forks and simple updates were excluded.
-- The list is optimised for portfolio and career framing.
+The strongest portfolio narrative is not simply “I built several chatbots.” It is:
+
+> I built AI applications, RAG systems, autonomous coding agents, local-model tooling, provider integrations and portable infrastructure for AI-native software development.
