@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dung Huynh · AI Portfolio</title>
+<meta name="description" content="31 open-source projects built with AI — web apps, agents, developer tools, and experiments over 9 months of exploration.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'], mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'] },
+      colors: {
+        ink: { 50: '#faf9f6', 100: '#f0eeea', 200: '#e2dfd8', 300: '#c9c4b8', 400: '#a9a294', 500: '#8c8473', 600: '#6b6559', 700: '#545048', 800: '#3d3a35', 900: '#2a2825', 950: '#1a1816' },
+        ember: { 50: '#fef7ee', 100: '#fdedd3', 200: '#fad7a5', 300: '#f6ba6d', 400: '#f19533', 500: '#ec7a10', 600: '#d96106', 700: '#b44808', 800: '#903a0d', 900: '#75310e', 950: '#3f1705' },
+        moss: { 50: '#f3f7f0', 100: '#e3ecdc', 200: '#c9d9bc', 300: '#a6c095', 400: '#82a570', 500: '#658a54', 600: '#4f6d40', 700: '#3e5534', 800: '#33452c', 900: '#2c3926', 950: '#151f12' }
+      }
+    }
+  }
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif; background: #faf9f6; color: #2a2825; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+::selection { background: #f19533; color: #faf9f6; }
+
+/* Focus */
+*:focus-visible { outline: 2px dashed #ec7a10; outline-offset: 2px; border-radius: 2px; }
+
+/* Card hover */
+.project-card { transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(42,40,37,0.12), 0 0 0 1px rgba(42,40,37,0.06); }
+.project-card:active { transform: translateY(-1px); }
+
+/* Staggered entrance */
+.entrance { animation: cardIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+@keyframes cardIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* Filter pills */
+.filter-pill { transition: all 0.2s ease; }
+.filter-pill.active { background: #2a2825; color: #faf9f6; }
+.filter-pill:not(.active):hover { background: #f0eeea; }
+
+/* Search */
+#search:focus { box-shadow: 0 0 0 3px rgba(241,149,51,0.15); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c9c4b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a9a294; }
+
+/* Demo badge */
+.demo-badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: #e3ecdc; color: #3e5534; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap; }
+.no-demo { font-size: 0.75rem; color: #a9a294; font-style: italic; }
+
+/* Loading skeleton */
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.skeleton { background: linear-gradient(90deg, #f0eeea 25%, #e2dfd8 50%, #f0eeea 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance, .project-card, .filter-pill { animation: none; transition: none; }
+  .skeleton { animation: none; }
+}
+
+@media (max-width: 640px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+</style>
+</head>
+<body class="min-h-screen">
+
+<header class="border-b border-ink-200/60 bg-ink-50/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="/" class="font-bold text-lg tracking-tight text-ink-950">Dung Huynh</a>
+    <div class="flex items-center gap-3 text-sm text-ink-500">
+      <a href="https://github.com/jellydn" class="hover:text-ink-800 transition-colors" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://productsway.com" class="hover:text-ink-800 transition-colors hidden sm:inline" target="_blank" rel="noopener">productsway.com</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-5 pt-20 pb-12 md:pt-28 md:pb-16">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-xs font-mono font-medium tracking-wider uppercase text-ember-600 bg-ember-50 px-2.5 py-1 rounded-full">Portfolio · 2025–2026</span>
+        <span class="text-xs font-mono text-ink-400">34 projects</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink-950 leading-[1.1] mb-5">
+        <span class="text-ember-500">AI-built.</span> <span class="text-ink-600 font-semibold">Open source.</span><br>Personal.
+      </h1>
+      <p class="text-lg md:text-xl text-ink-500 max-w-xl leading-relaxed mb-8">
+        Nine months of exploring AI-assisted development. Each project is a real thing you can run, fork, and learn from — no filler, no forks, just original work.
+      </p>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-moss-500"></span>
+          <span class="text-ink-600"><strong class="text-ink-800">12</strong> web apps</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-ember-400"></span>
+          <span class="text-ink-600"><strong class="text-ink-800">7</strong> AI agents</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-ink-500"></span>
+          <span class="text-ink-600"><strong class="text-ink-800">11</strong> dev tools</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
+          <span class="w-2 h-2 rounded-full bg-ember-200"></span>
+          <span class="text-ink-600"><strong class="text-ink-800">4</strong> experiments</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <section class="sticky top-[57px] z-40 bg-ink-50/90 backdrop-blur-sm border-b border-ink-200/60">
+    <div class="max-w-6xl mx-auto px-5 py-3">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div class="relative flex-1 max-w-sm">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input id="search" type="text" placeholder="Filter projects..." class="w-full pl-9 pr-4 py-2 text-sm bg-white border border-ink-200 rounded-lg focus:border-ember-400 focus:outline-none transition-shadow text-ink-800 placeholder:text-ink-400" autocomplete="off">
+        </div>
+        <div class="flex gap-1.5 flex-wrap" id="filters">
+          <button class="filter-pill active px-3 py-1.5 text-sm rounded-full font-medium" data-category="all">All</button>
+          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="web">Web apps</button>
+          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="ai">AI agents</button>
+          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="dev">Dev tools</button>
+          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="learn">Experiments</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project grid -->
+  <section class="max-w-6xl mx-auto px-5 py-10 md:py-14">
+    <div id="empty-state" class="hidden text-center py-20">
+      <p class="text-ink-400 text-lg mb-2">No projects match your search.</p>
+      <p class="text-ink-300 text-sm">Try a different term or clear the filter.</p>
+    </div>
+    <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-ink-200/60 mt-8">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-ink-400">
+    <p>Made by <a href="https://productsway.com" class="text-ink-600 hover:text-ink-800 transition-colors font-medium" target="_blank" rel="noopener">Dung Huynh</a> · Built with AI assistance</p>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/jellydn/personal-ai" class="hover:text-ink-600 transition-colors" target="_blank" rel="noopener">View source</a>
+      <span class="text-ink-300">·</span>
+      <a href="https://github.com/jellydn" class="hover:text-ink-600 transition-colors" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const projects = [
+  // Web & user-facing apps
+  { name: "oak", repo: "jellydn/oak", desc: "Substantial user-facing application — a complete product built with AI assistance.", approach: "Full web application with AI-assisted development across the product.", demo: null, category: "web" },
+  { name: "ai-photo-coach", repo: "jellydn/ai-photo-coach", desc: "Analyses photographs and gives coaching / improvement feedback.", approach: "AI-assisted visual critique that turns images into actionable feedback.", demo: null, category: "web" },
+  { name: "echo-note", repo: "jellydn/echo-note", desc: "Lightweight note-taking with voice or AI-oriented workflows.", approach: "Captures spoken or conversational input and turns it into usable notes.", demo: null, category: "web" },
+  { name: "little-writing", repo: "jellydn/little-writing", desc: "Writing application designed for younger learners.", approach: "Simple educational writing experience built with AI-assisted development.", demo: null, category: "web" },
+  { name: "tiny-pomodoro", repo: "jellydn/tiny-pomodoro", desc: "Minimal Pomodoro timer.", approach: "Small productivity app with a focused single-purpose workflow.", demo: null, category: "web" },
+  { name: "docklight", repo: "jellydn/docklight", desc: "Developer web UI for managing or inspecting Docker-related resources.", approach: "Browser-based workflow for Docker inspection and management.", demo: null, category: "web" },
+  { name: "ai-smart-gmail", repo: "jellydn/ai-smart-gmail", desc: "AI-assisted Gmail organisation and email processing.", approach: "Applies AI to triage and interpret email content.", demo: "https://jellydn.github.io/ai-smart-gmail/lessons/0001-what-is-an-embedding.html", category: "web" },
+  { name: "smart-resume-matcher", repo: "jellydn/smart-resume-matcher", desc: "Compares resumes with job descriptions using semantic / AI analysis.", approach: "Semantic matching between candidate profiles and job requirements.", demo: "https://smart-resume.itman.fyi", category: "web" },
+  { name: "rag-blog", repo: "jellydn/rag-blog", desc: "Retrieval-augmented generation grounded in blog content.", approach: "Retrieves relevant passages before generating answers.", demo: "https://jellydn.github.io/rag-blog/", category: "web" },
+  { name: "logpilot", repo: "jellydn/logpilot", desc: "Developer app for investigating and understanding application logs.", approach: "Uses AI to summarise and reason about logs during debugging.", demo: null, category: "web" },
+  { name: "sky-alert", repo: "jellydn/sky-alert", desc: "Alerting / monitoring application.", approach: "Lightweight utility focused on notifications and monitoring workflows.", demo: null, category: "web" },
+  { name: "activity-tracker", repo: "jellydn/activity-tracker", desc: "Lightweight personal activity tracking.", approach: "Captures and organises activity data with a simple user-facing interface.", demo: null, category: "web" },
+  // AI agents & AI apps
+  { name: "tiny-coding-agent", repo: "jellydn/tiny-coding-agent", desc: "Minimal coding agent for learning and demonstrating agent loops.", approach: "Small agent loop focused on tool execution and iteration.", demo: null, category: "ai" },
+  { name: "hermes-hub", repo: "jellydn/hermes-hub", desc: "Self-hosted Hermes Agent hub with personas, jobs, and delegated workflows.", approach: "Orchestrates agent workflows and scheduled execution.", demo: "https://hermes-hub.itman.fyi/", category: "ai" },
+  { name: "openralph", repo: "jellydn/openralph", desc: "Autonomous Ralph-style coding loop with OpenCode support.", approach: "Runs an autonomous coding cycle around an AI agent and coding toolchain.", demo: "https://ai-tools.itman.fyi", category: "ai" },
+  { name: "my-ai-tools", repo: "jellydn/my-ai-tools", desc: "Portable workspace for AI coding agents, skills, memory, and MCP configs.", approach: "Bundles reusable agent runtime pieces into one workspace.", demo: "http://ai-tools.itman.fyi/", category: "ai" },
+  { name: "ai-flow", repo: "jellydn/ai-flow", desc: "AI-assisted development and workflow orchestration.", approach: "Organises repeatable AI-assisted workflows around development tasks.", demo: "https://ai-flow.itman.fyi/", category: "ai" },
+  { name: "ai-launcher", repo: "jellydn/ai-launcher", desc: "Launcher for accessing and managing AI coding tools.", approach: "Centralises access to multiple coding assistants and tools.", demo: "http://ai-cli.itman.fyi/", category: "ai" },
+  { name: "tiny-local-ai", repo: "jellydn/tiny-local-ai", desc: "Minimal environment for experimenting with locally hosted models.", approach: "Lightweight local setup for model testing and iteration.", demo: null, category: "ai" },
+  // Developer & editor tools
+  { name: "zed-codemux", repo: "jellydn/zed-codemux", desc: "Zed-based interface for parallel coding-agent sessions.", approach: "Helps manage several coding sessions in parallel.", demo: null, category: "dev" },
+  { name: "vscode-mux", repo: "jellydn/vscode-mux", desc: "VS Code tool for multiplexing terminals or coding sessions.", approach: "Organises concurrent terminals and coding workflows inside the editor.", demo: null, category: "dev" },
+  { name: "vscode-seal-code", repo: "jellydn/vscode-seal-code", desc: "VS Code integration for the SealCode workflow.", approach: "Extends the editor with workflow-specific AI coding support.", demo: "https://jellydn.github.io/vscode-seal-code/", category: "dev" },
+  { name: "pi-clinepass-provider", repo: "jellydn/pi-clinepass-provider", desc: "Pi model provider for ClinePass-compatible access.", approach: "Bridges provider access into coding-agent tooling.", demo: "https://jellydn.github.io/pi-clinepass-provider/", category: "dev" },
+  { name: "pi-qwencloud-provider", repo: "jellydn/pi-qwencloud-provider", desc: "Pi provider for Qwen Cloud models and token plans.", approach: "Adapts cloud model access for agent and coding workflows.", demo: "https://jellydn.github.io/pi-qwencloud-provider/", category: "dev" },
+  { name: "devlog", repo: "jellydn/devlog", desc: "Zero-code log capture for local development.", approach: "Captures server logs via tmux and browser console logs via a native messaging host from a single YAML config.", demo: "https://jellydn.github.io/devlog/", category: "dev" },
+  { name: "dotenv-tui", repo: "jellydn/dotenv-tui", desc: "Terminal interface for managing environment variables.", approach: "TUI for editing and organising env data.", demo: null, category: "dev" },
+  { name: "keybinder", repo: "jellydn/keybinder", desc: "Keyboard shortcut and binding utility.", approach: "Simplifies creation and management of keyboard bindings.", demo: null, category: "dev" },
+  { name: "tiny-cloak.nvim", repo: "jellydn/tiny-cloak.nvim", desc: "Small Neovim utility for hiding or protecting sensitive values.", approach: "Minimises accidental exposure of secrets in the editor.", demo: null, category: "dev" },
+  { name: "tiny-term.nvim", repo: "jellydn/tiny-term.nvim", desc: "Minimal terminal-management plugin for Neovim.", approach: "Adds lightweight terminal handling inside Neovim.", demo: null, category: "dev" },
+  { name: "minui-easy-installer", repo: "jellydn/minui-easy-installer", desc: "Simplified installer for MinUI.", approach: "Streamlines setup and installation into a simpler flow.", demo: null, category: "dev" },
+  // Learning & experiments
+  { name: "ai-architect-4-weeks", repo: "jellydn/ai-architect-4-weeks", desc: "Four-week practical AI architecture programme.", approach: "Breaks AI architecture learning into hands-on weekly milestones.", demo: null, category: "learn" },
+  { name: "rag-learning-guide", repo: "jellydn/rag-learning-guide", desc: "Exercises and notes for learning production RAG.", approach: "Teaches RAG through examples and guided practice.", demo: null, category: "learn" },
+  { name: "99", repo: "jellydn/99", desc: "Experimental / challenge-based development project.", approach: "Exploration-oriented repository for iterative experimentation.", demo: null, category: "learn" },
+  { name: "daily-exercism-quad", repo: "jellydn/daily-exercism-quad", desc: "Daily programming practice project.", approach: "Consistent practice through repeated exercises and small implementations.", demo: null, category: "learn" }
+];
+
+const grid = document.getElementById('project-grid');
+const empty = document.getElementById('empty-state');
+const searchInput = document.getElementById('search');
+const filterButtons = document.querySelectorAll('.filter-pill');
+
+let activeCategory = 'all';
+
+function getCategoryColor(cat) {
+  const map = { web: 'moss', ai: 'ember', dev: 'ink', learn: 'ember' };
+  return map[cat] || 'ink';
+}
+
+function getCategoryBorder(cat) {
+  const map = { web: 'border-l-moss-400', ai: 'border-l-ember-400', dev: 'border-l-ink-400', learn: 'border-l-ember-300' };
+  return map[cat] || 'border-l-ink-300';
+}
+
+function getCategoryBadge(cat) {
+  const map = { web: 'bg-moss-50 text-moss-700', ai: 'bg-ember-50 text-ember-700', dev: 'bg-ink-100 text-ink-700', learn: 'bg-ember-50/50 text-ember-600' };
+  return map[cat] || 'bg-ink-100 text-ink-700';
+}
+
+function getCategoryLabel(cat) {
+  const map = { web: 'Web app', ai: 'AI agent', dev: 'Dev tool', learn: 'Experiment' };
+  return map[cat] || cat;
+}
+
+function renderCard(p, i) {
+  const ghUrl = `https://github.com/${p.repo}`;
+  const color = getCategoryColor(p.category);
+  return `
+    <article class="entrance project-card bg-white border border-ink-200/80 rounded-xl p-5 flex flex-col gap-3 ${getCategoryBorder(p.category)} border-l-[3px]" style="animation-delay:${i * 35}ms">
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span class="inline-block text-[10px] font-mono font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full ${getCategoryBadge(p.category)} mb-2">${getCategoryLabel(p.category)}</span>
+          <h3 class="font-bold text-lg text-ink-900 leading-tight">
+            <a href="${ghUrl}" target="_blank" rel="noopener" class="hover:text-${color}-600 transition-colors">${p.name}</a>
+          </h3>
+        </div>
+        ${p.demo ? '<a href="' + p.demo + '" target="_blank" rel="noopener" class="demo-badge shrink-0 hover:bg-moss-200 transition-colors">Demo →</a>' : '<span class="no-demo shrink-0">No demo yet</span>'}
+      </div>
+      <p class="text-sm text-ink-500 leading-relaxed">${p.desc}</p>
+      <p class="text-xs text-ink-400 leading-relaxed italic">${p.approach}</p>
+      <a href="${ghUrl}" target="_blank" rel="noopener" class="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-ink-500 hover:text-ink-800 transition-colors">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        ${p.repo}
+      </a>
+    </article>
+  `;
+}
+
+function filter() {
+  const query = searchInput.value.toLowerCase().trim();
+  const filtered = projects.filter(p => {
+    const catMatch = activeCategory === 'all' || p.category === activeCategory;
+    if (!catMatch) return false;
+    if (!query) return true;
+    return p.name.toLowerCase().includes(query) ||
+           p.desc.toLowerCase().includes(query) ||
+           p.approach.toLowerCase().includes(query) ||
+           p.repo.toLowerCase().includes(query);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+    grid.innerHTML = filtered.map((p, i) => renderCard(p, i)).join('');
+  }
+}
+
+searchInput.addEventListener('input', filter);
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCategory = btn.dataset.category;
+    filter();
+  });
+});
+
+// Initial render
+filter();
+</script>
+
+</body>
+</html>
