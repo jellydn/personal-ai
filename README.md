@@ -1,245 +1,229 @@
-# Welcome to personal-ai 👋
+# personal-ai
 
-[![GitHub stars](https://img.shields.io/github/stars/jellydn/personal-ai)](https://github.com/jellydn/personal-ai/stargazers)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/jellydn/personal-ai/pulls)
-[![Twitter: jellydn](https://img.shields.io/twitter/follow/jellydn.svg?style=social)](https://twitter.com/jellydn)
+> A static portfolio catalog that lets a visitor grasp nine months of original, AI-assisted open-source work in under a minute — what was built, how, and where to try it.
 
-> **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
+## Overview
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 20, 2026**. Forks and private repositories are excluded.
+**personal-ai** is a single-page showcase of **34 public, original repositories** created by [Dung Huynh](https://productsway.com) while exploring AI-assisted development between October 2025 and July 2026. Forks and private repos are excluded; every entry is something you can run, fork, and learn from.
 
-Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+The site exists because a GitHub profile is a flat list of repositories — it does not communicate *what each project does*, *how it was approached*, or *whether it has a live demo*. This catalog solves that with a searchable, filterable card grid that links each project to its source and demo.
 
-## 📑 Contents
+It is built for **recruiters, hiring managers, and fellow developers** who want to evaluate breadth and depth quickly, and for the author to track his own AI-engineering output over time.
 
-- [Web & user-facing apps](#-web--user-facing-apps)
-- [AI agents & AI apps](#-ai-agents--ai-apps)
-- [Developer & editor tools](#-developer--editor-tools)
-- [Learning & experiments](#-learning--experiments)
-- [Notes](#-notes)
-- [Author](#-author)
-- [Show your support](#-show-your-support)
+### AI / agentic engineering concepts demonstrated
 
-## 🌐 Web & user-facing apps
+This repository itself is a **lightweight front-end artifact** rather than an AI runtime, but it documents 34 projects that span the core agentic-engineering surface area:
 
-### [oak](https://github.com/jellydn/oak)
+- **Agent loops & tool execution** — `tiny-coding-agent`, `openralph`
+- **Retrieval-augmented generation (RAG)** — `rag-blog`, `rag-learning-guide`
+- **Agent orchestration & scheduled workflows** — `hermes-hub`, `ai-flow`
+- **Provider integration for coding agents** — `pi-clinepass-provider`, `pi-qwencloud-provider`
+- **Semantic matching** — `smart-resume-matcher`
+- **Local model experimentation** — `tiny-local-ai`
+- **Editor-integrated AI workflows** — `vscode-seal-code`, `zed-codemux`, `vscode-mux`
 
-- **Description**: Substantial user-facing application — a clear example of a complete product built with AI assistance.
-- **Approach**: Full web application with AI-assisted development across the product.
-- **Demo**: Not ready yet.
+## Demo
 
-### [ai-photo-coach](https://github.com/jellydn/ai-photo-coach)
+![Application screenshot](docs/images/demo.png)
 
-- **Description**: Analyses photographs and gives coaching / improvement feedback.
-- **Approach**: AI-assisted visual critique that turns images into actionable feedback.
-- **Demo**: Not ready yet.
+- **Live site**: https://jellydn.github.io/personal-ai/
+- **Source**: https://github.com/jellydn/personal-ai
 
-### [echo-note](https://github.com/jellydn/echo-note)
+> A short demo video/GIF can be added at `docs/images/demo.gif`. See
+> [docs/demo-script.md](docs/demo-script.md) for a 30–60 second recording script,
+> and [docs/images/README.md](docs/images/README.md) for screenshot capture
+> instructions.
 
-- **Description**: Lightweight note-taking with voice or AI-oriented workflows.
-- **Approach**: Captures spoken or conversational input and turns it into usable notes.
-- **Demo**: Not ready yet.
+## Key features
 
-### [little-writing](https://github.com/jellydn/little-writing)
+- **34 curated projects** across four categories: web apps (12), AI agents (7), developer tools (11), and experiments (4).
+- **Live text search** — filter projects by name, description, approach, or repo in real time, client-side.
+- **Category filtering** — one-click pills to scope the grid to a single category.
+- **Demo links** — cards with a live demo show a clickable badge; others indicate "No demo yet".
+- **Empty state** — a friendly message appears when a search matches nothing.
+- **Responsive grid** — 1 / 2 / 3 columns from mobile to desktop.
+- **Staggered entrance animations** with a hover-lift card effect.
+- **Accessibility** — keyboard-focusable controls, ARIA labels, visible focus rings, and `prefers-reduced-motion` support.
+- **Zero build step** — a single `index.html` served as-is; deploys to GitHub Pages with no compilation.
 
-- **Description**: Writing application designed for younger learners.
-- **Approach**: Simple educational writing experience built with AI-assisted development.
-- **Demo**: Not ready yet.
+## Architecture
 
-### [tiny-pomodoro](https://github.com/jellydn/tiny-pomodoro)
+```mermaid
+flowchart LR
+    User -->|loads| Browser[index.html]
+    Browser -->|CDN| Tailwind[Tailwind CSS]
+    Browser -->|inline| App[Vanilla JS app]
+    App -->|renders| Grid[Project card grid]
+    Grid -->|links| GitHub[(GitHub repos)]
+    Grid -->|links| Demos[(Live demos)]
+    GitHubPages[GitHub Actions] -->|deploys| Site[GitHub Pages site]
+    Browser --> Site
+```
 
-- **Description**: Minimal Pomodoro timer.
-- **Approach**: Small productivity app with a focused single-purpose workflow.
-- **Demo**: Not ready yet.
+The entire application is one self-contained HTML file:
 
-### [docklight](https://github.com/jellydn/docklight)
+1. **Data** — a `projects` array of 34 entries is defined inline in a `<script>` tag (name, repo, description, approach, demo URL, category).
+2. **Rendering** — a `filter()` function reads the search query and active category, filters the array, and re-renders the card grid via template literals.
+3. **Interaction** — `input` and `click` listeners on the search box and filter pills re-run `filter()` with no page reload.
+4. **Styling** — Tailwind CSS is loaded from the CDN with a custom theme (ink/ember/moss palette) plus a small inline `<style>` block for animations and scrollbar styling.
+5. **Deployment** — a GitHub Actions workflow uploads the repo root as a Pages artifact on every push to `main`.
 
-- **Description**: Developer web UI for managing or inspecting Docker-related resources.
-- **Approach**: Browser-based workflow for Docker inspection and management.
-- **Demo**: Not ready yet.
+## Tech stack
 
-### [ai-smart-gmail](https://github.com/jellydn/ai-smart-gmail)
+| Layer | Technology |
+| --- | --- |
+| Markup | Semantic HTML5 |
+| Styling | Tailwind CSS (CDN) + a small inline CSS block |
+| Logic | Vanilla JavaScript (no framework, no dependencies) |
+| Fonts | Inter + JetBrains Mono (Google Fonts) |
+| Hosting | GitHub Pages |
+| CI/CD | GitHub Actions (`deploy.yml`) |
+| Local dev | `serve` (a lightweight static file server, optional) |
 
-- **Description**: AI-assisted Gmail organisation and email processing.
-- **Approach**: Applies AI to triage and interpret email content.
-- **Demo**: https://jellydn.github.io/ai-smart-gmail/lessons/0001-what-is-an-embedding.html
+## Getting started
 
-### [smart-resume-matcher](https://github.com/jellydn/smart-resume-matcher)
+### Prerequisites
 
-- **Description**: Compares resumes with job descriptions using semantic / AI analysis.
-- **Approach**: Semantic matching between candidate profiles and job requirements.
-- **Demo**: https://smart-resume.itman.fyi
+- A modern browser. That is all — the site is static.
+- Optional: [Node.js](https://nodejs.org/) 18+ and npm, only if you want the
+  local dev server.
 
-### [rag-blog](https://github.com/jellydn/rag-blog)
+### Steps
 
-- **Description**: Retrieval-augmented generation grounded in blog content.
-- **Approach**: Retrieves relevant passages before generating answers.
-- **Demo**: https://jellydn.github.io/rag-blog/
+1. **Clone the repository**
 
-### [logpilot](https://github.com/jellydn/logpilot)
+   ```bash
+   git clone https://github.com/jellydn/personal-ai.git
+   cd personal-ai
+   ```
 
-- **Description**: Developer app for investigating and understanding application logs.
-- **Approach**: Uses AI to summarise and reason about logs during debugging.
-- **Demo**: Not ready yet.
+2. **(Optional) Install the local dev server**
 
-### [sky-alert](https://github.com/jellydn/sky-alert)
-
-- **Description**: Alerting / monitoring application.
-- **Approach**: Lightweight utility focused on notifications and monitoring workflows.
-- **Demo**: Not ready yet.
-
-### [activity-tracker](https://github.com/jellydn/activity-tracker)
-
-- **Description**: Lightweight personal activity tracking.
-- **Approach**: Captures and organises activity data with a simple user-facing interface.
-- **Demo**: Not ready yet.
-
-## 🤖 AI agents & AI apps
-
-### [tiny-coding-agent](https://github.com/jellydn/tiny-coding-agent)
-
-- **Description**: Minimal coding agent for learning and demonstrating agent loops.
-- **Approach**: Small agent loop focused on tool execution and iteration.
-- **Demo**: Not ready yet.
-
-### [hermes-hub](https://github.com/jellydn/hermes-hub)
-
-- **Description**: Self-hosted Hermes Agent hub with personas, jobs, and delegated workflows.
-- **Approach**: Orchestrates agent workflows and scheduled execution.
-- **Demo**: https://hermes-hub.itman.fyi/
-
-### [openralph](https://github.com/jellydn/openralph)
-
-- **Description**: Autonomous Ralph-style coding loop with OpenCode support.
-- **Approach**: Runs an autonomous coding cycle around an AI agent and coding toolchain.
-- **Demo**: https://ai-tools.itman.fyi
-
-### [my-ai-tools](https://github.com/jellydn/my-ai-tools)
-
-- **Description**: Portable workspace for AI coding agents, skills, memory, and MCP configs.
-- **Approach**: Bundles reusable agent runtime pieces into one workspace.
-- **Demo**: http://ai-tools.itman.fyi/
-
-### [ai-flow](https://github.com/jellydn/ai-flow)
-
-- **Description**: AI-assisted development and workflow orchestration.
-- **Approach**: Organises repeatable AI-assisted workflows around development tasks.
-- **Demo**: https://ai-flow.itman.fyi/
-
-### [ai-launcher](https://github.com/jellydn/ai-launcher)
-
-- **Description**: Launcher for accessing and managing AI coding tools.
-- **Approach**: Centralises access to multiple coding assistants and tools.
-- **Demo**: http://ai-cli.itman.fyi/
-
-### [tiny-local-ai](https://github.com/jellydn/tiny-local-ai)
-
-- **Description**: Minimal environment for experimenting with locally hosted models.
-- **Approach**: Lightweight local setup for model testing and iteration.
-- **Demo**: Not ready yet.
-
-## 🛠️ Developer & editor tools
-
-### [zed-codemux](https://github.com/jellydn/zed-codemux)
-
-- **Description**: Zed-based interface for parallel coding-agent sessions.
-- **Approach**: Helps manage several coding sessions in parallel.
-- **Demo**: Not ready yet.
-
-### [vscode-mux](https://github.com/jellydn/vscode-mux)
-
-- **Description**: VS Code tool for multiplexing terminals or coding sessions.
-- **Approach**: Organises concurrent terminals and coding workflows inside the editor.
-- **Demo**: Not ready yet.
-
-### [vscode-seal-code](https://github.com/jellydn/vscode-seal-code)
-
-- **Description**: VS Code integration for the SealCode workflow.
-- **Approach**: Extends the editor with workflow-specific AI coding support.
-- **Demo**: https://jellydn.github.io/vscode-seal-code/
-
-### [pi-clinepass-provider](https://github.com/jellydn/pi-clinepass-provider)
-
-- **Description**: Pi model provider for ClinePass-compatible access.
-- **Approach**: Bridges provider access into coding-agent tooling.
-- **Demo**: https://jellydn.github.io/pi-clinepass-provider/
-
-### [pi-qwencloud-provider](https://github.com/jellydn/pi-qwencloud-provider)
-
-- **Description**: Pi provider for Qwen Cloud models and token plans.
-- **Approach**: Adapts cloud model access for agent and coding workflows.
-- **Demo**: https://jellydn.github.io/pi-qwencloud-provider/
-
-### [devlog](https://github.com/jellydn/devlog)
-
-- **Description**: Zero-code log capture for local development.
-- **Approach**: Captures server logs via tmux and browser console logs via a native messaging host from a single YAML config.
-- **Demo**: https://jellydn.github.io/devlog/
-
-### [dotenv-tui](https://github.com/jellydn/dotenv-tui)
-
-- **Description**: Terminal interface for managing environment variables.
-- **Approach**: TUI for editing and organising env data.
-- **Demo**: Not ready yet.
-
-### [keybinder](https://github.com/jellydn/keybinder)
-
-- **Description**: Keyboard shortcut and binding utility.
-- **Approach**: Simplifies creation and management of keyboard bindings.
-- **Demo**: Not ready yet.
-
-### [tiny-cloak.nvim](https://github.com/jellydn/tiny-cloak.nvim)
-
-- **Description**: Small Neovim utility for hiding or protecting sensitive values.
-- **Approach**: Minimises accidental exposure of secrets in the editor.
-- **Demo**: Not ready yet.
-
-### [tiny-term.nvim](https://github.com/jellydn/tiny-term.nvim)
-
-- **Description**: Minimal terminal-management plugin for Neovim.
-- **Approach**: Adds lightweight terminal handling inside Neovim.
-- **Demo**: Not ready yet.
-
-### [minui-easy-installer](https://github.com/jellydn/minui-easy-installer)
-
-- **Description**: Simplified installer for MinUI.
-- **Approach**: Streamlines setup and installation into a simpler flow.
-- **Demo**: Not ready yet.
-
-## 📚 Learning & experiments
-
-### [ai-architect-4-weeks](https://github.com/jellydn/ai-architect-4-weeks)
-
-- **Description**: Four-week practical AI architecture programme.
-- **Approach**: Breaks AI architecture learning into hands-on weekly milestones.
-- **Demo**: Not ready yet.
-
-### [rag-learning-guide](https://github.com/jellydn/rag-learning-guide)
-
-- **Description**: Exercises and notes for learning production RAG.
-- **Approach**: Teaches RAG through examples and guided practice.
-- **Demo**: Not ready yet.
-
-### [99](https://github.com/jellydn/99)
-
-- **Description**: Experimental / challenge-based development project.
-- **Approach**: Exploration-oriented repository for iterative experimentation.
-- **Demo**: Not ready yet.
-
-### [daily-exercism-quad](https://github.com/jellydn/daily-exercism-quad)
-
-- **Description**: Daily programming practice project.
-- **Approach**: Consistent practice through repeated exercises and small implementations.
-- **Demo**: Not ready yet.
-
-## 📝 Notes
-
-- Each project is listed once under its primary category.
-- GitHub date-filtered public repository search was used to validate projects in the window above.
-- The list stays focused on **public original** work built while exploring AI.
-- New projects land here as exploration continues — this is a tracker, not a frozen portfolio.
-
-## 👤 Author
+   ```bash
+   npm install
+   ```
+
+3. **Run the app locally**
+
+   ```bash
+   npm run dev
+   ```
+
+   Then open the printed URL (default `http://localhost:3000`).
+
+   > No Node? Just open `index.html` directly in your browser — the site works
+   > from the filesystem too.
+
+4. **Open the live site**
+
+   Visit https://jellydn.github.io/personal-ai/
+
+There is no build step. The files in the repository root are served exactly as
+they are.
+
+## Environment variables
+
+This project requires **no environment variables**. It is a fully static site
+with no backend, database, or API keys.
+
+| Variable | Required | Description | Default |
+| --- | --- | --- | --- |
+| _(none)_ | — | No configuration is needed. | — |
+
+See [`.env.example`](.env.example) for details. The `.env` file that appears in
+the Amp sandbox is generated automatically by the sandbox manager, is ignored by
+`.gitignore`, and is **not** part of this project.
+
+## Example workflow
+
+1. **User visits** the homepage. The hero, summary stats, and filter bar render
+   immediately; the full 34-card grid appears with a staggered entrance
+   animation.
+2. **User searches** by typing `rag` in the filter box. The grid narrows to the
+   matching projects (`rag-blog`, `rag-learning-guide`) in real time — no network
+   request, no reload.
+3. **User clicks** the "AI agents" filter pill. The grid updates to the 7
+   agent-related projects.
+4. **User clicks** a "Demo →" badge on a card to open that project's live demo
+   in a new tab, or the repo link to view its source on GitHub.
+5. **User clears** the search and returns to "All" to browse the full catalog.
+
+## Reliability and safety
+
+- **No secrets in the repo** — the site ships no credentials; `.env` is gitignored and only ever holds sandbox-generated metadata, never app secrets.
+- **Input handling** — the search box performs case-insensitive substring matching on a fixed in-memory dataset; user input is never evaluated or injected as HTML, so there is no XSS surface from filtering.
+- **External links** — all project and demo links use `target="_blank"` with `rel="noopener"` to prevent tab-nabbing.
+- **Accessibility safety net** — focus-visible outlines, ARIA labels on icon links, and `prefers-reduced-motion` handling ensure the site degrades gracefully.
+- **Deploy safety** — the GitHub Actions workflow uses the official `actions/deploy-pages` action with minimal permissions (`contents: read`, `pages: write`, `id-token: write`).
+
+> No retries, timeouts, rate limits, or fallbacks are implemented because the
+> site makes no network requests of its own (other than the Tailwind CDN and
+> Google Fonts).
+
+## Evaluation
+
+There is no automated test suite or benchmark for this project — it is a static
+catalog, not an AI runtime. Quality is assessed manually:
+
+- **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
+  filters, search, and empty state behave correctly.
+- **Link integrity** — verify that demo and repo links resolve.
+- **Data accuracy** — confirm the 34 listed projects match the author's actual
+  public repositories in the October 2025 – July 2026 window.
+- **Accessibility check** — run Lighthouse and confirm the page scores well on
+  accessibility and best-practices.
+
+A future improvement is to add a smoke test that asserts the project count and
+link structure (see [Limitations](#limitations) and
+[Future improvements](#future-improvements)).
+
+## Project structure
+
+```
+personal-ai/
+├── index.html                 # The entire app: markup, styles, data, and logic
+├── .github/
+│   └── workflows/
+│       └── deploy.yml         # GitHub Pages deployment workflow
+├── docs/
+│   ├── demo-script.md         # 30–60 second demo recording script
+│   └── images/
+│       └── README.md          # Screenshot capture guide
+├── package.json               # Optional local dev server script (no app deps)
+├── .env.example               # Documents that no env vars are required
+└── .gitignore
+```
+
+## Limitations
+
+- **Static data** — the project list is hardcoded in `index.html`. Adding or
+  updating a project means editing the HTML and redeploying; there is no CMS or
+  data file to edit separately.
+- **No automated tests** — there is no test suite; regressions are caught only by
+  manual review.
+- **CDN dependency** — Tailwind CSS and Google Fonts are loaded from CDNs, so the
+  site requires an internet connection to render with full styling.
+- **No live repo metadata** — stars, last-updated dates, and descriptions are not
+  fetched from the GitHub API; they reflect a manual snapshot.
+- **Single author** — the catalog is specific to one developer's work and is not
+  a general-purpose portfolio platform.
+- **No license** — this repository currently has no license file. All rights are
+  reserved by the author until one is added.
+
+## Future improvements
+
+1. **Extract project data to JSON** — move the `projects` array into a separate
+   `projects.json` file fetched at runtime, so content edits do not touch markup.
+2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
+   from the GitHub API to keep the catalog current automatically.
+3. **Add a smoke test** — a small script that asserts 34 cards render, links
+   resolve, and filters behave, runnable in CI.
+4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
+   works offline and avoids a render-blocking external request.
+5. **Per-project detail pages** — deep links with a short summary, tech stack,
+   and screenshots for each project, generated from the data file.
+
+## Author
 
 **Dung Huynh**
 
@@ -247,16 +231,8 @@ Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems,
 - YouTube: [IT Man Channel](https://www.youtube.com/@it-man)
 - GitHub: [@jellydn](https://github.com/jellydn)
 
----
+## License
 
-## ⭐ Show your support
-
-Give a ⭐️ if this tracker helped you discover something useful!
-
-[![GitHub stars](https://img.shields.io/github/stars/jellydn/personal-ai?style=flat&logo=github&label=Stars)](https://github.com/jellydn/personal-ai/stargazers)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/dunghd)
-[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ff69b4?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jellydn)
-
----
-
-Made with ❤️ by [Dung Huynh](https://productsway.com)
+This repository currently has **no license**. All rights are reserved by the
+author. If you would like to use or adapt the code, please open an issue to
+discuss licensing.
