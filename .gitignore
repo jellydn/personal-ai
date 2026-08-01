@@ -1,0 +1,5 @@
+# Runtime artifacts — never commit
+.freebuff/
+
+# Preview server logs
+*.log
