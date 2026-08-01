@@ -31,9 +31,12 @@ linked to each other with relative URLs.
 
 ### 📋 Negative
 
-- No templating, so shared chrome (header, nav, footer, theme script) is duplicated
-  across the three showcase pages — a documented, accepted cost. Changes must be
-  replicated manually in each page.
+- No templating, so shared HTML chrome (header, nav, footer) is duplicated across the
+  three showcase pages — a documented, accepted cost. Changes must be replicated
+  manually in each page. Behavior JS (theme toggle, mobile nav, lightbox) is not
+  duplicated: it lives once in `showcase/app.js` and is shared via `<script src>`.
+- Head inline scripts (theme pre-paint) are intentionally duplicated per page — they
+  must run before first paint, so they cannot be deferred to an external file.
 - The portfolio depends on the Tailwind CDN at runtime; the showcase avoids this by
   vendoring its own CSS.
 - Progressive features must be hand-gated (see ADR-0004) rather than handled by a
