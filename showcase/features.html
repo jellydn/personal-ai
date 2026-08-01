@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — Search, Filters & 53 Real Projects | personal-ai</title>
+<meta name="title" content="Features — Search, Filters & 53 Real Projects | personal-ai">
+<meta name="description" content="Every feature of the personal-ai tracker: live search across 53 projects, one-click category filters (web apps, AI agents, dev tools, experiments), demo links, and deep GitHub integration.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jellydn.github.io/personal-ai/showcase/features.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jellydn.github.io/personal-ai/showcase/features.html">
+<meta property="og:title" content="Features — Search, Filters & 53 Real Projects | personal-ai">
+<meta property="og:description" content="Live search, one-click category filters, and 12 working demo links across 53 AI-built projects.">
+<meta property="og:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://jellydn.github.io/personal-ai/showcase/features.html">
+<meta name="twitter:title" content="Features — Search, Filters & 53 Real Projects | personal-ai">
+<meta name="twitter:description" content="Live search, one-click category filters, and 12 working demo links across 53 AI-built projects.">
+<meta name="twitter:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://jellydn.github.io/personal-ai/showcase/features.html#page",
+  "url": "https://jellydn.github.io/personal-ai/showcase/features.html",
+  "name": "Features — Search, Filters & 53 Real Projects | personal-ai",
+  "description": "Live search, one-click category filters, and 12 working demo links across 53 AI-built projects.",
+  "isPartOf": { "@id": "https://jellydn.github.io/personal-ai/showcase/#website" }
+}
+</script>
+<script>
+// Set theme before first paint to avoid a light-flash for dark-mode users
+(function () {
+  try {
+    var t = localStorage.getItem("showcase-theme") || "light";
+    if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">⚡</span>
+      <span>personal-ai</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html" class="active">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
+        <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
+        <button data-theme-btn="system" aria-label="System theme">◐</button>
+      </div>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="nav-cta" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <span class="cta-label">View source</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page hero -->
+<header class="hero" style="padding:64px 0 56px;">
+  <div class="container">
+    <span class="badge">Features</span>
+    <h1>Every project, <span class="accent">searchable</span> and <span class="accent">filterable</span>.</h1>
+    <p class="sub">The tracker is built to get you from "I wonder what's out there" to "I'm reading the code" in a couple of clicks.</p>
+  </div>
+</header>
+
+<!-- Feature rows -->
+<section class="section section-alt" style="padding:40px 0;">
+  <div class="container">
+
+    <!-- Search -->
+    <div class="feature-row">
+      <div class="feature-body">
+        <h3>Live search across all 53 projects</h3>
+        <p class="lead">Type once, filter everything. The search runs against names, descriptions, and approaches — so it understands intent, not just titles.</p>
+        <p>Searching <code>local</code> surfaces <strong>tiny-local-ai</strong>, the minimal environment for experimenting with locally hosted models. Searching <code>agent</code> finds every agent project in the collection. No reloads, no results page — the grid updates as you type.</p>
+        <ul class="tick-list">
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Instant, zero-config fuzzy search</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Searches name, description, and approach</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Composes with category filters</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">search: "local"</span>
+          </div>
+          <img src="screenshots/search-local.png" alt="Search results narrowing the project grid to local AI projects" fetchpriority="high" width="1280" height="900">
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="feature-row reversed">
+      <div class="feature-body">
+        <h3>Four categories, one click each</h3>
+        <p class="lead">Every project lives in exactly one of four buckets — so "show me the AI agents" is a single click, not a puzzle.</p>
+        <p>The collection is balanced across the ways people actually explore AI: user-facing apps you can try today, agents that do work for you, developer tools that make your editor smarter, and learning projects that show their work.</p>
+        <ul class="tick-list">
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>17 web apps</strong> — real, usable products</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>15 AI agents</strong> — agents, providers & launchers</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>17 dev tools</strong> — editors, CLIs & plugins</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>4 experiments</strong> — learning in the open</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">filter: AI agents</span>
+          </div>
+          <img src="screenshots/filter-ai.png" alt="The tracker filtered to the 15 AI agent projects" loading="lazy" width="1280" height="900">
+        </div>
+      </div>
+    </div>
+
+    <!-- Demos & GitHub -->
+    <div class="feature-row">
+      <div class="feature-body">
+        <h3>Real demos, straight to GitHub</h3>
+        <p class="lead">12 projects ship with a live demo — click "Demo" to try the app right now. Every single card links to its repository.</p>
+        <p>From the self-hosted <strong>hermes-hub</strong> agent, to <strong>smart-resume-matcher</strong>, to the <strong>rag-blog</strong> retrieval engine — the demo badge means it's not just a screenshot, it's something you can open in a tab.</p>
+        <ul class="tick-list">
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>12 live demos across the collection</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Every card links to its public repo</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>New projects land here as exploration continues</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">github.com/jellydn/personal-ai</span>
+          </div>
+          <img src="screenshots/hero.png" alt="Project cards with demo badges and GitHub links" loading="lazy" width="1280" height="900">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full category breakdown -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">The full catalogue</span>
+      <h2>What's inside all 53 projects</h2>
+      <p>Every category, what it's for, and the highlights worth clicking first.</p>
+    </div>
+
+    <!-- Web apps -->
+    <div class="category">
+      <div class="category-head">
+        <span class="chip chip-web">Web apps</span>
+        <h3>17</h3>
+        <span class="count">— usable products you can try today</span>
+      </div>
+      <p class="category-intro">Real user-facing applications built during the exploration: a macOS focus companion, a voice-first note app, an AI photo coach, a resume matcher, a RAG-powered blog engine, and more.</p>
+      <div class="project-pills">
+        <a class="project-pill" href="https://github.com/jellydn/oak" target="_blank" rel="noopener">oak</a>
+        <a class="project-pill" href="https://github.com/jellydn/ai-photo-coach" target="_blank" rel="noopener">ai-photo-coach</a>
+        <a class="project-pill" href="https://github.com/jellydn/echo-note" target="_blank" rel="noopener">echo-note</a>
+        <a class="project-pill" href="https://github.com/jellydn/smart-resume-matcher" target="_blank" rel="noopener">smart-resume-matcher</a>
+        <a class="project-pill" href="https://github.com/jellydn/rag-blog" target="_blank" rel="noopener">rag-blog</a>
+        <a class="project-pill" href="https://github.com/jellydn/ai-smart-gmail" target="_blank" rel="noopener">ai-smart-gmail</a>
+        <a class="project-pill" href="https://github.com/jellydn/logpilot" target="_blank" rel="noopener">logpilot</a>
+        <a class="project-pill" href="https://github.com/jellydn/sky-alert" target="_blank" rel="noopener">sky-alert</a>
+        <a class="project-pill" href="https://github.com/jellydn/tiny-pomodoro" target="_blank" rel="noopener">tiny-pomodoro</a>
+      </div>
+      <div class="browser-frame">
+        <div class="browser-frame-bar">
+          <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+          <span class="browser-frame-url">filter: web apps</span>
+        </div>
+        <img src="screenshots/filter-web.png" alt="The tracker filtered to web apps" loading="lazy" width="1280" height="900">
+      </div>
+    </div>
+
+    <!-- AI agents -->
+    <div class="category">
+      <div class="category-head">
+        <span class="chip chip-ai">AI agents</span>
+        <h3>15</h3>
+        <span class="count">— agents, providers, launchers & memory</span>
+      </div>
+      <p class="category-intro">The heart of the exploration: a minimal coding agent, a self-hosted agent hub, an autonomous coding loop, provider plugins for pi and opencode, a memory plugin for Claude Code, and tools that route free models to your favourite coding assistants.</p>
+      <div class="project-pills">
+        <a class="project-pill" href="https://github.com/jellydn/tiny-coding-agent" target="_blank" rel="noopener">tiny-coding-agent</a>
+        <a class="project-pill" href="https://github.com/jellydn/hermes-hub" target="_blank" rel="noopener">hermes-hub</a>
+        <a class="project-pill" href="https://github.com/jellydn/openralph" target="_blank" rel="noopener">openralph</a>
+        <a class="project-pill" href="https://github.com/jellydn/my-ai-tools" target="_blank" rel="noopener">my-ai-tools</a>
+        <a class="project-pill" href="https://github.com/jellydn/ai-launcher" target="_blank" rel="noopener">ai-launcher</a>
+        <a class="project-pill" href="https://github.com/jellydn/9router" target="_blank" rel="noopener">9router</a>
+        <a class="project-pill" href="https://github.com/jellydn/claude-mem" target="_blank" rel="noopener">claude-mem</a>
+        <a class="project-pill" href="https://github.com/jellydn/TelePi" target="_blank" rel="noopener">TelePi</a>
+        <a class="project-pill" href="https://github.com/jellydn/tiny-local-ai" target="_blank" rel="noopener">tiny-local-ai</a>
+      </div>
+      <div class="browser-frame">
+        <div class="browser-frame-bar">
+          <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+          <span class="browser-frame-url">filter: AI agents</span>
+        </div>
+        <img src="screenshots/filter-ai.png" alt="The tracker filtered to AI agents" loading="lazy" width="1280" height="900">
+      </div>
+    </div>
+
+    <!-- Dev tools -->
+    <div class="category">
+      <div class="category-head">
+        <span class="chip chip-dev">Dev tools</span>
+        <h3>17</h3>
+        <span class="count">— editors, CLIs, TUI & plugins</span>
+      </div>
+      <p class="category-intro">Tooling that makes development itself smarter: terminal multiplexing for coding agents, a log copilot for support, .env management in the terminal, Neovim plugins that hide your secrets, and provider bridges that open up new models in your editor.</p>
+      <div class="project-pills">
+        <a class="project-pill" href="https://github.com/jellydn/zed-codemux" target="_blank" rel="noopener">zed-codemux</a>
+        <a class="project-pill" href="https://github.com/jellydn/vscode-mux" target="_blank" rel="noopener">vscode-mux</a>
+        <a class="project-pill" href="https://github.com/jellydn/devlog" target="_blank" rel="noopener">devlog</a>
+        <a class="project-pill" href="https://github.com/jellydn/dotenv-tui" target="_blank" rel="noopener">dotenv-tui</a>
+        <a class="project-pill" href="https://github.com/jellydn/tiny-cloak.nvim" target="_blank" rel="noopener">tiny-cloak.nvim</a>
+        <a class="project-pill" href="https://github.com/jellydn/tiny-term.nvim" target="_blank" rel="noopener">tiny-term.nvim</a>
+        <a class="project-pill" href="https://github.com/jellydn/pi-clinepass-provider" target="_blank" rel="noopener">pi-clinepass-provider</a>
+        <a class="project-pill" href="https://github.com/jellydn/opencode-qwencloud-provider" target="_blank" rel="noopener">opencode-qwencloud-provider</a>
+        <a class="project-pill" href="https://github.com/jellydn/vscode-whichkey" target="_blank" rel="noopener">vscode-whichkey</a>
+      </div>
+      <div class="browser-frame">
+        <div class="browser-frame-bar">
+          <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+          <span class="browser-frame-url">filter: dev tools</span>
+        </div>
+        <img src="screenshots/filter-dev.png" alt="The tracker filtered to developer tools" loading="lazy" width="1280" height="900">
+      </div>
+    </div>
+
+    <!-- Experiments -->
+    <div class="category">
+      <div class="category-head">
+        <span class="chip chip-learn">Experiments</span>
+        <h3>4</h3>
+        <span class="count">— learning in the open</span>
+      </div>
+      <p class="category-intro">The projects that show their work: a four-week AI architecture sprint, a production-RAG learning guide, a challenge-based playground, and daily multi-language practice.</p>
+      <div class="project-pills">
+        <a class="project-pill" href="https://github.com/jellydn/ai-architect-4-weeks" target="_blank" rel="noopener">ai-architect-4-weeks</a>
+        <a class="project-pill" href="https://github.com/jellydn/rag-learning-guide" target="_blank" rel="noopener">rag-learning-guide</a>
+        <a class="project-pill" href="https://github.com/jellydn/99" target="_blank" rel="noopener">99</a>
+        <a class="project-pill" href="https://github.com/jellydn/daily-exercism-quad" target="_blank" rel="noopener">daily-exercism-quad</a>
+      </div>
+      <div class="browser-frame">
+        <div class="browser-frame-bar">
+          <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+          <span class="browser-frame-url">filter: experiments</span>
+        </div>
+        <img src="screenshots/filter-experiments.png" alt="The tracker filtered to learning experiments" loading="lazy" width="1280" height="900">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>See it in motion</h2>
+      <p>Watch search and filters working live on the actual tracker.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="how-it-works.html" class="btn btn-white">How it works</a>
+        <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">View the source</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made by <a href="https://productsway.com" target="_blank" rel="noopener"><strong>Dung Huynh</strong></a> · Built with AI assistance</p>
+    <div class="footer-links">
+      <a href="https://github.com/jellydn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://ko-fi.com/dunghd" target="_blank" rel="noopener">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dark mode (light / dark / system)
+(function () {
+  const root = document.documentElement;
+  const btns = document.querySelectorAll("[data-theme-btn]");
+  function resolve() {
+    const t = localStorage.getItem("showcase-theme") || "light";
+    return t === "system"
+      ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      : t;
+  }
+  function apply(theme) {
+    root.setAttribute("data-theme", theme);
+    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === theme));
+  }
+  apply(resolve());
+  btns.forEach(b => b.addEventListener("click", () => {
+    localStorage.setItem("showcase-theme", b.dataset.themeBtn);
+    apply(resolve());
+  }));
+})();
+
+// Mobile nav
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  hamburger.setAttribute("aria-expanded", open);
+});
+</script>
+</body>
+</html>

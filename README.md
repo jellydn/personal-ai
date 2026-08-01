@@ -6,12 +6,17 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 20, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 31, 2026**. Forks and private repositories are excluded.
 
-Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over nine months: 53 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+
+## 🖥️ Showcase site
+
+A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/showcase/)) walks through the tracker with real screenshots — search, category filters, live demos, and a step-by-step how-it-works guide. Source lives in [`showcase/`](./showcase/).
 
 ## 📑 Contents
 
+- [Showcase site](#-showcase-site)
 - [Web & user-facing apps](#-web--user-facing-apps)
 - [AI agents & AI apps](#-ai-agents--ai-apps)
 - [Developer & editor tools](#-developer--editor-tools)
@@ -94,6 +99,36 @@ Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems,
 - **Approach**: Captures and organises activity data with a simple user-facing interface.
 - **Demo**: Not ready yet.
 
+### [streaming-chat-demo](https://github.com/jellydn/streaming-chat-demo)
+
+- **Description**: Side-by-side comparison of streaming vs non-streaming AI chat responses.
+- **Approach**: Measures how streaming improves perceived latency and UX.
+- **Demo**: Not ready yet.
+
+### [sellsnap](https://github.com/jellydn/sellsnap)
+
+- **Description**: Sell in a snap — the fastest way for creators to sell digital products online.
+- **Approach**: Focused storefront workflow for digital goods.
+- **Demo**: Not ready yet.
+
+### [prosody](https://github.com/jellydn/prosody)
+
+- **Description**: English Rhythm Coach.
+- **Approach**: Guides learners through English prosody and rhythm practice.
+- **Demo**: Not ready yet.
+
+### [tweet-print](https://github.com/jellydn/tweet-print)
+
+- **Description**: Paste a Twitter/X link → preview → download as a clean PDF.
+- **Approach**: Turns tweet threads into readable, printable documents.
+- **Demo**: Not ready yet.
+
+### [VoiceInk](https://github.com/jellydn/VoiceInk)
+
+- **Description**: Voice-to-text app for macOS that transcribes what you say almost instantly.
+- **Approach**: Native low-latency transcription on demand.
+- **Demo**: Not ready yet.
+
 ## 🤖 AI agents & AI apps
 
 ### [tiny-coding-agent](https://github.com/jellydn/tiny-coding-agent)
@@ -136,6 +171,54 @@ Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems,
 
 - **Description**: Minimal environment for experimenting with locally hosted models.
 - **Approach**: Lightweight local setup for model testing and iteration.
+- **Demo**: Not ready yet.
+
+### [9router](https://github.com/jellydn/9router)
+
+- **Description**: Unlimited FREE AI coding — connect Claude Code, Codex, Cursor, Cline, Copilot, and Antigravity to free Claude/GPT/Gemini models.
+- **Approach**: Routes multiple coding assistants through free model backends.
+- **Demo**: Not ready yet.
+
+### [TelePi](https://github.com/jellydn/TelePi)
+
+- **Description**: Telegram bridge for the Pi coding agent — continue sessions from your phone.
+- **Approach**: Brings voice, images, and handback control to Pi over Telegram.
+- **Demo**: Not ready yet.
+
+### [clawdbot](https://github.com/jellydn/clawdbot)
+
+- **Description**: Your own personal AI assistant. Any OS. Any platform.
+- **Approach**: Self-hosted personal assistant built around an agent runtime.
+- **Demo**: Not ready yet.
+
+### [ccs](https://github.com/jellydn/ccs)
+
+- **Description**: Switch between Claude accounts, Gemini, Copilot, and OpenRouter (300+ models) via a CLIProxyAPI OAuth proxy.
+- **Approach**: Visual profile switcher for multiple AI CLI backends.
+- **Demo**: Not ready yet.
+
+### [mdflow](https://github.com/jellydn/mdflow)
+
+- **Description**: Multi-backend CLI for executable markdown prompts.
+- **Approach**: Runs .md prompt files against Claude, Codex, Gemini, or Copilot.
+- **Demo**: Not ready yet.
+
+### [claude-mem](https://github.com/jellydn/claude-mem)
+
+- **Description**: A Claude Code plugin that automatically captures everything Claude does during coding sessions.
+- **Approach**: Compresses and stores session memory for continuity across runs.
+- **Demo**: Not ready yet.
+
+### [flue-repo-assistant](https://github.com/jellydn/flue-repo-assistant)
+
+- **Description**: Repository analysis agent powered by Flue.
+- **Approach**: Analyses a repo and produces structured findings via an agent loop.
+- **Demo**: Not ready yet.
+
+### [prompt-bench](https://github.com/jellydn/prompt-bench)
+
+- **Description**: A tool for benchmarking LLM prompts.
+- **Approach**: Compares prompt variants across models on structured metrics.
 - **Demo**: Not ready yet.
 
 ## 🛠️ Developer & editor tools
@@ -206,6 +289,42 @@ Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems,
 - **Approach**: Streamlines setup and installation into a simpler flow.
 - **Demo**: Not ready yet.
 
+### [opencode-clinepass-provider](https://github.com/jellydn/opencode-clinepass-provider)
+
+- **Description**: ClinePass provider plugin for Opencode.
+- **Approach**: Authenticates opencode via Cline Pass (CLI subscription or static API key).
+- **Demo**: Not ready yet.
+
+### [opencode-qwencloud-provider](https://github.com/jellydn/opencode-qwencloud-provider)
+
+- **Description**: QwenCloud provider config for opencode.
+- **Approach**: Adds Qwen3.8/3.7/3.6, DeepSeek V4, and GLM-5.2 via QwenCloud's OpenAI-compatible API.
+- **Demo**: Not ready yet.
+
+### [pi-agy-provider](https://github.com/jellydn/pi-agy-provider)
+
+- **Description**: Pi provider for Google Antigravity.
+- **Approach**: Bridges Google Antigravity into pi agent tooling.
+- **Demo**: Not ready yet.
+
+### [pi-fireworks-provider](https://github.com/jellydn/pi-fireworks-provider)
+
+- **Description**: Pi provider for Fireworks.
+- **Approach**: Adds Fireworks-hosted models to pi agent tooling.
+- **Demo**: Not ready yet.
+
+### [vscode-whichkey](https://github.com/jellydn/vscode-whichkey)
+
+- **Description**: which-key style menu for Visual Studio Code.
+- **Approach**: Shows available key sequences inline while typing chords.
+- **Demo**: Not ready yet.
+
+### [herdr-file-viewer](https://github.com/jellydn/herdr-file-viewer)
+
+- **Description**: A git-aware, read-only file viewer for herdr.
+- **Approach**: Mouse-friendly, keyboard-driven TUI with tree + content panes.
+- **Demo**: Not ready yet.
+
 ## 📚 Learning & experiments
 
 ### [ai-architect-4-weeks](https://github.com/jellydn/ai-architect-4-weeks)
@@ -235,8 +354,9 @@ Over nine months: ~31 public projects spanning web apps, AI agents, RAG systems,
 ## 📝 Notes
 
 - Each project is listed once under its primary category.
-- GitHub date-filtered public repository search was used to validate projects in the window above.
+- Projects in the window above were curated with the help of a GitHub date-filtered public repository search.
 - The list stays focused on **public original** work built while exploring AI.
+- **Do not add forked repositories** — only public original work is listed here.
 - New projects land here as exploration continues — this is a tracker, not a frozen portfolio.
 
 ## 👤 Author
