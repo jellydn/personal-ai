@@ -68,7 +68,7 @@
       <a href="how-it-works.html">How it works</a>
       <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-actions">
       <div class="theme-switch" role="group" aria-label="Theme">
         <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
         <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
@@ -84,7 +84,7 @@
 </nav>
 
 <!-- Page hero -->
-<header class="hero" style="padding:64px 0 56px;">
+<header class="hero hero-compact">
   <div class="container">
     <span class="badge">Features</span>
     <h1>Every project, <span class="accent">searchable</span> and <span class="accent">filterable</span>.</h1>
@@ -93,7 +93,7 @@
 </header>
 
 <!-- Feature rows -->
-<section class="section section-alt" style="padding:40px 0;">
+<section class="section section-alt section-tight">
   <div class="container">
 
     <!-- Search -->
@@ -292,7 +292,7 @@
     <div class="cta-banner">
       <h2>See it in motion</h2>
       <p>Watch search and filters working live on the actual tracker.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <div class="cta-actions">
         <a href="how-it-works.html" class="btn btn-white">How it works</a>
         <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">View the source</a>
       </div>
@@ -312,35 +312,6 @@
   </div>
 </footer>
 
-<script>
-// Dark mode (light / dark / system)
-(function () {
-  const root = document.documentElement;
-  const btns = document.querySelectorAll("[data-theme-btn]");
-  function resolve() {
-    const t = localStorage.getItem("showcase-theme") || "light";
-    return t === "system"
-      ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-      : t;
-  }
-  function apply(theme) {
-    root.setAttribute("data-theme", theme);
-    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === theme));
-  }
-  apply(resolve());
-  btns.forEach(b => b.addEventListener("click", () => {
-    localStorage.setItem("showcase-theme", b.dataset.themeBtn);
-    apply(resolve());
-  }));
-})();
-
-// Mobile nav
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-hamburger.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  hamburger.setAttribute("aria-expanded", open);
-});
-</script>
+<script src="app.js"></script>
 </body>
 </html>

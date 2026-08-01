@@ -78,7 +78,7 @@
       <a href="how-it-works.html">How it works</a>
       <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div style="display:flex;align-items:center;gap:12px;">
+    <div class="nav-actions">
       <div class="theme-switch" role="group" aria-label="Theme">
         <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
         <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
@@ -185,7 +185,7 @@
         <p>Every card links straight to GitHub. Where a live demo exists, one click puts it in front of you.</p>
       </div>
     </div>
-    <div style="text-align:center;margin-top:44px;">
+    <div class="cta-centered">
       <a href="how-it-works.html" class="btn btn-ghost">Walk through it step by step</a>
     </div>
   </div>
@@ -257,7 +257,7 @@
     <div class="cta-banner">
       <h2>Ready to explore 53 real projects?</h2>
       <p>Dive into the full catalogue — every project, every category, every demo link.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <div class="cta-actions">
         <a href="features.html" class="btn btn-white">Browse all projects</a>
         <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">Star it on GitHub</a>
       </div>
@@ -277,73 +277,6 @@
   </div>
 </footer>
 
-<script>
-// Dark mode (light / dark / system) — writes storage only on explicit choice
-(function () {
-  const root = document.documentElement;
-  const btns = document.querySelectorAll("[data-theme-btn]");
-  function resolve() {
-    const t = localStorage.getItem("showcase-theme") || "light";
-    return t === "system"
-      ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-      : t;
-  }
-  function apply(theme) {
-    root.setAttribute("data-theme", theme);
-    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === theme));
-  }
-  apply(resolve());
-  btns.forEach(b => b.addEventListener("click", () => {
-    localStorage.setItem("showcase-theme", b.dataset.themeBtn);
-    apply(resolve());
-  }));
-})();
-
-// Mobile nav
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-hamburger.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  hamburger.setAttribute("aria-expanded", open);
-});
-
-// Gallery lightbox
-(function () {
-  const lb = document.getElementById("lightbox");
-  const lbImg = document.getElementById("lightbox-img");
-  const lbCap = document.getElementById("lightbox-caption");
-  const closeBtn = document.getElementById("lightbox-close");
-  if (!lb || !lbImg) return;
-
-  let lastTrigger = null;
-  function open(src, caption, trigger) {
-    lbImg.src = src;
-    lbImg.alt = caption || "Enlarged screenshot";
-    lbCap.textContent = caption || "";
-    lb.hidden = false;
-    lastTrigger = trigger;
-    document.body.style.overflow = "hidden";
-    closeBtn.focus();
-  }
-  function close() {
-    lb.hidden = true;
-    lbImg.src = "";
-    lbImg.alt = "";
-    document.body.style.overflow = "";
-    if (lastTrigger) lastTrigger.focus();
-    lastTrigger = null;
-  }
-
-  document.querySelectorAll("[data-lightbox]").forEach(item => {
-    item.addEventListener("click", e => {
-      if (e.target.closest("a")) return;
-      open(item.dataset.lightbox, item.dataset.caption, item);
-    });
-  });
-  closeBtn.addEventListener("click", close);
-  lb.addEventListener("click", e => { if (e.target === lb) close(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) close(); });
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
