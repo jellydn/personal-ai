@@ -5,26 +5,24 @@
   const metaScheme = document.querySelector('meta[name="color-scheme"]');
   const mq = matchMedia("(prefers-color-scheme: dark)");
   function stored() { return localStorage.getItem("showcase-theme") || "light"; }
-  function resolve() {
-    const t = stored();
-    return t === "system" ? (mq.matches ? "dark" : "light") : t;
-  }
-  function syncMeta() {
-    // Reflect the chosen theme so the browser themes native UI (scrollbars, canvas)
-    if (metaScheme) metaScheme.content = stored() === "system" ? "light dark" : stored();
-  }
-  function apply(theme) {
+  function apply() {
+    const mode = stored();
+    // Resolve "system" to the live OS preference for data-theme and the meta
+    const theme = mode === "system" ? (mq.matches ? "dark" : "light") : mode;
     root.setAttribute("data-theme", theme);
-    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === theme));
-    syncMeta();
+    // Highlight the button the user actually selected (light/dark/system),
+    // not the resolved theme — in system mode the ◐ button must stay lit.
+    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === mode));
+    // Reflect the chosen theme so the browser themes native UI (scrollbars, canvas)
+    if (metaScheme) metaScheme.content = mode === "system" ? "light dark" : mode;
   }
-  apply(resolve());
+  apply();
   btns.forEach(b => b.addEventListener("click", () => {
     localStorage.setItem("showcase-theme", b.dataset.themeBtn);
-    apply(resolve());
+    apply();
   }));
   // In "system" mode, follow live OS theme changes (prefers-color-scheme change event)
-  mq.addEventListener("change", () => { if (stored() === "system") apply(resolve()); });
+  mq.addEventListener("change", () => { if (stored() === "system") apply(); });
 })();
 
 // Mobile nav
