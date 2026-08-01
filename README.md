@@ -356,6 +356,7 @@ A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/sh
 - Each project is listed once under its primary category.
 - Projects in the window above were curated with the help of a GitHub date-filtered public repository search.
 - The list stays focused on **public original** work built while exploring AI.
+- **Do not add forked repositories** — only public original work is listed here.
 - New projects land here as exploration continues — this is a tracker, not a frozen portfolio.
 
 ## 👤 Author
