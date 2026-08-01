@@ -20,14 +20,15 @@
 })();
 
 // Mobile nav
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-if (hamburger && navLinks) {
+(function () {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  if (!hamburger || !navLinks) return;
   hamburger.addEventListener("click", () => {
     const open = navLinks.classList.toggle("open");
     hamburger.setAttribute("aria-expanded", open);
   });
-}
+})();
 
 // Gallery lightbox (index.html only — guarded: pages without the markup no-op)
 (function () {

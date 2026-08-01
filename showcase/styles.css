@@ -248,7 +248,6 @@ a:hover { text-decoration: none; }
 [data-theme="dark"] .step-num { background: rgba(236, 122, 16, 0.15); color: var(--ember-300); }
 .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
 .step p { color: var(--text-muted); font-size: 0.95rem; }
-.cta-centered { text-align: center; margin-top: 44px; }
 
 /* ============ Features page ============ */
 .feature-row {
@@ -380,6 +379,7 @@ a:hover { text-decoration: none; }
 }
 
 /* ============ CTA banner ============ */
+.cta-centered { text-align: center; margin-top: 44px; }
 .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-banner {
   position: relative; overflow: hidden;
