@@ -48,7 +48,7 @@ A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/sh
 | Markup | Semantic HTML5 |
 | Styling | Tailwind CSS (CDN) + a small inline CSS block |
 | Logic | Vanilla JavaScript (no framework, no dependencies) |
-| Fonts | Inter + JetBrains Mono (Google Fonts) |
+| Fonts | Inter (Google Fonts); JetBrains Mono (mono stack, system fallback) |
 | Hosting | GitHub Pages |
 | CI/CD | GitHub Actions (`deploy.yml`) |
 | Local dev | `serve` (a lightweight static file server, optional) |
