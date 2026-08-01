@@ -35,14 +35,11 @@ Update this when a page is successfully generated.
 - [x] `showcase/features.html` — Feature deep-dive: search, filters, categories, live captures
 - [x] `showcase/how-it-works.html` — How it works: 6-step workflow
 - [x] `showcase/faq.html` — FAQ: questions about the tracker, AI-built projects, open source (design-loop iteration 1)
-- [ ] `showcase/blog.html` — Future: writing on AI-assisted development (idea only)
+- [x] `showcase/blog.html` — Blog index: honest "first post coming soon" state + planned-topics teaser grid (design-loop iteration 2)
 
 ## 5. Roadmap (Backlog)
 
 Pick the next task from here. Remove items as they're completed.
-
-### Medium Priority
-- [ ] Build blog/posts index page
 
 ### Low Priority
 - [ ] Build contact/support page with links
@@ -56,8 +53,8 @@ When the roadmap is empty, follow these guidelines to add pages:
 3. **Naming convention** — lowercase, descriptive filenames (e.g. `faq.html`)
 
 ### Ideas to Explore
-- [ ] `blog.html` — Index of short posts on AI-assisted development
 - [ ] `changelog.html` — How the tracker itself is built/updated
+- [ ] Individual blog post template (once the first post exists)
 
 ## 7. Rules of Engagement
 

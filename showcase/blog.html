@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Blog — personal-ai · Notes on Building with AI</title>
+<meta name="title" content="Blog — personal-ai · Notes on Building with AI">
+<meta name="description" content="Notes on AI-assisted development from the personal-ai project: what AI-built really means, running 53 projects in 9 months, and buildless sites that stay fast. The first post is in progress — no filler, real things.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jellydn.github.io/personal-ai/showcase/blog.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jellydn.github.io/personal-ai/showcase/blog.html">
+<meta property="og:title" content="Blog — personal-ai · Notes on Building with AI">
+<meta property="og:description" content="Notes on AI-assisted development from 9 months of building 53 open-source projects — what AI-built really means, and how the tracker stays fast with zero build step.">
+<meta property="og:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://jellydn.github.io/personal-ai/showcase/blog.html">
+<meta name="twitter:title" content="Blog — personal-ai · Notes on Building with AI">
+<meta name="twitter:description" content="Notes on AI-assisted development — what AI-built really means, and how the tracker stays fast with zero build step.">
+<meta name="twitter:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Structured Data: Blog + WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://jellydn.github.io/personal-ai/showcase/blog.html#blog",
+  "url": "https://jellydn.github.io/personal-ai/showcase/blog.html",
+  "name": "personal-ai — Notes on Building with AI",
+  "description": "Notes on AI-assisted development from nine months of building 53 open-source projects.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "https://jellydn.github.io/personal-ai/showcase/#website" }
+}
+</script>
+<script>
+// Set theme before first paint to avoid a light-flash for dark-mode users
+(function () {
+  try {
+    var stored = localStorage.getItem("showcase-theme") || "light";
+    var t = stored === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : stored;
+    document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="color-scheme"]');
+    if (m) m.content = stored === "system" ? "light dark" : t;
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">⚡</span>
+      <span>personal-ai</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="nav-actions">
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
+        <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
+        <button data-theme-btn="system" aria-label="System theme">◐</button>
+      </div>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="nav-cta" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <span class="cta-label">View source</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </div>
+</nav>
+<main>
+
+<!-- Page hero -->
+<header class="hero hero-compact">
+  <div class="container">
+    <span class="badge">Blog</span>
+    <h1>Notes on <span class="accent">building with AI</span>.</h1>
+    <p>Short posts from nine months of shipping 53 open-source projects — what worked, what didn't, and what "AI-built" really means in practice.</p>
+  </div>
+</header>
+
+<!-- Posts -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Writing in progress</span>
+      <h2>The first post is on its way</h2>
+      <p>This page is honest by design: it launches before a single article exists, so the first post shows up here the moment it's ready — no placeholder dates, no fake previews.</p>
+    </div>
+
+    <div class="card blog-coming">
+      <div class="card-icon ember">✎</div>
+      <div>
+        <h3>First post coming soon</h3>
+        <p>Rough notes are being turned into the first proper article right now. When it lands, it will appear at the top of this page with a real link — exactly like the tracker itself: real things, not demos.</p>
+      </div>
+    </div>
+
+    <div class="cards blog-topics">
+      <div class="card">
+        <span class="badge">Planned</span>
+        <h3>What "AI-built" really means</h3>
+        <p>AI assistance is a tool, not a magic wand. What the 53 projects have in common — and where the human work actually is.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Planned</span>
+        <h3>Running 53 projects in 9 months</h3>
+        <p>The workflow behind the tracker: how projects move from idea to shipped, and how the list stays honest about what's real.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Planned</span>
+        <h3>Buildless sites that stay fast</h3>
+        <p>No bundler, no framework, no build step — why this site is a static page that deploys in seconds and still loads instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Prefer the code?</h2>
+      <p>Skip the words — browse the 53 real projects behind these notes.</p>
+      <div class="cta-actions">
+        <a href="features.html" class="btn btn-white">Browse the 53 projects</a>
+        <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">Open the tracker</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made by <a href="https://productsway.com" target="_blank" rel="noopener"><strong>Dung Huynh</strong></a> · Built with AI assistance</p>
+    <div class="footer-links">
+      <a href="https://github.com/jellydn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://ko-fi.com/dunghd" target="_blank" rel="noopener">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
