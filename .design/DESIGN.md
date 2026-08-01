@@ -50,7 +50,7 @@ Fonts: `Inter` via Google Fonts `@import url('https://fonts.googleapis.com/css2?
 
 ## 5. Layout Principles
 
-- Max content width: `1200px` (`.container` = `max-width: 1200px; margin-inline: auto; padding-inline: 24px`).
+- Max content width: `1120px` (`.container` = `max-width: 1120px; margin-inline: auto; padding-inline: 24px`).
 - Section spacing: `.section { padding: 88px 0 }`, `.section-tight { padding: 40px 0 }`, `.section-alt` adds surface bg + border-block.
 - Grids: `grid` with `gap: 24px`; responsive break at 900px (stack to 1fr).
 - Whitespace philosophy: generous vertical rhythm; one accent color per viewport.
@@ -70,5 +70,5 @@ Fonts: `Inter` via Google Fonts `@import url('https://fonts.googleapis.com/css2?
 - Font: Inter via Google Fonts (@import inside styles.css)
 - Corners: 12–16px cards, 999px pills, 10px small controls
 - Shadows: soft `0 12px 24px -8px rgba(42,40,37,0.12)` (dark `rgba(0,0,0,0.5)`), hover lift `translateY(-2px)`
-- Spacing: `.container` 1200px max, sections `padding: 88px 0`, tight `40px 0`
+- Spacing: `.container` 1120px max, sections `padding: 88px 0`, tight `40px 0`
 - Chrome: copy nav + footer verbatim from `showcase/index.html`; link `styles.css`; end body with `<script src="app.js"></script>`
