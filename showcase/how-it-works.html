@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — From Browsing to Forking in 3 Steps | personal-ai</title>
+<meta name="title" content="How It Works — From Browsing to Forking in 3 Steps | personal-ai">
+<meta name="description" content="A step-by-step walkthrough of the personal-ai tracker: open the collection, filter by category, search live, and open a repo or try a demo.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jellydn.github.io/personal-ai/showcase/how-it-works.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jellydn.github.io/personal-ai/showcase/how-it-works.html">
+<meta property="og:title" content="How It Works — From Browsing to Forking in 3 Steps | personal-ai">
+<meta property="og:description" content="Watch search and filters working live on the personal-ai tracker.">
+<meta property="og:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/search-local.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://jellydn.github.io/personal-ai/showcase/how-it-works.html">
+<meta name="twitter:title" content="How It Works — From Browsing to Forking in 3 Steps | personal-ai">
+<meta name="twitter:description" content="Watch search and filters working live on the personal-ai tracker.">
+<meta name="twitter:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/search-local.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://jellydn.github.io/personal-ai/showcase/how-it-works.html#page",
+  "url": "https://jellydn.github.io/personal-ai/showcase/how-it-works.html",
+  "name": "How It Works — From Browsing to Forking in 3 Steps | personal-ai",
+  "description": "A step-by-step walkthrough of the personal-ai tracker: open the collection, filter by category, search live, and open a repo or try a demo.",
+  "isPartOf": { "@id": "https://jellydn.github.io/personal-ai/showcase/#website" }
+}
+</script>
+<script>
+// Set theme before first paint to avoid a light-flash for dark-mode users
+(function () {
+  try {
+    var t = localStorage.getItem("showcase-theme") || "light";
+    if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">⚡</span>
+      <span>personal-ai</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html" class="active">How it works</a>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
+        <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
+        <button data-theme-btn="system" aria-label="System theme">◐</button>
+      </div>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="nav-cta" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <span class="cta-label">View source</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page hero -->
+<header class="hero" style="padding:64px 0 56px;">
+  <div class="container">
+    <span class="badge">How it works</span>
+    <h1>From "what's out there" to <span class="accent">reading the code</span>.</h1>
+    <p class="sub">The whole journey — browsing, filtering, searching, and opening a real project — takes about thirty seconds. Here's exactly what that looks like.</p>
+  </div>
+</header>
+
+<!-- Steps -->
+<section class="section" style="padding:40px 0;">
+  <div class="container">
+
+    <!-- Step 1 -->
+    <div class="workflow-step">
+      <div class="workflow-body">
+        <div class="step-num">1</div>
+        <h3>Open the collection</h3>
+        <p>Land on the tracker and the full catalogue is right there — 53 projects, one glance, no login, no paywall. The header stat chips tell you the shape of the collection at a glance: <strong>17 web apps · 15 AI agents · 17 dev tools · 4 experiments</strong>.</p>
+        <p>The search box and filter pills stay pinned while you scroll, so the whole collection is always one interaction away.</p>
+      </div>
+      <div class="workflow-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">jellydn.github.io/personal-ai</span>
+          </div>
+          <img src="screenshots/hero-web.jpg" alt="The full project grid of the personal-ai tracker — the whole collection in one glance" fetchpriority="high" width="1200" height="5052">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="workflow-step reversed">
+      <div class="workflow-body">
+        <div class="step-num">2</div>
+        <h3>Filter to what you care about</h3>
+        <p>Click <strong>AI agents</strong> and 15 agent projects appear — coding agents, provider plugins, launchers, and memory tools. Click <strong>Web apps</strong> and you get the products you can actually use today.</p>
+        <p>Each filter re-renders instantly. There's no separate page to load, no URL to remember — the grid just becomes the answer.</p>
+      </div>
+      <div class="workflow-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">filter: AI agents</span>
+          </div>
+          <img src="screenshots/filter-ai.png" alt="Filtering the tracker to AI agents" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="workflow-step">
+      <div class="workflow-body">
+        <div class="step-num">3</div>
+        <h3>Search as you type</h3>
+        <p>No "search page" — the filter bar is always live. Start typing <code>local</code> and the grid narrows in real time, matching against names, descriptions, and how each project works.</p>
+        <p>Watch it happen below: each keystroke cuts the collection down to exactly the projects that matter.</p>
+      </div>
+      <div class="workflow-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">search: "local"</span>
+          </div>
+          <img src="screenshots/search-demo.gif" alt="Animated demo: typing local in the search box narrows the project grid live" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="workflow-step reversed">
+      <div class="workflow-body">
+        <div class="step-num">4</div>
+        <h3>Open the repo or try the demo</h3>
+        <p>Every card is a link to the real thing. Click the project name to land on its GitHub repository — the code, the README, the issues, all of it.</p>
+        <p>Twelve projects carry a <strong>Demo</strong> badge. One click and you're running the actual product: a live resume matcher, a self-hosted agent hub, a RAG engine answering from real blog content.</p>
+      </div>
+      <div class="workflow-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">github.com/jellydn/hermes-hub</span>
+          </div>
+          <img src="screenshots/search-local.png" alt="Project cards with GitHub links and demo badges" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="workflow-step">
+      <div class="workflow-body">
+        <div class="step-num">5</div>
+        <h3>Take it further</h3>
+        <p>Find something you want to build on? Fork it. Spot something missing? The tracker is a living document — new projects land as the exploration continues.</p>
+        <p>Star the repo, watch the <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">IT Man Channel</a>, or follow <a href="https://github.com/jellydn" target="_blank" rel="noopener">@jellydn</a> to see what ships next.</p>
+      </div>
+      <div class="workflow-media">
+        <div class="phone-frame">
+          <div class="phone-frame-notch"></div>
+          <img src="screenshots/mobile-web.jpg" alt="The personal-ai tracker on a phone, showing the responsive layout" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Go try it for real</h2>
+      <p>The tracker is live, free, and open source. Thirty seconds from now you could be reading real AI-built code.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-white">Open the tracker</a>
+        <a href="features.html" class="btn btn-outline-white">Browse the features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made by <a href="https://productsway.com" target="_blank" rel="noopener"><strong>Dung Huynh</strong></a> · Built with AI assistance</p>
+    <div class="footer-links">
+      <a href="https://github.com/jellydn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://ko-fi.com/dunghd" target="_blank" rel="noopener">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dark mode (light / dark / system)
+(function () {
+  const root = document.documentElement;
+  const btns = document.querySelectorAll("[data-theme-btn]");
+  function resolve() {
+    const t = localStorage.getItem("showcase-theme") || "light";
+    return t === "system"
+      ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      : t;
+  }
+  function apply(theme) {
+    root.setAttribute("data-theme", theme);
+    btns.forEach(b => b.classList.toggle("active", b.dataset.themeBtn === theme));
+  }
+  apply(resolve());
+  btns.forEach(b => b.addEventListener("click", () => {
+    localStorage.setItem("showcase-theme", b.dataset.themeBtn);
+    apply(resolve());
+  }));
+})();
+
+// Mobile nav
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  hamburger.setAttribute("aria-expanded", open);
+});
+</script>
+</body>
+</html>
