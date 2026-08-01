@@ -396,6 +396,9 @@ a:hover { text-decoration: none; }
 .blog-coming { display: flex; gap: 20px; align-items: flex-start; }
 .blog-coming .card-icon { margin-bottom: 0; flex-shrink: 0; }
 
+/* ============ Contact page ============ */
+.contact-card .btn { margin-top: 20px; }
+
 /* ============ FAQ page ============ */
 .faq-list { max-width: 760px; margin-inline: auto; display: grid; gap: 12px; }
 .faq-item {

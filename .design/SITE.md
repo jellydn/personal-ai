@@ -36,13 +36,13 @@ Update this when a page is successfully generated.
 - [x] `showcase/how-it-works.html` — How it works: 6-step workflow
 - [x] `showcase/faq.html` — FAQ: questions about the tracker, AI-built projects, open source (design-loop iteration 1)
 - [x] `showcase/blog.html` — Blog index: honest "first post coming soon" state + planned-topics teaser grid (design-loop iteration 2)
+- [x] `showcase/contact.html` — Contact/support: 3 real-channel cards (GitHub issues, noreply email, YouTube), "Before you reach out" accordion, CTA (design-loop iteration 3)
 
 ## 5. Roadmap (Backlog)
 
 Pick the next task from here. Remove items as they're completed.
 
-### Low Priority
-- [ ] Build contact/support page with links
+_Empty — all planned pages are live. See Ideas below._
 
 ## 6. Creative Freedom
 
