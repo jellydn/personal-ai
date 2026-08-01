@@ -200,7 +200,7 @@
       <p>Every shot below is the running demo, captured live. Click any card to zoom in.</p>
     </div>
     <div class="gallery-grid">
-      <figure class="gallery-item" data-lightbox="screenshots/demo/portfolio.png" data-caption="The tracker — all 53 projects in one searchable grid">
+      <figure class="gallery-item" tabindex="-1" data-lightbox="screenshots/demo/portfolio.png" data-caption="The tracker — all 53 projects in one searchable grid">
         <div class="browser-frame">
           <div class="browser-frame-bar">
             <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
@@ -210,7 +210,7 @@
         </div>
         <figcaption class="gallery-caption">The tracker — 53 projects, one searchable grid</figcaption>
       </figure>
-      <figure class="gallery-item" data-lightbox="screenshots/demo/showcase-home.png" data-caption="The showcase home — hero, stats, and feature highlights">
+      <figure class="gallery-item" tabindex="-1" data-lightbox="screenshots/demo/showcase-home.png" data-caption="The showcase home — hero, stats, and feature highlights">
         <div class="browser-frame">
           <div class="browser-frame-bar">
             <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
@@ -220,7 +220,7 @@
         </div>
         <figcaption class="gallery-caption">Showcase home — the story in one scroll</figcaption>
       </figure>
-      <figure class="gallery-item" data-lightbox="screenshots/demo/how-it-works.png" data-caption="The step-by-step walkthrough page">
+      <figure class="gallery-item" tabindex="-1" data-lightbox="screenshots/demo/how-it-works.png" data-caption="The step-by-step walkthrough page">
         <div class="browser-frame">
           <div class="browser-frame-bar">
             <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
@@ -230,7 +230,7 @@
         </div>
         <figcaption class="gallery-caption">How it works — the full journey, step by step</figcaption>
       </figure>
-      <figure class="gallery-item" data-lightbox="screenshots/demo/features.png" data-caption="The features deep-dive page">
+      <figure class="gallery-item" tabindex="-1" data-lightbox="screenshots/demo/features.png" data-caption="The features deep-dive page">
         <div class="browser-frame">
           <div class="browser-frame-bar">
             <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
@@ -315,23 +315,29 @@ hamburger.addEventListener("click", () => {
   const closeBtn = document.getElementById("lightbox-close");
   if (!lb || !lbImg) return;
 
-  function open(src, caption) {
+  let lastTrigger = null;
+  function open(src, caption, trigger) {
     lbImg.src = src;
+    lbImg.alt = caption || "Enlarged screenshot";
     lbCap.textContent = caption || "";
     lb.hidden = false;
+    lastTrigger = trigger;
     document.body.style.overflow = "hidden";
     closeBtn.focus();
   }
   function close() {
     lb.hidden = true;
     lbImg.src = "";
+    lbImg.alt = "";
     document.body.style.overflow = "";
+    if (lastTrigger) lastTrigger.focus();
+    lastTrigger = null;
   }
 
   document.querySelectorAll("[data-lightbox]").forEach(item => {
     item.addEventListener("click", e => {
       if (e.target.closest("a")) return;
-      open(item.dataset.lightbox, item.dataset.caption);
+      open(item.dataset.lightbox, item.dataset.caption, item);
     });
   });
   closeBtn.addEventListener("click", close);
