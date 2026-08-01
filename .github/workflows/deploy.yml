@@ -26,6 +26,8 @@ jobs:
         run: node scripts/check-category-config.js
       - name: Verify theme toggle behavior
         run: node scripts/check-theme-toggle.js
+      - name: Verify lightbox and mobile nav behavior
+        run: node scripts/check-showcase-interactions.js
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
