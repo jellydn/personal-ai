@@ -10,6 +10,12 @@ This repo catalogues **public original** repositories created while exploring AI
 
 Over nine months: 53 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
+![Application screenshot](docs/images/demo.png)
+
+> See [docs/demo-script.md](docs/demo-script.md) for a 30–60 second recording
+> script, and [docs/images/README.md](docs/images/README.md) for how the
+> screenshot was captured.
+
 ## 🖥️ Showcase site
 
 A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/showcase/)) walks through the tracker with real screenshots — search, category filters, live demos, and a step-by-step how-it-works guide. Source lives in [`showcase/`](./showcase/).
@@ -17,13 +23,183 @@ A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/sh
 ## 📑 Contents
 
 - [Showcase site](#-showcase-site)
+- [Tech stack](#-tech-stack)
+- [Getting started](#-getting-started)
+- [Environment variables](#-environment-variables)
+- [Example workflow](#-example-workflow)
+- [Reliability and safety](#-reliability-and-safety)
+- [Evaluation](#-evaluation)
+- [Project structure](#-project-structure)
+- [Limitations](#-limitations)
+- [Future improvements](#-future-improvements)
 - [Web & user-facing apps](#-web--user-facing-apps)
 - [AI agents & AI apps](#-ai-agents--ai-apps)
 - [Developer & editor tools](#-developer--editor-tools)
 - [Learning & experiments](#-learning--experiments)
 - [Notes](#-notes)
 - [Author](#-author)
+- [License](#-license)
 - [Show your support](#-show-your-support)
+
+## 🧰 Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Markup | Semantic HTML5 |
+| Styling | Tailwind CSS (CDN) + a small inline CSS block |
+| Logic | Vanilla JavaScript (no framework, no dependencies) |
+| Fonts | Inter (Google Fonts); JetBrains Mono (mono stack, system fallback) |
+| Hosting | GitHub Pages |
+| CI/CD | GitHub Actions (`deploy.yml`) |
+| Local dev | `serve` (a lightweight static file server, optional) |
+
+## 🚀 Getting started
+
+### Prerequisites
+
+- A modern browser. That is all — the site is static.
+- Optional: [Node.js](https://nodejs.org/) 18+ and npm, only if you want the
+  local dev server.
+
+### Steps
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/jellydn/personal-ai.git
+   cd personal-ai
+   ```
+
+2. **(Optional) Install the local dev server**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the app locally**
+
+   ```bash
+   npm run dev
+   ```
+
+   Then open the printed URL (default `http://localhost:3000`).
+
+   > No Node? Just open `index.html` directly in your browser — the site works
+   > from the filesystem too.
+
+4. **Open the live site**
+
+   Visit https://jellydn.github.io/personal-ai/
+
+There is no build step. The files in the repository root are served exactly as
+they are.
+
+## 🔑 Environment variables
+
+This project requires **no environment variables**. It is a fully static site
+with no backend, database, or API keys.
+
+| Variable | Required | Description | Default |
+| --- | --- | --- | --- |
+| _(none)_ | — | No configuration is needed. | — |
+
+See [`.env.example`](.env.example) for details. The `.env` file that appears in
+the Amp sandbox is generated automatically by the sandbox manager, is ignored by
+`.gitignore`, and is **not** part of this project.
+
+## 🧪 Example workflow
+
+1. **User visits** the homepage. The hero, summary stats, and filter bar render
+   immediately; the full 53-card grid appears with a staggered entrance
+   animation.
+2. **User searches** by typing `rag` in the filter box. The grid narrows to the
+   matching projects (`rag-blog`, `rag-learning-guide`) in real time — no network
+   request, no reload.
+3. **User clicks** the "AI agents" filter pill. The grid updates to the 15
+   agent-related projects.
+4. **User clicks** a "Demo →" badge on a card to open that project's live demo
+   in a new tab, or the repo link to view its source on GitHub.
+5. **User clears** the search and returns to "All" to browse the full catalog.
+
+## 🛡️ Reliability and safety
+
+- **No secrets in the repo** — the site ships no credentials; `.env` is gitignored and only ever holds sandbox-generated metadata, never app secrets.
+- **Input handling** — the search box performs case-insensitive substring matching on a fixed in-memory dataset; user input is never evaluated or injected as HTML, so there is no XSS surface from filtering.
+- **External links** — all project and demo links use `target="_blank"` with `rel="noopener"` to prevent tab-nabbing.
+- **Accessibility safety net** — focus-visible outlines, ARIA labels on icon links, and `prefers-reduced-motion` handling ensure the site degrades gracefully.
+- **Deploy safety** — the GitHub Actions workflow uses the official `actions/deploy-pages` action with minimal permissions (`contents: read`, `pages: write`, `id-token: write`).
+
+> No retries, timeouts, rate limits, or fallbacks are implemented because the
+> site makes no network requests of its own (other than the Tailwind CDN and
+> Google Fonts).
+
+## ✅ Evaluation
+
+There is no automated test suite or benchmark for this project — it is a static
+catalog, not an AI runtime. Quality is assessed manually:
+
+- **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
+  filters, search, and empty state behave correctly.
+- **Link integrity** — verify that demo and repo links resolve.
+- **Data accuracy** — confirm the 53 listed projects match the author's actual
+  public repositories in the October 2025 – July 2026 window.
+- **Accessibility check** — run Lighthouse and confirm the page scores well on
+  accessibility and best-practices.
+
+A CI guard ([`scripts/check-category-config.js`](scripts/check-category-config.js))
+verifies every project category in `index.html` has a style definition, so future
+catalog additions can't silently mis-style. A future improvement is a fuller smoke
+test asserting the project count and link structure (see [Limitations](#limitations)
+and [Future improvements](#future-improvements)).
+
+## 📁 Project structure
+
+```text
+personal-ai/
+├── index.html                 # Root portfolio: markup, styles, data, and logic
+├── showcase/                  # Dedicated marketing site (index, features, how-it-works, FAQ)
+├── scripts/
+│   └── check-category-config.js   # CI guard: category ↔ style completeness
+├── docs/
+│   ├── demo-script.md         # 30–60 second demo recording script
+│   └── images/
+│       └── README.md          # Screenshot capture guide
+├── package.json               # Optional local dev server script (no app deps)
+├── .env.example               # Documents that no env vars are required
+├── .gitignore
+└── .github/
+    └── workflows/
+        └── deploy.yml         # GitHub Pages deployment workflow
+```
+
+## ⚠️ Limitations
+
+- **Static data** — the project list is hardcoded in `index.html`. Adding or
+  updating a project means editing the HTML and redeploying; there is no CMS or
+  data file to edit separately.
+- **Minimal automated checks** — the CI guard covers category styling only;
+  regressions elsewhere are caught only by manual review.
+- **CDN dependency** — Tailwind CSS and Google Fonts are loaded from CDNs, so the
+  site requires an internet connection to render with full styling.
+- **No live repo metadata** — stars, last-updated dates, and descriptions are not
+  fetched from the GitHub API; they reflect a manual snapshot.
+- **Single author** — the catalog is specific to one developer's work and is not
+  a general-purpose portfolio platform.
+- **No license** — this repository currently has no license file. All rights are
+  reserved by the author until one is added.
+
+## 🚧 Future improvements
+
+1. **Extract project data to JSON** — move the `projects` array into a separate
+   `projects.json` file fetched at runtime, so content edits do not touch markup.
+2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
+   from the GitHub API to keep the catalog current automatically.
+3. **Expand the smoke test** — extend the CI guard to assert the 53-card count,
+   link structure, and filter behaviour.
+4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
+   works offline and avoids a render-blocking external request.
+5. **Per-project detail pages** — deep links with a short summary, tech stack,
+   and screenshots for each project, generated from the data file.
 
 ## 🌐 Web & user-facing apps
 
@@ -366,6 +542,14 @@ A dedicated marketing site ([live demo](https://jellydn.github.io/personal-ai/sh
 - Website: [productsway.com](https://productsway.com)
 - YouTube: [IT Man Channel](https://www.youtube.com/@it-man)
 - GitHub: [@jellydn](https://github.com/jellydn)
+
+---
+
+## 📄 License
+
+This repository currently has **no license**. All rights are reserved by the
+author. If you would like to use or adapt the code, please open an issue to
+discuss licensing.
 
 ---
 

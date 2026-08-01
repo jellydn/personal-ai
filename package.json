@@ -1,0 +1,23 @@
+{
+  "name": "personal-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static portfolio catalog of 53 open-source AI projects built over nine months of AI-assisted development.",
+  "scripts": {
+    "dev": "serve .",
+    "start": "npm run dev",
+    "build": "echo \"Static site — no build step required. Files in the repo root are served as-is.\""
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "open-source",
+    "showcase",
+    "static-site"
+  ],
+  "author": "Dung Huynh",
+  "license": "UNLICENSED"
+}

@@ -1,3 +1,30 @@
+# Environment
+.env
+.env.local
+.env.*.local
+# Keep the example file tracked even if a global exclude hides .env*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Amp sandbox artifacts
+.amp/in/artifacts/
+
 # Runtime artifacts — never commit
 .freebuff/
 .commandcode/
