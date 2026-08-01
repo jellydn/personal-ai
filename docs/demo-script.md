@@ -11,7 +11,7 @@ does or whether it runs.
 
 ## User action
 
-Open the portfolio site. The homepage loads instantly — 34 projects across four
+Open the portfolio site. The homepage loads instantly — 53 projects across four
 categories with a hero summary and live filter bar.
 
 ## System behaviour
@@ -19,18 +19,20 @@ categories with a hero summary and live filter bar.
 - The page renders a responsive card grid, each card showing the project name, a
   one-line description, the engineering approach, and a demo link when one
   exists.
-- Type `agent` in the filter box: the grid narrows to the 7 AI-agent projects in
-  real time, with no page reload.
-- Click the "Dev tools" filter pill: the grid updates to 11 developer-tool
+- Click the "AI agents" category pill: the grid updates to the 15 AI-agent
+  projects in real time, with no page reload.
+- Type `rag` in the filter box: the grid narrows to the matching projects
+  (`rag-blog`, `rag-learning-guide`) to demonstrate text search.
+- Click the "Dev tools" filter pill: the grid updates to 17 developer-tool
   projects, each with a category-colored left border.
-- Clear the filter to return to all 34 projects. An empty-state message appears
+- Clear the filter to return to all 53 projects. An empty-state message appears
   if a search matches nothing.
 
 ## Result
 
 A visitor can understand nine months of original open-source AI work in under a
 minute — what was built, how it was approached, and where to try it — without
-reading 34 separate READMEs.
+reading 53 separate READMEs.
 
 ## Engineering highlights
 
@@ -47,8 +49,8 @@ reading 34 separate READMEs.
 ## Suggested recording flow
 
 1. Show the full homepage (3s).
-2. Type `agent` in the search box, watch the grid filter (5s).
-3. Click the "Web apps" filter pill, then "All" (5s).
+2. Click the "AI agents" category pill, watch the grid filter (5s).
+3. Type `rag` in the search box to demo text search, then clear it (5s).
 4. Hover a card to show the lift effect, click a demo link to open a live
    project (10s).
 5. Resize the browser narrow to show the responsive single-column layout (5s).

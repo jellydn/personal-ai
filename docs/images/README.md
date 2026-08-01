@@ -29,13 +29,15 @@ and the first two rows of project cards.
 
 ## Sample input
 
-No input is required. For an alternative shot, type `agent` in the filter box to
-show only the AI-agent category (7 cards). This demonstrates the live search.
+No input is required. For an alternative shot, click the **"AI agents"** filter
+pill to show only the AI-agent category (15 cards). This demonstrates category
+filtering. To demonstrate text search instead, type `rag` in the filter box to
+narrow to the RAG-related projects.
 
 ## Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **12 web apps**, **7 AI agents**, **11 dev tools**, **4 experiments**.
+- Stat badges: **17 web apps**, **15 AI agents**, **17 dev tools**, **4 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
@@ -43,7 +45,10 @@ show only the AI-agent category (7 cards). This demonstrates the live search.
 
 ## Recommended browser viewport
 
-- **Desktop**: 1440 × 900 (Retina/2x if available).
+- **Desktop**: 1440 × 1024 **CSS viewport** at a 2× device-pixel-ratio, which
+  captures as 2880 × 2048 **physical screenshot pixels** (matching
+  `docs/images/demo.png`). The CSS viewport is what the page renders in; the
+  saved image's pixel dimensions are double that on a Retina/2x display.
 - Set browser zoom to 100%.
 - Hide the bookmarks bar for a cleaner shot.
 
@@ -57,7 +62,7 @@ in the same frame, ensure no environment variables or API keys are visible.
 
 Save the final image to this folder as `demo.png`:
 
-```
+```text
 docs/images/demo.png
 ```
 

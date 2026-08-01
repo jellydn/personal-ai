@@ -24,3 +24,10 @@ Thumbs.db
 
 # Amp sandbox artifacts
 .amp/in/artifacts/
+
+# Runtime artifacts — never commit
+.freebuff/
+.commandcode/
+
+# Preview server logs
+*.log

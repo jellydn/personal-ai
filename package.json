@@ -2,7 +2,7 @@
   "name": "personal-ai",
   "version": "1.0.0",
   "private": true,
-  "description": "A static portfolio catalog of 34 open-source AI projects built over nine months of AI-assisted development.",
+  "description": "A static portfolio catalog of 53 open-source AI projects built over nine months of AI-assisted development.",
   "scripts": {
     "dev": "serve .",
     "start": "npm run dev",
