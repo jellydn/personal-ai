@@ -12,6 +12,7 @@ so future contributors understand *why* the code is shaped the way it is.
 | [0002](0002-github-pages-repo-root-deploy.md) | GitHub Pages repo-root deployment | Accepted |
 | [0003](0003-vendored-favicons-showcase.md) | Self-contained showcase with vendored favicons | Accepted |
 | [0004](0004-progressive-enhancement.md) | Progressive enhancement for performance and motion | Accepted |
+| [0005](0005-showcase-chrome-injection.md) | Showcase chrome injection (revisit note for ADR-0001) | Proposed |
 
 ## Adding a new ADR
 
