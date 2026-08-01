@@ -26,7 +26,7 @@ function extractLiteral(src, name) {
   const open = src[i];
   const close = open === "[" ? "]" : open === "{" ? "}" : null;
   if (!close) {
-    throw new Error(`index.html: cannot extract ${name} (expected array or object literal)`);
+    throw new Error(`${path.relative(process.cwd(), file)}: cannot extract ${name} (expected array or object literal)`);
   }
 
   let depth = 0;

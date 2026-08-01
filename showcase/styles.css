@@ -279,9 +279,8 @@ a:hover { text-decoration: none; }
   padding: 5px 11px; border-radius: 999px;
 }
 .chip-web { background: var(--moss-100); color: var(--moss-600); }
-.chip-ai { background: var(--ember-50); color: var(--ember-700); }
+.chip-ai, .chip-learn { background: var(--ember-50); color: var(--ember-700); }
 .chip-dev { background: var(--bg-soft); color: var(--text-soft); border: 1px solid var(--border); }
-.chip-learn { background: var(--ember-50); color: var(--ember-700); }
 [data-theme="dark"] .chip-web { background: rgba(101, 138, 84, 0.2); color: var(--moss-300); }
 [data-theme="dark"] .chip-ai, [data-theme="dark"] .chip-learn { background: rgba(236, 122, 16, 0.15); color: var(--ember-300); }
 [data-theme="dark"] .chip-dev { background: var(--surface-2); color: var(--text-soft); }
