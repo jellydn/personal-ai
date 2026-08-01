@@ -302,6 +302,81 @@ a:hover { text-decoration: none; }
   background: var(--code-bg); border: 1px solid var(--border); padding: 2px 7px; border-radius: 6px;
 }
 
+/* ============ Gallery (live captures) ============ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.gallery-item {
+  cursor: zoom-in;
+  transition: transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.gallery-item:hover { transform: translateY(-4px); }
+.gallery-item .browser-frame { box-shadow: var(--shadow); transition: box-shadow 0.22s ease, border-color 0.22s ease; }
+.gallery-item:hover .browser-frame { box-shadow: var(--shadow-lg); border-color: var(--border-strong); }
+.gallery-caption {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: -0.01em;
+}
+
+/* ============ Lightbox ============ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 14, 12, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  max-width: min(1200px, 94vw);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+  display: grid;
+  place-items: center;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.2); transform: rotate(90deg); }
+.lightbox-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  font-weight: 500;
+  max-width: 80vw;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ============ CTA banner ============ */
 .cta-banner {
   position: relative; overflow: hidden;
@@ -400,6 +475,10 @@ a:hover { text-decoration: none; }
 
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: 1fr; gap: 18px; }
+  .lightbox { padding: 16px; }
+  .lightbox img { max-height: 82vh; }
+  .lightbox-caption { white-space: normal; }
   .feature-row, .workflow-step { grid-template-columns: 1fr; gap: 32px; }
   .feature-row.reversed .feature-media, .workflow-step.reversed .workflow-media { order: 0; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }

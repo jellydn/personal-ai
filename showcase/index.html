@@ -191,6 +191,66 @@
   </div>
 </section>
 
+<!-- Gallery: live captures of the real site -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head centered">
+      <span class="kicker">Real captures</span>
+      <h2>Not mockups — the actual site</h2>
+      <p>Every shot below is the running demo, captured live. Click any card to zoom in.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item" data-lightbox="screenshots/demo/portfolio.png" data-caption="The tracker — all 53 projects in one searchable grid">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">github.com/jellydn/personal-ai</span>
+          </div>
+          <img src="screenshots/demo/portfolio.png" alt="The personal-ai portfolio homepage showing a grid of 53 AI-built project cards" loading="lazy" width="1280" height="5840">
+        </div>
+        <figcaption class="gallery-caption">The tracker — 53 projects, one searchable grid</figcaption>
+      </figure>
+      <figure class="gallery-item" data-lightbox="screenshots/demo/showcase-home.png" data-caption="The showcase home — hero, stats, and feature highlights">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">jellydn.github.io/personal-ai/showcase/</span>
+          </div>
+          <img src="screenshots/demo/showcase-home.png" alt="The showcase marketing site homepage" loading="lazy" width="1280" height="3585">
+        </div>
+        <figcaption class="gallery-caption">Showcase home — the story in one scroll</figcaption>
+      </figure>
+      <figure class="gallery-item" data-lightbox="screenshots/demo/how-it-works.png" data-caption="The step-by-step walkthrough page">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">jellydn.github.io/personal-ai/showcase/how-it-works.html</span>
+          </div>
+          <img src="screenshots/demo/how-it-works.png" alt="The how-it-works walkthrough page" loading="lazy" width="1280" height="7196">
+        </div>
+        <figcaption class="gallery-caption">How it works — the full journey, step by step</figcaption>
+      </figure>
+      <figure class="gallery-item" data-lightbox="screenshots/demo/features.png" data-caption="The features deep-dive page">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-frame-dot"></span><span class="browser-frame-dot"></span><span class="browser-frame-dot"></span>
+            <span class="browser-frame-url">jellydn.github.io/personal-ai/showcase/features.html</span>
+          </div>
+          <img src="screenshots/demo/features.png" alt="The features deep-dive page" loading="lazy" width="1280" height="8264">
+        </div>
+        <figcaption class="gallery-caption">Features — every capability, explained</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" hidden>
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">✕</button>
+  <img id="lightbox-img" src="" alt="Enlarged screenshot">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
 <!-- CTA -->
 <section class="section">
   <div class="container">
@@ -246,6 +306,38 @@ hamburger.addEventListener("click", () => {
   const open = navLinks.classList.toggle("open");
   hamburger.setAttribute("aria-expanded", open);
 });
+
+// Gallery lightbox
+(function () {
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightbox-img");
+  const lbCap = document.getElementById("lightbox-caption");
+  const closeBtn = document.getElementById("lightbox-close");
+  if (!lb || !lbImg) return;
+
+  function open(src, caption) {
+    lbImg.src = src;
+    lbCap.textContent = caption || "";
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function close() {
+    lb.hidden = true;
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-lightbox]").forEach(item => {
+    item.addEventListener("click", e => {
+      if (e.target.closest("a")) return;
+      open(item.dataset.lightbox, item.dataset.caption);
+    });
+  });
+  closeBtn.addEventListener("click", close);
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) close(); });
+})();
 </script>
 </body>
 </html>
