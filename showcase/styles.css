@@ -4,6 +4,9 @@
    ============================================================ */
 
 :root {
+  /* Native UI follows the chosen scheme; defaults to system preference */
+  color-scheme: light dark;
+
   /* Brand tokens */
   --ember-50: #fef7ee;
   --ember-100: #fdedd3;
@@ -35,7 +38,9 @@
   --frame-dot: #cbd5e1;
 }
 
+[data-theme="light"] { color-scheme: light; }
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg: #171512;
   --bg-soft: #1f1c18;
   --surface: #211e1a;
@@ -274,9 +279,8 @@ a:hover { text-decoration: none; }
   padding: 5px 11px; border-radius: 999px;
 }
 .chip-web { background: var(--moss-100); color: var(--moss-600); }
-.chip-ai { background: var(--ember-50); color: var(--ember-700); }
+.chip-ai, .chip-learn { background: var(--ember-50); color: var(--ember-700); }
 .chip-dev { background: var(--bg-soft); color: var(--text-soft); border: 1px solid var(--border); }
-.chip-learn { background: var(--ember-50); color: var(--ember-700); }
 [data-theme="dark"] .chip-web { background: rgba(101, 138, 84, 0.2); color: var(--moss-300); }
 [data-theme="dark"] .chip-ai, [data-theme="dark"] .chip-learn { background: rgba(236, 122, 16, 0.15); color: var(--ember-300); }
 [data-theme="dark"] .chip-dev { background: var(--surface-2); color: var(--text-soft); }
@@ -324,19 +328,29 @@ a:hover { text-decoration: none; }
   letter-spacing: -0.01em;
 }
 
-/* ============ Lightbox ============ */
+/* ============ Lightbox (native <dialog>) ============ */
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(15, 14, 12, 0.92);
-  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 28px;
+  border: 0;
+  background: transparent;
+  color: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px;
 }
-.lightbox[hidden] { display: none; }
+.lightbox:not([open]) { display: none; }
+.lightbox::backdrop {
+  background: rgba(15, 14, 12, 0.92);
+  backdrop-filter: blur(6px);
+}
 .lightbox img {
   max-width: min(1200px, 94vw);
   max-height: 88vh;
@@ -378,6 +392,27 @@ a:hover { text-decoration: none; }
   text-overflow: ellipsis;
 }
 
+/* ============ FAQ page ============ */
+.faq-list { max-width: 760px; margin-inline: auto; display: grid; gap: 12px; }
+.faq-item {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.faq-item:hover { border-color: var(--border-strong); }
+.faq-item[open] { border-color: var(--ember-400); box-shadow: var(--shadow); }
+.faq-item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 22px; cursor: pointer; list-style: none;
+  font-weight: 600; font-size: 1.02rem; color: var(--text);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; font-size: 1.4rem; line-height: 1; color: var(--ember-500);
+  transition: transform 0.18s ease; flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 22px 20px; color: var(--text-soft); font-size: 0.97rem; line-height: 1.65; }
+
 /* ============ CTA banner ============ */
 .cta-centered { text-align: center; margin-top: 44px; }
 .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -398,33 +433,6 @@ a:hover { text-decoration: none; }
 .btn-white:hover { background: var(--ember-50); transform: translateY(-2px); color: var(--ember-700); }
 .btn-outline-white { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.7); }
 .btn-outline-white:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); color: #fff; }
-
-/* ============ Contact ============ */
-.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
-.contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 30px; }
-.contact-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-soft); }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 11px 14px; border-radius: 10px; margin-bottom: 18px;
-  border: 1px solid var(--border-strong); background: var(--bg); color: var(--text);
-  font-family: inherit; font-size: 0.95rem; transition: border-color 0.18s ease, box-shadow 0.18s ease;
-}
-.contact-form input:focus, .contact-form textarea:focus {
-  outline: none; border-color: var(--ember-400); box-shadow: 0 0 0 3px rgba(241, 149, 51, 0.15);
-}
-.contact-form textarea { min-height: 110px; resize: vertical; }
-.contact-links { display: grid; gap: 14px; }
-.contact-link {
-  display: flex; align-items: center; gap: 14px; padding: 18px 20px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-  color: var(--text); font-weight: 600; transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
-}
-.contact-link:hover { border-color: var(--ember-400); transform: translateY(-2px); box-shadow: var(--shadow); color: var(--text); }
-.contact-link .link-icon {
-  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
-  background: var(--ember-50); color: var(--ember-600); flex-shrink: 0;
-}
-[data-theme="dark"] .contact-link .link-icon { background: rgba(236, 122, 16, 0.15); }
-.contact-link small { display: block; font-weight: 400; color: var(--text-muted); font-size: 0.8rem; }
 
 /* ============ Footer ============ */
 .footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 40px; }
@@ -487,7 +495,6 @@ a:hover { text-decoration: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
-  .contact-grid { grid-template-columns: 1fr; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; background: var(--bg); border-bottom: 1px solid var(--border);

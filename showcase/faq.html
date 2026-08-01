@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>FAQ — personal-ai · 53 Open-Source Projects Built with AI</title>
+<meta name="title" content="FAQ — personal-ai · 53 Open-Source Projects Built with AI">
+<meta name="description" content="Answers to common questions about the personal-ai tracker: are the 53 projects really AI-built, how to run and fork them, how the tracker is maintained, and how it relates to the live portfolio.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jellydn.github.io/personal-ai/showcase/faq.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jellydn.github.io/personal-ai/showcase/faq.html">
+<meta property="og:title" content="FAQ — personal-ai · 53 Open-Source Projects Built with AI">
+<meta property="og:description" content="Answers to common questions about the personal-ai tracker — real projects, real source, everything runnable and forkable.">
+<meta property="og:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://jellydn.github.io/personal-ai/showcase/faq.html">
+<meta name="twitter:title" content="FAQ — personal-ai · 53 Open-Source Projects Built with AI">
+<meta name="twitter:description" content="Answers to common questions about the personal-ai tracker — real projects, real source, everything runnable and forkable.">
+<meta name="twitter:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the 53 projects really built with AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — every project in the tracker was built with AI assistance during nine months of exploration. Each one is original work, not a fork or a demo template, and the source is public on GitHub." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I run or fork a project?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every card links to its GitHub repository, and projects with live demos include a one-click Demo link. Clone or fork the repo and follow its README to run it locally." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the tracker itself open source?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tracker and this showcase site are open source on GitHub under jellydn/personal-ai, deployed free on GitHub Pages." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the tracker maintained?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The project catalogue is a single data array in the portfolio page. It ships as a buildless static site — no bundler or framework — so adding a project is one edit, and deploys are instant." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I contribute a project to the list?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The list tracks original work built by the author during AI-assisted exploration. If you have a question about a specific project, the best place to ask is its GitHub repository." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are there only 53 projects?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each entry represents a real, runnable project — quality over quantity. The number grows as new original work is completed." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the tracker require any account or payment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It is free, open source, and runs entirely in the browser. There is no account, no login, and no tracking beyond standard static-host analytics." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from other AI project lists?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most lists collect links; this is a living catalogue of the author's own original work. Every project is filterable, searchable, has a written description of its approach, and links to real source code." }
+    }
+  ]
+}
+</script>
+<script>
+// Set theme before first paint to avoid a light-flash for dark-mode users
+(function () {
+  try {
+    var stored = localStorage.getItem("showcase-theme") || "light";
+    var t = stored === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : stored;
+    document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="color-scheme"]');
+    if (m) m.content = stored === "system" ? "light dark" : t;
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">⚡</span>
+      <span>personal-ai</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="nav-actions">
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
+        <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
+        <button data-theme-btn="system" aria-label="System theme">◐</button>
+      </div>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="nav-cta" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <span class="cta-label">View source</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </div>
+</nav>
+<main>
+
+<!-- Page hero -->
+<header class="hero hero-compact">
+  <div class="container">
+    <span class="badge">FAQ</span>
+    <h1>Questions, <span class="accent">answered</span>.</h1>
+    <p>Straight answers about the tracker, the projects, and what "AI-built" actually means here.</p>
+  </div>
+</header>
+
+<!-- FAQ -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Are the 53 projects really built with AI?</summary>
+        <p>Yes. Every project in the tracker was built with AI assistance during nine months of exploration. Each one is original work — not a fork, not a template — and the full source is public on GitHub.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I run or fork a project?</summary>
+        <p>Every card links to its GitHub repository, and projects with live demos include a one-click <strong>Demo</strong> link. Clone or fork the repo and follow its README to run it locally.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the tracker itself open source?</summary>
+        <p>Yes. The tracker and this showcase site are open source on GitHub under <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener"><strong>jellydn/personal-ai</strong></a>, deployed free on GitHub Pages.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is the tracker maintained?</summary>
+        <p>The project catalogue is a single data array in the portfolio page. It ships as a buildless static site — no bundler or framework — so adding a project is one edit and deploys are instant.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I contribute a project to the list?</summary>
+        <p>The list tracks original work built during AI-assisted exploration. If you have a question about a specific project, the best place to ask is its GitHub repository.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why are there only 53 projects?</summary>
+        <p>Each entry represents a real, runnable project — quality over quantity. The number grows as new original work is completed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does the tracker require any account or payment?</summary>
+        <p>No. It is free, open source, and runs entirely in the browser. There is no account, no login, and no tracking beyond standard static-host analytics.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from other AI project lists?</summary>
+        <p>Most lists collect links; this is a living catalogue of the author's own original work. Every project is filterable, searchable, has a written description of its approach, and links to real source code.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Still curious?</h2>
+      <p>Browse all 53 projects, or open the tracker and see the filter and search in action.</p>
+      <div class="cta-actions">
+        <a href="features.html" class="btn btn-white">Browse the features</a>
+        <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">Open the tracker</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made by <a href="https://productsway.com" target="_blank" rel="noopener"><strong>Dung Huynh</strong></a> · Built with AI assistance</p>
+    <div class="footer-links">
+      <a href="https://github.com/jellydn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://ko-fi.com/dunghd" target="_blank" rel="noopener">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
