@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>How It Works — From Browsing to Forking in 3 Steps | personal-ai</title>
 <meta name="title" content="How It Works — From Browsing to Forking in 3 Steps | personal-ai">
 <meta name="description" content="A step-by-step walkthrough of the personal-ai tracker: open the collection, filter by category, search live, and open a repo or try a demo.">
@@ -45,9 +46,11 @@
 // Set theme before first paint to avoid a light-flash for dark-mode users
 (function () {
   try {
-    var t = localStorage.getItem("showcase-theme") || "light";
-    if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var stored = localStorage.getItem("showcase-theme") || "light";
+    var t = stored === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : stored;
     document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="color-scheme"]');
+    if (m) m.content = stored === "system" ? "light dark" : t;
   } catch (e) {}
 })();
 </script>
@@ -83,6 +86,7 @@
     </div>
   </div>
 </nav>
+<main>
 
 <!-- Page hero -->
 <header class="hero hero-compact">
@@ -205,6 +209,7 @@
   </div>
 </section>
 
+</main>
 <!-- Footer -->
 <footer class="footer">
   <div class="container footer-inner">

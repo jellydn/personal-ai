@@ -4,6 +4,9 @@
    ============================================================ */
 
 :root {
+  /* Native UI follows the chosen scheme; defaults to system preference */
+  color-scheme: light dark;
+
   /* Brand tokens */
   --ember-50: #fef7ee;
   --ember-100: #fdedd3;
@@ -35,7 +38,9 @@
   --frame-dot: #cbd5e1;
 }
 
+[data-theme="light"] { color-scheme: light; }
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg: #171512;
   --bg-soft: #1f1c18;
   --surface: #211e1a;
@@ -324,19 +329,29 @@ a:hover { text-decoration: none; }
   letter-spacing: -0.01em;
 }
 
-/* ============ Lightbox ============ */
+/* ============ Lightbox (native <dialog>) ============ */
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(15, 14, 12, 0.92);
-  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 28px;
+  border: 0;
+  background: transparent;
+  color: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px;
 }
-.lightbox[hidden] { display: none; }
+.lightbox:not([open]) { display: none; }
+.lightbox::backdrop {
+  background: rgba(15, 14, 12, 0.92);
+  backdrop-filter: blur(6px);
+}
 .lightbox img {
   max-width: min(1200px, 94vw);
   max-height: 88vh;

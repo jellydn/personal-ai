@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>personal-ai — 53 Open-Source Projects Built with AI, in One Living Tracker</title>
 <meta name="title" content="personal-ai — 53 Open-Source Projects Built with AI, in One Living Tracker">
 <meta name="description" content="A living tracker of 53 public open-source projects built during nine months of AI-assisted exploration — web apps, AI agents, developer tools, and experiments. Every project is real, runnable, and forkable.">
@@ -55,9 +56,11 @@
 // Set theme before first paint to avoid a light-flash for dark-mode users
 (function () {
   try {
-    var t = localStorage.getItem("showcase-theme") || "light";
-    if (t === "system") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var stored = localStorage.getItem("showcase-theme") || "light";
+    var t = stored === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : stored;
     document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="color-scheme"]');
+    if (m) m.content = stored === "system" ? "light dark" : t;
   } catch (e) {}
 })();
 </script>
@@ -93,6 +96,7 @@
     </div>
   </div>
 </nav>
+<main>
 
 <!-- Hero -->
 <header class="hero">
@@ -246,11 +250,11 @@
 </section>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" hidden>
+<dialog class="lightbox" id="lightbox" aria-label="Screenshot preview">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">✕</button>
   <img id="lightbox-img" src="" alt="Enlarged screenshot">
   <p class="lightbox-caption" id="lightbox-caption"></p>
-</div>
+</dialog>
 
 <!-- CTA -->
 <section class="section">
@@ -266,6 +270,7 @@
   </div>
 </section>
 
+</main>
 <!-- Footer -->
 <footer class="footer">
   <div class="container footer-inner">
