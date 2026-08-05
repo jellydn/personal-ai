@@ -207,7 +207,7 @@ personal-ai/
 
 - **Description**: Substantial user-facing application — a clear example of a complete product built with AI assistance.
 - **Approach**: Full web application with AI-assisted development across the product.
-- **Demo**: Not ready yet.
+- **Demo**: https://gyazo.com/95dc23363c754bd58a902318726fd911.gif
 
 ### [ai-photo-coach](https://github.com/jellydn/ai-photo-coach)
 
@@ -231,7 +231,7 @@ personal-ai/
 
 - **Description**: Minimal Pomodoro timer.
 - **Approach**: Small productivity app with a focused single-purpose workflow.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/tiny-pomodoro/
 
 ### [docklight](https://github.com/jellydn/docklight)
 
@@ -243,19 +243,19 @@ personal-ai/
 
 - **Description**: AI-assisted Gmail organisation and email processing.
 - **Approach**: Applies AI to triage and interpret email content.
-- **Demo**: https://jellydn.github.io/ai-smart-gmail/lessons/0001-what-is-an-embedding.html
+- **Demo**: Not ready yet.
 
 ### [smart-resume-matcher](https://github.com/jellydn/smart-resume-matcher)
 
 - **Description**: Compares resumes with job descriptions using semantic / AI analysis.
 - **Approach**: Semantic matching between candidate profiles and job requirements.
-- **Demo**: https://smart-resume.itman.fyi
+- **Demo**: Not ready yet.
 
 ### [rag-blog](https://github.com/jellydn/rag-blog)
 
 - **Description**: Retrieval-augmented generation grounded in blog content.
 - **Approach**: Retrieves relevant passages before generating answers.
-- **Demo**: https://jellydn.github.io/rag-blog/
+- **Demo**: Not ready yet.
 
 ### [logpilot](https://github.com/jellydn/logpilot)
 
@@ -279,7 +279,7 @@ personal-ai/
 
 - **Description**: Side-by-side comparison of streaming vs non-streaming AI chat responses.
 - **Approach**: Measures how streaming improves perceived latency and UX.
-- **Demo**: Not ready yet.
+- **Demo**: https://2026-07-10-ai-chat-stream-demo-87r7as49y-itman.vercel.app
 
 ### [sellsnap](https://github.com/jellydn/sellsnap)
 
@@ -297,7 +297,7 @@ personal-ai/
 
 - **Description**: Paste a Twitter/X link → preview → download as a clean PDF.
 - **Approach**: Turns tweet threads into readable, printable documents.
-- **Demo**: Not ready yet.
+- **Demo**: https://twt-print.itman.fyi/
 
 ### [VoiceInk](https://github.com/jellydn/VoiceInk)
 
@@ -317,31 +317,31 @@ personal-ai/
 
 - **Description**: Self-hosted Hermes Agent hub with personas, jobs, and delegated workflows.
 - **Approach**: Orchestrates agent workflows and scheduled execution.
-- **Demo**: https://hermes-hub.itman.fyi/
+- **Demo**: Not ready yet.
 
 ### [openralph](https://github.com/jellydn/openralph)
 
 - **Description**: Autonomous Ralph-style coding loop with OpenCode support.
 - **Approach**: Runs an autonomous coding cycle around an AI agent and coding toolchain.
-- **Demo**: https://ai-tools.itman.fyi
+- **Demo**: Not ready yet.
 
 ### [my-ai-tools](https://github.com/jellydn/my-ai-tools)
 
 - **Description**: Portable workspace for AI coding agents, skills, memory, and MCP configs.
 - **Approach**: Bundles reusable agent runtime pieces into one workspace.
-- **Demo**: http://ai-tools.itman.fyi/
+- **Demo**: https://ai-tools.itman.fyi/
 
 ### [ai-flow](https://github.com/jellydn/ai-flow)
 
 - **Description**: AI-assisted development and workflow orchestration.
 - **Approach**: Organises repeatable AI-assisted workflows around development tasks.
-- **Demo**: https://ai-flow.itman.fyi/
+- **Demo**: https://ai-flow-staging.itman.fyi/
 
 ### [ai-launcher](https://github.com/jellydn/ai-launcher)
 
 - **Description**: Launcher for accessing and managing AI coding tools.
 - **Approach**: Centralises access to multiple coding assistants and tools.
-- **Demo**: http://ai-cli.itman.fyi/
+- **Demo**: Not ready yet.
 
 ### [tiny-local-ai](https://github.com/jellydn/tiny-local-ai)
 
@@ -353,7 +353,7 @@ personal-ai/
 
 - **Description**: Unlimited FREE AI coding — connect Claude Code, Codex, Cursor, Cline, Copilot, and Antigravity to free Claude/GPT/Gemini models.
 - **Approach**: Routes multiple coding assistants through free model backends.
-- **Demo**: Not ready yet.
+- **Demo**: https://9router.com/
 
 ### [TelePi](https://github.com/jellydn/TelePi)
 
@@ -395,7 +395,7 @@ personal-ai/
 
 - **Description**: A tool for benchmarking LLM prompts.
 - **Approach**: Compares prompt variants across models on structured metrics.
-- **Demo**: Not ready yet.
+- **Demo**: https://prompt-bench.itman.fyi/
 
 ## 🛠️ Developer & editor tools
 
@@ -415,19 +415,19 @@ personal-ai/
 
 - **Description**: VS Code integration for the SealCode workflow.
 - **Approach**: Extends the editor with workflow-specific AI coding support.
-- **Demo**: https://jellydn.github.io/vscode-seal-code/
+- **Demo**: Not ready yet.
 
 ### [pi-clinepass-provider](https://github.com/jellydn/pi-clinepass-provider)
 
 - **Description**: Pi model provider for ClinePass-compatible access.
 - **Approach**: Bridges provider access into coding-agent tooling.
-- **Demo**: https://jellydn.github.io/pi-clinepass-provider/
+- **Demo**: Not ready yet.
 
 ### [pi-qwencloud-provider](https://github.com/jellydn/pi-qwencloud-provider)
 
 - **Description**: Pi provider for Qwen Cloud models and token plans.
 - **Approach**: Adapts cloud model access for agent and coding workflows.
-- **Demo**: https://jellydn.github.io/pi-qwencloud-provider/
+- **Demo**: Not ready yet.
 
 ### [devlog](https://github.com/jellydn/devlog)
 
@@ -451,13 +451,13 @@ personal-ai/
 
 - **Description**: Small Neovim utility for hiding or protecting sensitive values.
 - **Approach**: Minimises accidental exposure of secrets in the editor.
-- **Demo**: Not ready yet.
+- **Demo**: https://gyazo.com/0e0f1c253ad07f932b8f48deda54a7f0
 
 ### [tiny-term.nvim](https://github.com/jellydn/tiny-term.nvim)
 
 - **Description**: Minimal terminal-management plugin for Neovim.
 - **Approach**: Adds lightweight terminal handling inside Neovim.
-- **Demo**: Not ready yet.
+- **Demo**: https://gyazo.com/084d884839a3e3e84525a2d527ecec6b.gif
 
 ### [minui-easy-installer](https://github.com/jellydn/minui-easy-installer)
 
