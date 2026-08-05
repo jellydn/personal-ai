@@ -50,7 +50,7 @@ _Empty — all planned pages are live. See Ideas below._
 When the roadmap is empty, follow these guidelines to add pages:
 
 1. **Stay on-brand** — new pages must fit the established vibe
-2. **Enhance the core** — support the site mission (53 projects, AI-built, open source)
+2. **Enhance the core** — support the site mission (54 projects, AI-built, open source)
 3. **Naming convention** — lowercase, descriptive filenames (e.g. `faq.html`)
 
 ### Ideas to Explore

@@ -5,7 +5,7 @@ The personal-ai showcase site is complete. All planned pages are live and wired 
 
 ## What was built (7 pages)
 
-- `index.html` — Homepage: hero, stats, 53-project gallery with category filtering + lightbox
+- `index.html` — Homepage: hero, stats, 54-project gallery with category filtering + lightbox
 - `features.html` — Feature deep-dive: search, filters, categories, live captures
 - `how-it-works.html` — How it works: 6-step workflow
 - `faq.html` — FAQ (design-loop iteration 1)
