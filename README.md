@@ -8,7 +8,7 @@
 
 This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 31, 2026**. Forks and private repositories are excluded.
 
-Over nine months: 53 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over nine months: 54 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,12 +110,12 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 53-card grid appears with a staggered entrance
+   immediately; the full 54-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`, `rag-learning-guide`) in real time — no network
    request, no reload.
-3. **User clicks** the "AI agents" filter pill. The grid updates to the 15
+3. **User clicks** the "AI agents" filter pill. The grid updates to the 16
    agent-related projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
@@ -141,7 +141,7 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 53 listed projects match the author's actual
+- **Data accuracy** — confirm the 54 listed projects match the author's actual
   public repositories in the October 2025 – July 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
@@ -194,7 +194,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guard to assert the 53-card count,
+3. **Expand the smoke test** — extend the CI guard to assert the 54-card count,
    link structure, and filter behaviour.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -213,7 +213,7 @@ personal-ai/
 
 - **Description**: Analyses photographs and gives coaching / improvement feedback.
 - **Approach**: AI-assisted visual critique that turns images into actionable feedback.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/ai-photo-coach/
 
 ### [echo-note](https://github.com/jellydn/echo-note)
 
@@ -249,7 +249,7 @@ personal-ai/
 
 - **Description**: Compares resumes with job descriptions using semantic / AI analysis.
 - **Approach**: Semantic matching between candidate profiles and job requirements.
-- **Demo**: Not ready yet.
+- **Demo**: https://smart-resume-matcher.itman.fyi/
 
 ### [rag-blog](https://github.com/jellydn/rag-blog)
 
@@ -313,11 +313,17 @@ personal-ai/
 - **Approach**: Small agent loop focused on tool execution and iteration.
 - **Demo**: Not ready yet.
 
+### [auto-testgen-nodejs](https://github.com/jellydn/auto-testgen-nodejs)
+
+- **Description**: AI-assisted unit-test generation for Node.js and TypeScript applications.
+- **Approach**: Uses Pythagora to turn source functions into generated unit tests.
+- **Demo**: https://gyazo.com/5563528f5b41d126257a573f84631097.gif
+
 ### [hermes-hub](https://github.com/jellydn/hermes-hub)
 
 - **Description**: Self-hosted Hermes Agent hub with personas, jobs, and delegated workflows.
 - **Approach**: Orchestrates agent workflows and scheduled execution.
-- **Demo**: Not ready yet.
+- **Demo**: https://hermes-hub.itman.fyi/
 
 ### [openralph](https://github.com/jellydn/openralph)
 
@@ -335,7 +341,7 @@ personal-ai/
 
 - **Description**: AI-assisted development and workflow orchestration.
 - **Approach**: Organises repeatable AI-assisted workflows around development tasks.
-- **Demo**: https://ai-flow-staging.itman.fyi/
+- **Demo**: https://ai-flow.itman.fyi/
 
 ### [ai-launcher](https://github.com/jellydn/ai-launcher)
 
@@ -415,19 +421,19 @@ personal-ai/
 
 - **Description**: VS Code integration for the SealCode workflow.
 - **Approach**: Extends the editor with workflow-specific AI coding support.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/vscode-seal-code/
 
 ### [pi-clinepass-provider](https://github.com/jellydn/pi-clinepass-provider)
 
 - **Description**: Pi model provider for ClinePass-compatible access.
 - **Approach**: Bridges provider access into coding-agent tooling.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/pi-clinepass-provider/
 
 ### [pi-qwencloud-provider](https://github.com/jellydn/pi-qwencloud-provider)
 
 - **Description**: Pi provider for Qwen Cloud models and token plans.
 - **Approach**: Adapts cloud model access for agent and coding workflows.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/pi-qwencloud-provider/
 
 ### [devlog](https://github.com/jellydn/devlog)
 

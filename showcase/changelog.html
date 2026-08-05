@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Changelog — personal-ai · What's New in the Tracker</title>
+<meta name="title" content="Changelog — personal-ai · What's New in the Tracker">
+<meta name="description" content="An honest, dated record of how the personal-ai tracker evolves — real shipped changes only, no placeholder dates, no coming-soon entries.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jellydn.github.io/personal-ai/showcase/changelog.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jellydn.github.io/personal-ai/showcase/changelog.html">
+<meta property="og:title" content="Changelog — personal-ai · What's New in the Tracker">
+<meta property="og:description" content="An honest, dated record of how the personal-ai tracker evolves — real shipped changes only.">
+<meta property="og:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://jellydn.github.io/personal-ai/showcase/changelog.html">
+<meta name="twitter:title" content="Changelog — personal-ai · What's New in the Tracker">
+<meta name="twitter:description" content="An honest, dated record of how the personal-ai tracker evolves — real shipped changes only.">
+<meta name="twitter:image" content="https://jellydn.github.io/personal-ai/showcase/screenshots/og-card.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Structured Data: CollectionPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://jellydn.github.io/personal-ai/showcase/changelog.html#page",
+  "url": "https://jellydn.github.io/personal-ai/showcase/changelog.html",
+  "name": "personal-ai — Changelog",
+  "description": "An honest, dated record of how the personal-ai tracker evolves — real shipped changes only.",
+  "inLanguage": "en",
+  "isPartOf": { "@id": "https://jellydn.github.io/personal-ai/showcase/#website" }
+}
+</script>
+<script>
+// Set theme before first paint to avoid a light-flash for dark-mode users
+(function () {
+  try {
+    var stored = localStorage.getItem("showcase-theme") || "light";
+    var t = stored === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : stored;
+    document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="color-scheme"]');
+    if (m) m.content = stored === "system" ? "light dark" : t;
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">⚡</span>
+      <span>personal-ai</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="changelog.html" class="active">Changelog</a>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="nav-actions">
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button data-theme-btn="light" class="active" aria-label="Light theme">☀</button>
+        <button data-theme-btn="dark" aria-label="Dark theme">☾</button>
+        <button data-theme-btn="system" aria-label="System theme">◐</button>
+      </div>
+      <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="nav-cta" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.545-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.654 1.654.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <span class="cta-label">View source</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </div>
+</nav>
+<main>
+
+<!-- Page hero -->
+<header class="hero hero-compact">
+  <div class="container">
+    <span class="badge">Changelog</span>
+    <h1>What's new in the <span class="accent">tracker</span>.</h1>
+    <p>One person, small real increments. Every entry below shipped to the live site — no placeholder dates, no "coming soon" items.</p>
+  </div>
+</header>
+
+<!-- Changelog -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Ship log</span>
+      <h2>Real changes, dated</h2>
+      <p>Newest first. Each entry records what actually landed, with the commit that shipped it — you can trace every line in the repository.</p>
+    </div>
+
+    <div class="changelog-list">
+      <article class="changelog-entry">
+        <div class="entry-meta">
+          <span class="date-badge">2026-08-01</span>
+          <span class="entry-hash">545c18d · c2f89fc · 64ba995</span>
+        </div>
+        <h3>Contact page, and a guard for the interaction layer</h3>
+        <ul>
+          <li>Contact page with three real channels — GitHub issues, a noreply email that genuinely reaches the inbox, and the YouTube channel. No contact forms that go nowhere.</li>
+          <li>Headless smoke test for the lightbox and mobile-nav behaviour — 34 assertions driving the real app.js IIFEs against a mocked DOM, wired into every Pages deploy.</li>
+        </ul>
+      </article>
+
+      <article class="changelog-entry">
+        <div class="entry-meta">
+          <span class="date-badge">2026-08-01</span>
+          <span class="entry-hash">4df77c4 · 261249a · f4dce58</span>
+        </div>
+        <h3>Blog index, and a guard for the theme toggle</h3>
+        <ul>
+          <li>Blog index page with an honest "first post coming soon" state and a teaser grid of planned topics — no fake articles.</li>
+          <li>Headless theme-toggle smoke test — system-preference resolution, storage-blocked session switching, and active-button state — run by CI on every deploy.</li>
+        </ul>
+      </article>
+
+      <article class="changelog-entry">
+        <div class="entry-meta">
+          <span class="date-badge">2026-08-01</span>
+          <span class="entry-hash">f3acf4f</span>
+        </div>
+        <h3>FAQ page, and a guard for the catalog</h3>
+        <ul>
+          <li>FAQ page with native <code>&lt;details&gt;</code> accordions — no JavaScript required, works with the site's progressive-enhancement rule.</li>
+          <li>Web-standards pass across the showcase: focus-visible outlines, reduced layout shift, smoother transitions.</li>
+          <li>CI guard (scripts/check-category-config.js) asserting every category in the 54-project catalog has a style row — future additions can't silently mis-style.</li>
+        </ul>
+      </article>
+
+      <article class="changelog-entry">
+        <div class="entry-meta">
+          <span class="date-badge">2026-08-01</span>
+          <span class="entry-hash">1d28e4c · dadd2c6</span>
+        </div>
+        <h3>Shared JavaScript, and a recorded decision</h3>
+        <ul>
+          <li>Deduplicated the showcase's inline scripts into one scoped app.js (theme, mobile nav, lightbox) shared across every page — recorded as ADR-0005, with chrome duplication flagged as a deliberate, revisit-later trade-off.</li>
+          <li>README and demo script rewritten to document the tracker honestly — including the rule that forked repositories are not added (docs polish shipped separately in dadd2c6).</li>
+        </ul>
+      </article>
+
+      <article class="changelog-entry">
+        <div class="entry-meta">
+          <span class="date-badge">2026-08-01</span>
+          <span class="entry-hash">98c6144</span>
+        </div>
+        <h3>SEO, and the live-captures gallery</h3>
+        <ul>
+          <li>Branded OG share card (1200×630), per-page canonical URLs and meta, plus sitemap.xml for the showcase pages.</li>
+          <li>Live-captures gallery with an accessible lightbox — focus returns to the trigger, captions double as alt text, and the dialog is a native <code>&lt;dialog&gt;</code>.</li>
+          <li>The 54-project catalog with category filtering, search, and dark mode.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- How the tracker stays honest -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Under the hood</span>
+      <h2>How the tracker stays honest</h2>
+      <p>A few straight answers about where the data comes from and how the site reaches your browser.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Where do the 54 projects come from?</summary>
+        <p>They're curated by the author — real, runnable, open-source projects built over nine months with AI assistance. Each one links to a repository you can fork and run yourself. The README explicitly states that forked repositories are not added, so the catalog only ever contains original work.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is the site deployed?</summary>
+        <p>GitHub Actions builds and deploys the repository to GitHub Pages — buildless by design, per ADR-0002. Every deploy runs the CI guards (category completeness, theme toggle, lightbox and mobile-nav behaviour) before the site goes live, so a broken change can't ship silently.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why do you keep a changelog at all?</summary>
+        <p>Because the whole point of the site is real work, not demos. A dated, traceable record means you can see exactly how the tracker has evolved — and verify any claim here against the repository history.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>See the code behind these notes</h2>
+      <p>Every entry in this changelog is a commit you can read — no marketing timeline, just the repository.</p>
+      <div class="cta-actions">
+        <a href="features.html" class="btn btn-white">Browse the 54 projects</a>
+        <a href="https://github.com/jellydn/personal-ai" target="_blank" rel="noopener" class="btn btn-outline-white">Open the tracker</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made by <a href="https://productsway.com" target="_blank" rel="noopener"><strong>Dung Huynh</strong></a> · Built with AI assistance</p>
+    <div class="footer-links">
+      <a href="https://github.com/jellydn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.youtube.com/@it-man" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://ko-fi.com/dunghd" target="_blank" rel="noopener">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

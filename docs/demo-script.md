@@ -11,7 +11,7 @@ does or whether it runs.
 
 ## User action
 
-Open the portfolio site. The homepage loads instantly — 53 projects across four
+Open the portfolio site. The homepage loads instantly — 54 projects across four
 categories with a hero summary and live filter bar.
 
 ## System behaviour
@@ -19,20 +19,20 @@ categories with a hero summary and live filter bar.
 - The page renders a responsive card grid, each card showing the project name, a
   one-line description, the engineering approach, and a demo link when one
   exists.
-- Click the "AI agents" category pill: the grid updates to the 15 AI-agent
+- Click the "AI agents" category pill: the grid updates to the 16 AI-agent
   projects in real time, with no page reload.
 - Type `rag` in the filter box: the grid narrows to the matching projects
   (`rag-blog`, `rag-learning-guide`) to demonstrate text search.
 - Click the "Dev tools" filter pill: the grid updates to 17 developer-tool
   projects, each with a category-colored left border.
-- Clear the filter to return to all 53 projects. An empty-state message appears
+- Clear the filter to return to all 54 projects. An empty-state message appears
   if a search matches nothing.
 
 ## Result
 
 A visitor can understand nine months of original open-source AI work in under a
 minute — what was built, how it was approached, and where to try it — without
-reading 53 separate READMEs.
+reading 54 separate READMEs.
 
 ## Engineering highlights
 

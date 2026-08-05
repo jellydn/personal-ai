@@ -37,6 +37,7 @@ Update this when a page is successfully generated.
 - [x] `showcase/faq.html` — FAQ: questions about the tracker, AI-built projects, open source (design-loop iteration 1)
 - [x] `showcase/blog.html` — Blog index: honest "first post coming soon" state + planned-topics teaser grid (design-loop iteration 2)
 - [x] `showcase/contact.html` — Contact/support: 3 real-channel cards (GitHub issues, noreply email, YouTube), "Before you reach out" accordion, CTA (design-loop iteration 3)
+- [x] `showcase/changelog.html` — Changelog: honest dated ship log with commit hashes, "How the tracker stays honest" accordion, CTA (design-loop iteration 4)
 
 ## 5. Roadmap (Backlog)
 
@@ -53,8 +54,7 @@ When the roadmap is empty, follow these guidelines to add pages:
 3. **Naming convention** — lowercase, descriptive filenames (e.g. `faq.html`)
 
 ### Ideas to Explore
-- [ ] `changelog.html` — How the tracker itself is built/updated
-- [ ] Individual blog post template (once the first post exists)
+- [ ] Individual blog post template (only once the first real post exists — the site ships "real things, not demos", so no placeholder posts)
 
 ## 7. Rules of Engagement
 
