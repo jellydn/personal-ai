@@ -13,80 +13,10 @@
 
 const fs = require("fs");
 const path = require("path");
+const { extractIIFE } = require("./lib/extract-iife");
 
 const file = path.resolve(process.argv[2] || "showcase/app.js");
 const src = fs.readFileSync(file, "utf8");
-
-// Extract a balanced `(function () { ... })();` block starting after a marker
-// comment. The IIFE is self-contained (both only touch `document`), so it can
-// be evaluated against a minimal mock in a fresh scope — no DOM library needed.
-function extractIIFE(src, marker, label) {
-  const start = src.indexOf(marker);
-  if (start === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: missing ${JSON.stringify(marker)} marker`);
-  }
-  let i = src.indexOf("(function () {", start);
-  if (i === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: cannot extract ${label} IIFE`);
-  }
-  let depth = 0;
-  let quote = null; // null | '"' | "'" | "`"
-  let comment = null; // null | "//" | "/*"
-  let j = i;
-  for (; j < src.length; j++) {
-    const ch = src[j];
-    const next = src[j + 1];
-
-    if (comment === "//") {
-      if (ch === "\n") comment = null;
-      continue;
-    }
-    if (comment === "/*") {
-      if (ch === "*" && next === "/") {
-        comment = null;
-        j++;
-      }
-      continue;
-    }
-    if (quote) {
-      if (ch === "\\") {
-        j++;
-      } else if (ch === quote) {
-        quote = null;
-      }
-      continue;
-    }
-    if (ch === "/" && next === "/") {
-      comment = "//";
-      j++;
-      continue;
-    }
-    if (ch === "/" && next === "*") {
-      comment = "/*";
-      j++;
-      continue;
-    }
-    if (ch === '"' || ch === "'" || ch === "`") {
-      quote = ch;
-      continue;
-    }
-    if (ch === "{") {
-      depth++;
-    } else if (ch === "}") {
-      depth--;
-      if (depth === 0) {
-        // Skip past `})();` — the IIFE call and terminator
-        const end = src.indexOf("})();", j);
-        if (end === -1) {
-          throw new Error(`${path.relative(process.cwd(), file)}: cannot find ${label} IIFE terminator`);
-        }
-        j = end + "})();".length;
-        break;
-      }
-    }
-  }
-  return src.slice(i, j);
-}
 
 // ---- Minimal mock DOM -----------------------------------------------------
 
@@ -140,7 +70,7 @@ function runMobileNav({ hamburgerPresent, navLinksPresent }) {
       return null;
     },
   };
-  runIIFE(extractIIFE(src, "// Mobile nav", "mobile nav"), document);
+  runIIFE(extractIIFE(src, "// Mobile nav", "mobile nav", file), document);
   return { hamburger, navLinks };
 }
 
@@ -203,7 +133,7 @@ function runLightbox({ lbPresent, lbImgPresent, lbCapPresent, closeBtnPresent, t
     },
     body,
   };
-  runIIFE(extractIIFE(src, "// Gallery lightbox", "gallery lightbox"), document);
+  runIIFE(extractIIFE(src, "// Gallery lightbox", "gallery lightbox", file), document);
   return { lb, lbImg, lbCap, closeBtn, body };
 }
 

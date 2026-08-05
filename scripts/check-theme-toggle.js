@@ -11,80 +11,10 @@
 
 const fs = require("fs");
 const path = require("path");
+const { extractIIFE } = require("./lib/extract-iife");
 
 const file = path.resolve(process.argv[2] || "showcase/app.js");
 const src = fs.readFileSync(file, "utf8");
-
-// Extract the balanced `(function () { ... })();` theme block. The IIFE is
-// self-contained (touches only document, localStorage, matchMedia), so it can
-// be evaluated against a minimal mock in a fresh scope — no DOM library needed.
-function extractThemeIIFE(src) {
-  const start = src.indexOf("// Dark mode (light / dark / system)");
-  if (start === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: missing "// Dark mode" theme IIFE marker`);
-  }
-  let i = src.indexOf("(function () {", start);
-  if (i === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: cannot extract theme IIFE`);
-  }
-  let depth = 0;
-  let quote = null; // null | '"' | "'" | "`"
-  let comment = null; // null | "//" | "/*"
-  let j = i;
-  for (; j < src.length; j++) {
-    const ch = src[j];
-    const next = src[j + 1];
-
-    if (comment === "//") {
-      if (ch === "\n") comment = null;
-      continue;
-    }
-    if (comment === "/*") {
-      if (ch === "*" && next === "/") {
-        comment = null;
-        j++;
-      }
-      continue;
-    }
-    if (quote) {
-      if (ch === "\\") {
-        j++;
-      } else if (ch === quote) {
-        quote = null;
-      }
-      continue;
-    }
-    if (ch === "/" && next === "/") {
-      comment = "//";
-      j++;
-      continue;
-    }
-    if (ch === "/" && next === "*") {
-      comment = "/*";
-      j++;
-      continue;
-    }
-    if (ch === '"' || ch === "'" || ch === "`") {
-      quote = ch;
-      continue;
-    }
-    if (ch === "{") {
-      depth++;
-    } else if (ch === "}") {
-      depth--;
-      if (depth === 0) {
-        // Skip past `})();` — the IIFE call and terminator
-        const end = src.indexOf("})();", j);
-        if (end === -1) {
-          throw new Error(`${path.relative(process.cwd(), file)}: cannot find theme IIFE terminator`);
-        }
-        j = end + "})();".length;
-        break;
-      }
-    }
-  }
-  return src.slice(i, j);
-}
 
 // ---- Minimal mock DOM -----------------------------------------------------
 function makeButtons() {
@@ -154,7 +84,7 @@ function runThemeIIFE({ stored, storageThrows, systemDark }) {
   // The IIFE is already a complete statement ending in `();` — it is the
   // function body, so the mock globals resolve to the declared parameters.
   // eslint-disable-next-line no-new-func
-  const factory = new Function("document", "localStorage", "matchMedia", extractThemeIIFE(src));
+  const factory = new Function("document", "localStorage", "matchMedia", extractIIFE(src, "// Dark mode (light / dark / system)", "theme", file));
   factory(document, localStorage, matchMedia);
 
   return {
