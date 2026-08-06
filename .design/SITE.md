@@ -7,7 +7,7 @@
 | Field | Value |
 |-------|-------|
 | **Project Name** | personal-ai — AI Portfolio & Showcase |
-| **Mission** | Showcase 41 real, runnable, forkable open-source projects built with AI over 9 months, and market the live portfolio tracker |
+| **Mission** | Showcase 40 real, runnable, forkable open-source projects built with AI over 9 months, and market the live portfolio tracker |
 | **Target Audience** | Developers evaluating AI-assisted development; recruiters; open-source explorers |
 | **Voice & Tone** | Warm, confident, understated — "real things, not demos"; technical but friendly |
 | **Region** | Global (English, en-US spellings) |
@@ -50,7 +50,7 @@ _Empty — all planned pages are live. See Ideas below._
 When the roadmap is empty, follow these guidelines to add pages:
 
 1. **Stay on-brand** — new pages must fit the established vibe
-2. **Enhance the core** — support the site mission (41 projects, AI-built, open source)
+2. **Enhance the core** — support the site mission (40 projects, AI-built, open source)
 3. **Naming convention** — lowercase, descriptive filenames (e.g. `faq.html`)
 
 ### Ideas to Explore
