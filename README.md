@@ -146,11 +146,14 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
 
-A CI guard ([`scripts/check-category-config.js`](scripts/check-category-config.js))
-verifies every project category in `index.html` has a style definition, so future
-catalog additions can't silently mis-style. A future improvement is a fuller smoke
-test asserting the project count and link structure (see [Limitations](#limitations)
-and [Future improvements](#future-improvements)).
+CI guards in [`scripts/`](scripts/) verify the catalog stays consistent:
+[`check-catalog-parity.js`](scripts/check-catalog-parity.js) keeps the README and
+`index.html` project list in sync, [`check-category-config.js`](scripts/check-category-config.js)
+ensures every category has a style definition, and
+[`check-demo-links.js`](scripts/check-demo-links.js) HEAD-checks every demo URL
+and fails on dead links, expired preview deployments, or login walls. A future
+improvement is a fuller smoke test asserting the project count and filter
+behaviour (see [Limitations](#limitations) and [Future improvements](#future-improvements)).
 
 ## 📁 Project structure
 
@@ -159,7 +162,9 @@ personal-ai/
 ├── index.html                 # Root portfolio: markup, styles, data, and logic
 ├── showcase/                  # Dedicated marketing site (index, features, how-it-works, FAQ)
 ├── scripts/
-│   └── check-category-config.js   # CI guard: category ↔ style completeness
+│   ├── check-catalog-parity.js    # CI guard: README ↔ catalog parity
+│   ├── check-category-config.js   # CI guard: category ↔ style completeness
+│   └── check-demo-links.js        # CI guard: demo URLs are live (no login walls)
 ├── docs/
 │   ├── demo-script.md         # 30–60 second demo recording script
 │   └── images/
@@ -177,8 +182,9 @@ personal-ai/
 - **Static data** — the project list is hardcoded in `index.html`. Adding or
   updating a project means editing the HTML and redeploying; there is no CMS or
   data file to edit separately.
-- **Minimal automated checks** — the CI guard covers category styling only;
-  regressions elsewhere are caught only by manual review.
+- **Minimal automated checks** — CI guards cover catalog parity, category
+  styling, and demo-link liveness; other regressions are caught only by manual
+  review.
 - **CDN dependency** — Tailwind CSS and Google Fonts are loaded from CDNs, so the
   site requires an internet connection to render with full styling.
 - **No live repo metadata** — stars, last-updated dates, and descriptions are not
@@ -194,8 +200,8 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guard to assert the 40-card count,
-   link structure, and filter behaviour.
+3. **Expand the smoke test** — extend the CI guards to assert the 40-card count
+   and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
 5. **Per-project detail pages** — deep links with a short summary, tech stack,
