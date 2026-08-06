@@ -8,7 +8,7 @@
 
 This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 31, 2026**. Forks and private repositories are excluded.
 
-Over nine months: 54 public projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over nine months: 41 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,7 +110,7 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 54-card grid appears with a staggered entrance
+   immediately; the full 41-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`, `rag-learning-guide`) in real time — no network
@@ -141,7 +141,7 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 54 listed projects match the author's actual
+- **Data accuracy** — confirm the 41 listed projects match the author's actual
   public repositories in the October 2025 – July 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
@@ -194,7 +194,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guard to assert the 54-card count,
+3. **Expand the smoke test** — extend the CI guard to assert the 41-card count,
    link structure, and filter behaviour.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -207,7 +207,7 @@ personal-ai/
 
 - **Description**: Substantial user-facing application — a clear example of a complete product built with AI assistance.
 - **Approach**: Full web application with AI-assisted development across the product.
-- **Demo**: https://gyazo.com/95dc23363c754bd58a902318726fd911.gif
+- **Demo**: https://jellydn.github.io/oak/
 
 ### [ai-photo-coach](https://github.com/jellydn/ai-photo-coach)
 
@@ -225,7 +225,7 @@ personal-ai/
 
 - **Description**: Writing application designed for younger learners.
 - **Approach**: Simple educational writing experience built with AI-assisted development.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/little-writing/
 
 ### [tiny-pomodoro](https://github.com/jellydn/tiny-pomodoro)
 
@@ -237,13 +237,13 @@ personal-ai/
 
 - **Description**: Developer web UI for managing or inspecting Docker-related resources.
 - **Approach**: Browser-based workflow for Docker inspection and management.
-- **Demo**: Not ready yet.
+- **Demo**: https://docklight.itman.fyi/
 
 ### [ai-smart-gmail](https://github.com/jellydn/ai-smart-gmail)
 
 - **Description**: AI-assisted Gmail organisation and email processing.
 - **Approach**: Applies AI to triage and interpret email content.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/ai-smart-gmail/lessons/0001-what-is-an-embedding.html
 
 ### [smart-resume-matcher](https://github.com/jellydn/smart-resume-matcher)
 
@@ -255,7 +255,7 @@ personal-ai/
 
 - **Description**: Retrieval-augmented generation grounded in blog content.
 - **Approach**: Retrieves relevant passages before generating answers.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/rag-blog/
 
 ### [logpilot](https://github.com/jellydn/logpilot)
 
@@ -285,7 +285,7 @@ personal-ai/
 
 - **Description**: Sell in a snap — the fastest way for creators to sell digital products online.
 - **Approach**: Focused storefront workflow for digital goods.
-- **Demo**: Not ready yet.
+- **Demo**: https://store.itman.fyi
 
 ### [prosody](https://github.com/jellydn/prosody)
 
@@ -298,12 +298,6 @@ personal-ai/
 - **Description**: Paste a Twitter/X link → preview → download as a clean PDF.
 - **Approach**: Turns tweet threads into readable, printable documents.
 - **Demo**: https://twt-print.itman.fyi/
-
-### [VoiceInk](https://github.com/jellydn/VoiceInk)
-
-- **Description**: Voice-to-text app for macOS that transcribes what you say almost instantly.
-- **Approach**: Native low-latency transcription on demand.
-- **Demo**: Not ready yet.
 
 ## 🤖 AI agents & AI apps
 
@@ -325,12 +319,6 @@ personal-ai/
 - **Approach**: Orchestrates agent workflows and scheduled execution.
 - **Demo**: https://hermes-hub.itman.fyi/
 
-### [openralph](https://github.com/jellydn/openralph)
-
-- **Description**: Autonomous Ralph-style coding loop with OpenCode support.
-- **Approach**: Runs an autonomous coding cycle around an AI agent and coding toolchain.
-- **Demo**: Not ready yet.
-
 ### [my-ai-tools](https://github.com/jellydn/my-ai-tools)
 
 - **Description**: Portable workspace for AI coding agents, skills, memory, and MCP configs.
@@ -347,48 +335,12 @@ personal-ai/
 
 - **Description**: Launcher for accessing and managing AI coding tools.
 - **Approach**: Centralises access to multiple coding assistants and tools.
-- **Demo**: Not ready yet.
+- **Demo**: https://ai-cli.itman.fyi/
 
 ### [tiny-local-ai](https://github.com/jellydn/tiny-local-ai)
 
 - **Description**: Minimal environment for experimenting with locally hosted models.
 - **Approach**: Lightweight local setup for model testing and iteration.
-- **Demo**: Not ready yet.
-
-### [9router](https://github.com/jellydn/9router)
-
-- **Description**: Unlimited FREE AI coding — connect Claude Code, Codex, Cursor, Cline, Copilot, and Antigravity to free Claude/GPT/Gemini models.
-- **Approach**: Routes multiple coding assistants through free model backends.
-- **Demo**: https://9router.com/
-
-### [TelePi](https://github.com/jellydn/TelePi)
-
-- **Description**: Telegram bridge for the Pi coding agent — continue sessions from your phone.
-- **Approach**: Brings voice, images, and handback control to Pi over Telegram.
-- **Demo**: Not ready yet.
-
-### [clawdbot](https://github.com/jellydn/clawdbot)
-
-- **Description**: Your own personal AI assistant. Any OS. Any platform.
-- **Approach**: Self-hosted personal assistant built around an agent runtime.
-- **Demo**: Not ready yet.
-
-### [ccs](https://github.com/jellydn/ccs)
-
-- **Description**: Switch between Claude accounts, Gemini, Copilot, and OpenRouter (300+ models) via a CLIProxyAPI OAuth proxy.
-- **Approach**: Visual profile switcher for multiple AI CLI backends.
-- **Demo**: Not ready yet.
-
-### [mdflow](https://github.com/jellydn/mdflow)
-
-- **Description**: Multi-backend CLI for executable markdown prompts.
-- **Approach**: Runs .md prompt files against Claude, Codex, Gemini, or Copilot.
-- **Demo**: Not ready yet.
-
-### [claude-mem](https://github.com/jellydn/claude-mem)
-
-- **Description**: A Claude Code plugin that automatically captures everything Claude does during coding sessions.
-- **Approach**: Compresses and stores session memory for continuity across runs.
 - **Demo**: Not ready yet.
 
 ### [flue-repo-assistant](https://github.com/jellydn/flue-repo-assistant)
@@ -471,40 +423,16 @@ personal-ai/
 - **Approach**: Streamlines setup and installation into a simpler flow.
 - **Demo**: Not ready yet.
 
-### [opencode-clinepass-provider](https://github.com/jellydn/opencode-clinepass-provider)
-
-- **Description**: ClinePass provider plugin for Opencode.
-- **Approach**: Authenticates opencode via Cline Pass (CLI subscription or static API key).
-- **Demo**: Not ready yet.
-
 ### [opencode-qwencloud-provider](https://github.com/jellydn/opencode-qwencloud-provider)
 
 - **Description**: QwenCloud provider config for opencode.
 - **Approach**: Adds Qwen3.8/3.7/3.6, DeepSeek V4, and GLM-5.2 via QwenCloud's OpenAI-compatible API.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/opencode-qwencloud-provider/
 
 ### [pi-agy-provider](https://github.com/jellydn/pi-agy-provider)
 
 - **Description**: Pi provider for Google Antigravity.
 - **Approach**: Bridges Google Antigravity into pi agent tooling.
-- **Demo**: Not ready yet.
-
-### [pi-fireworks-provider](https://github.com/jellydn/pi-fireworks-provider)
-
-- **Description**: Pi provider for Fireworks.
-- **Approach**: Adds Fireworks-hosted models to pi agent tooling.
-- **Demo**: Not ready yet.
-
-### [vscode-whichkey](https://github.com/jellydn/vscode-whichkey)
-
-- **Description**: which-key style menu for Visual Studio Code.
-- **Approach**: Shows available key sequences inline while typing chords.
-- **Demo**: Not ready yet.
-
-### [herdr-file-viewer](https://github.com/jellydn/herdr-file-viewer)
-
-- **Description**: A git-aware, read-only file viewer for herdr.
-- **Approach**: Mouse-friendly, keyboard-driven TUI with tree + content panes.
 - **Demo**: Not ready yet.
 
 ## 📚 Learning & experiments
@@ -519,12 +447,6 @@ personal-ai/
 
 - **Description**: Exercises and notes for learning production RAG.
 - **Approach**: Teaches RAG through examples and guided practice.
-- **Demo**: Not ready yet.
-
-### [99](https://github.com/jellydn/99)
-
-- **Description**: Experimental / challenge-based development project.
-- **Approach**: Exploration-oriented repository for iterative experimentation.
 - **Demo**: Not ready yet.
 
 ### [daily-exercism-quad](https://github.com/jellydn/daily-exercism-quad)

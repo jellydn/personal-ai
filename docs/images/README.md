@@ -30,14 +30,14 @@ and the first two rows of project cards.
 ## Sample input
 
 No input is required. For an alternative shot, click the **"AI agents"** filter
-pill to show only the AI-agent category (16 cards). This demonstrates category
+pill to show only the AI-agent category (9 cards). This demonstrates category
 filtering. To demonstrate text search instead, type `rag` in the filter box to
 narrow to the RAG-related projects.
 
 ## Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **17 web apps**, **16 AI agents**, **17 dev tools**, **4 experiments**.
+- Stat badges: **16 web apps**, **9 AI agents**, **13 dev tools**, **3 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
