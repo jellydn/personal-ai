@@ -26,6 +26,8 @@ jobs:
         run: node scripts/check-catalog-parity.js
       - name: Verify category config completeness
         run: node scripts/check-category-config.js
+      - name: Verify demo links are live
+        run: node scripts/check-demo-links.js
       - name: Verify theme toggle behavior
         run: node scripts/check-theme-toggle.js
       - name: Verify lightbox and mobile nav behavior
