@@ -8,7 +8,7 @@
 
 This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 31, 2026**. Forks and private repositories are excluded.
 
-Over nine months: 41 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over nine months: 40 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,10 +110,10 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 41-card grid appears with a staggered entrance
+   immediately; the full 40-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
-   matching projects (`rag-blog`, `rag-learning-guide`) in real time — no network
+   matching projects (`rag-blog`) in real time — no network
    request, no reload.
 3. **User clicks** the "AI agents" filter pill. The grid updates to the 16
    agent-related projects.
@@ -141,7 +141,7 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 41 listed projects match the author's actual
+- **Data accuracy** — confirm the 40 listed projects match the author's actual
   public repositories in the October 2025 – July 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
@@ -194,7 +194,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guard to assert the 41-card count,
+3. **Expand the smoke test** — extend the CI guard to assert the 40-card count,
    link structure, and filter behaviour.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -343,11 +343,11 @@ personal-ai/
 - **Approach**: Lightweight local setup for model testing and iteration.
 - **Demo**: Not ready yet.
 
-### [flue-repo-assistant](https://github.com/jellydn/flue-repo-assistant)
+### [flowly](https://github.com/jellydn/flowly)
 
 - **Description**: Repository analysis agent powered by Flue.
 - **Approach**: Analyses a repo and produces structured findings via an agent loop.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/flowly/
 
 ### [prompt-bench](https://github.com/jellydn/prompt-bench)
 
@@ -367,7 +367,7 @@ personal-ai/
 
 - **Description**: VS Code tool for multiplexing terminals or coding sessions.
 - **Approach**: Organises concurrent terminals and coding workflows inside the editor.
-- **Demo**: Not ready yet.
+- **Demo**: https://gyazo.com/758e3521de6079f91d05b4b900b05573.gif
 
 ### [vscode-seal-code](https://github.com/jellydn/vscode-seal-code)
 
@@ -443,11 +443,6 @@ personal-ai/
 - **Approach**: Breaks AI architecture learning into hands-on weekly milestones.
 - **Demo**: Not ready yet.
 
-### [rag-learning-guide](https://github.com/jellydn/rag-learning-guide)
-
-- **Description**: Exercises and notes for learning production RAG.
-- **Approach**: Teaches RAG through examples and guided practice.
-- **Demo**: Not ready yet.
 
 ### [daily-exercism-quad](https://github.com/jellydn/daily-exercism-quad)
 

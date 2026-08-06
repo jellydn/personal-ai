@@ -37,7 +37,7 @@ narrow to the RAG-related projects.
 ## Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **16 web apps**, **9 AI agents**, **13 dev tools**, **3 experiments**.
+- Stat badges: **16 web apps**, **9 AI agents**, **13 dev tools**, **2 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
