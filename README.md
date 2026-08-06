@@ -279,7 +279,7 @@ personal-ai/
 
 - **Description**: Side-by-side comparison of streaming vs non-streaming AI chat responses.
 - **Approach**: Measures how streaming improves perceived latency and UX.
-- **Demo**: https://2026-07-10-ai-chat-stream-demo-87r7as49y-itman.vercel.app
+- **Demo**: Not ready yet.
 
 ### [sellsnap](https://github.com/jellydn/sellsnap)
 
