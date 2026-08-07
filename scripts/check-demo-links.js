@@ -1,13 +1,18 @@
 #!/usr/bin/env node
-// Demo-link guard: every non-null demo URL in the projects array must respond
-// with a successful status (2xx/3xx after following redirects) and must not
-// land on a login wall or an expired preview deployment. Wired into CI so dead
-// or private destinations are caught before the site ships — the exact failure
+// Demo-link guard: every non-null demo URL in the catalog's projects array and
+// every absolute http(s) anchor in the showcase pages (except author/social
+// footer hosts, see SKIPPED_HOSTS) must respond with a successful status
+// (2xx/3xx after following redirects) and must not land on a login wall or an
+// expired preview deployment. Wired into CI so dead or private destinations
+// are caught before the site ships — the exact failure
 // mode that previously took down the streaming-chat-demo link (an expired
 // Vercel preview redirecting to vercel.com/login).
 //
-// Usage: node scripts/check-demo-links.js [path-to-index.html]
-// Defaults to ./index.html. Exits non-zero with a message on any dead link.
+// Usage: node scripts/check-demo-links.js [catalog.html] [content.html ...]
+// Defaults to ./index.html as the catalog and showcase/index.html +
+// showcase/features.html as content. Content pages are scanned for anchor
+// hrefs, which covers demo links referenced in showcase copy plus the
+// GitHub/author links there. Exits non-zero with a message on any dead link.
 "use strict";
 
 const fs = require("fs");
@@ -15,8 +20,14 @@ const path = require("path");
 const http = require("http");
 const https = require("https");
 
-const file = path.resolve(process.argv[2] || "index.html");
-const src = fs.readFileSync(file, "utf8");
+const DEFAULT_CONTENT_FILES = ["showcase/index.html", "showcase/features.html"];
+
+// Footer author/social links in the showcase pages are not demo or repo
+// destinations, so they must not gate deploys. ko-fi.com in particular sits
+// behind Cloudflare bot protection that returns 403 to some automated clients
+// (observed: 403 for curl with a browser UA while the node client gets 200),
+// so its status varies by client fingerprint and is unreliable from CI.
+const SKIPPED_HOSTS = new Set(["ko-fi.com", "www.youtube.com", "youtube.com", "productsway.com"]);
 
 const MAX_REDIRECTS = 5;
 const TIMEOUT_MS = 15000;
@@ -24,11 +35,11 @@ const CONCURRENCY = 6;
 
 // Extract a balanced JS array literal after `const projects =`, tolerating
 // strings, comments, and nested brackets. Mirrors the parity guard's scanner.
-function extractProjects(html) {
+function extractProjects(html, label) {
   const marker = "const projects =";
   const start = html.indexOf(marker);
   if (start === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: missing ${marker}`);
+    throw new Error(`${label}: missing ${marker}`);
   }
   const open = html.indexOf("[", start);
   let depth = 0;
@@ -75,7 +86,7 @@ function extractProjects(html) {
     }
   }
   if (end === -1) {
-    throw new Error(`${path.relative(process.cwd(), file)}: unterminated projects array`);
+    throw new Error(`${label}: unterminated projects array`);
   }
   // Data-only literal (no DOM, no calls) — safe to evaluate in a fresh scope.
   // eslint-disable-next-line no-new-func
@@ -217,33 +228,89 @@ async function runPool(tasks, concurrency) {
   return results;
 }
 
+// Extract the absolute http(s) hrefs from a content page's anchors. Relative
+// links (internal pages, assets, fragments) and mailto: are intentionally
+// skipped — only clickable external destinations are demo candidates.
+function extractAnchors(html) {
+  const urls = new Set();
+  const re = /href\s*=\s*["'](https?:\/\/[^"']+)["']/gi;
+  let m;
+  while ((m = re.exec(html))) urls.add(m[1]);
+  return [...urls];
+}
+
+// Exclude author/social footer links (see SKIPPED_HOSTS) from the deploy gate.
+// Matches the host exactly or as a subdomain (e.g. m.ko-fi.com) so a future
+// link can't reintroduce the client-fingerprint 403 failure this exists to
+// prevent.
+function isSkippedHost(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return SKIPPED_HOSTS.has(host) || [...SKIPPED_HOSTS].some((h) => host.endsWith("." + h));
+  } catch {
+    return false;
+  }
+}
+
+// HEAD-check one batch of URL entries ({ label, url }) and record failures in
+// the shared array, mirroring the failure shape the watchdog workflow parses.
+async function checkUrls(entries, failures) {
+  await runPool(
+    entries.map((e) => async () => {
+      const pre = isUnreachableAddress(e.url)
+        ? { status: "ERR:private-address", finalUrl: e.url }
+        : await check(e.url);
+      const ok = typeof pre.status === "number" && pre.status >= 200 && pre.status < 400 && !pre.wall;
+      const mark = ok ? "✓" : "✗";
+      console.log(
+        `${mark} ${String(pre.status).padEnd(18)} ${String(e.label).padEnd(26)} ${e.url}${pre.wall ? "  → login wall: " + pre.finalUrl : ""}`
+      );
+      if (!ok) failures.push({ name: e.label, demo: e.url, result: pre });
+    }),
+    CONCURRENCY
+  );
+}
+
 (async () => {
-  const projects = extractProjects(src);
+  const catalogFile = path.resolve(process.argv[2] || "index.html");
+  const contentFiles = (process.argv.slice(3).length ? process.argv.slice(3) : DEFAULT_CONTENT_FILES).map((f) =>
+    path.resolve(f)
+  );
+  const catalogLabel = path.relative(process.cwd(), catalogFile);
+
+  const projects = extractProjects(fs.readFileSync(catalogFile, "utf8"), catalogLabel);
   const demos = projects
     .map((p) => ({ name: p.name, demo: p.demo }))
     .filter((p) => typeof p.demo === "string" && p.demo.length > 0);
 
-  console.log(`demo-link guard: checking ${demos.length} demo link(s) from ${projects.length} projects`);
-
   const failures = [];
-  await runPool(
-    demos.map((p) => async () => {
-      const pre = isUnreachableAddress(p.demo)
-        ? { status: "ERR:private-address", finalUrl: p.demo }
-        : await check(p.demo);
-      const ok = typeof pre.status === "number" && pre.status >= 200 && pre.status < 400 && !pre.wall;
-      const mark = ok ? "✓" : "✗";
-      console.log(
-        `${mark} ${String(pre.status).padEnd(18)} ${p.name.padEnd(26)} ${p.demo}${pre.wall ? "  → login wall: " + pre.finalUrl : ""}`
-      );
-      if (!ok) failures.push({ name: p.name, demo: p.demo, result: pre });
-    }),
-    CONCURRENCY
+
+  console.log(`demo-link guard: checking ${demos.length} catalog demo link(s) from ${projects.length} projects`);
+  await checkUrls(
+    demos.map((p) => ({ label: p.name, url: p.demo })),
+    failures
   );
+
+  let contentTotal = 0;
+  for (const f of contentFiles) {
+    const anchors = extractAnchors(fs.readFileSync(f, "utf8"));
+    const rel = path.relative(process.cwd(), f);
+    const checked = anchors.filter((u) => !isSkippedHost(u));
+    const skipped = anchors.length - checked.length;
+    contentTotal += checked.length;
+    console.log(
+      `demo-link guard: checking ${checked.length} external link(s) in ${rel}` +
+        (skipped ? ` (skipping ${skipped} author/social link(s))` : "")
+    );
+    await checkUrls(
+      checked.map((u) => ({ label: rel, url: u })),
+      failures
+    );
+  }
 
   if (failures.length > 0) {
     console.error(
-      `\ndemo-link guard FAILED: ${failures.length} of ${demos.length} demo link(s) are dead or unreachable:`
+      `\ndemo-link guard FAILED: ${failures.length} of ${demos.length + contentTotal} link(s) are dead or unreachable:`
     );
     for (const f of failures) {
       console.error(`  - ${f.name}: ${f.demo} → ${f.result.status}${f.result.wall ? " (login wall: " + f.result.finalUrl + ")" : ""}`);
@@ -251,7 +318,9 @@ async function runPool(tasks, concurrency) {
     process.exit(1);
   }
 
-  console.log(`demo-link guard OK: all ${demos.length} demo link(s) respond (2xx/3xx, no login wall).`);
+  console.log(
+    `demo-link guard OK: all ${demos.length} catalog demo link(s) and ${contentTotal} showcase link(s) respond (2xx/3xx, no login wall).`
+  );
 })().catch((e) => {
   console.error(`demo-link guard ERROR: ${e.message}`);
   process.exit(1);
