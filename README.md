@@ -151,9 +151,18 @@ CI guards in [`scripts/`](scripts/) verify the catalog stays consistent:
 `index.html` project list in sync, [`check-category-config.js`](scripts/check-category-config.js)
 ensures every category has a style definition, and
 [`check-demo-links.js`](scripts/check-demo-links.js) HEAD-checks every demo URL
-and fails on dead links, expired preview deployments, or login walls. A future
-improvement is a fuller smoke test asserting the project count and filter
-behaviour (see [Limitations](#limitations) and [Future improvements](#future-improvements)).
+in the catalog and every demo/repository link in the showcase pages
+([`showcase/index.html`](showcase/index.html) and
+[`showcase/features.html`](showcase/features.html)), failing on dead links,
+expired preview deployments, or login walls. Footer author/social links
+(ko-fi, YouTube, productsway) are excluded — they are not demo or repo
+destinations, and ko-fi bot-blocks automated checkers. The demo-link guard
+also runs weekly via
+[`.github/workflows/check-demo-links.yml`](.github/workflows/check-demo-links.yml),
+which opens (or updates) a GitHub issue when a demo goes dead between deploys
+and closes it automatically once the links recover. A future improvement is a
+fuller smoke test asserting the project count and filter behaviour (see
+[Limitations](#limitations) and [Future improvements](#future-improvements)).
 
 ## 📁 Project structure
 
@@ -164,7 +173,7 @@ personal-ai/
 ├── scripts/
 │   ├── check-catalog-parity.js    # CI guard: README ↔ catalog parity
 │   ├── check-category-config.js   # CI guard: category ↔ style completeness
-│   └── check-demo-links.js        # CI guard: demo URLs are live (no login walls)
+│   └── check-demo-links.js        # CI guard: catalog demos + showcase links live
 ├── docs/
 │   ├── demo-script.md         # 30–60 second demo recording script
 │   └── images/

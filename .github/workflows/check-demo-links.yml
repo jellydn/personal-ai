@@ -1,0 +1,90 @@
+name: Demo link watchdog
+
+on:
+  schedule:
+    # Weekly: Monday 06:00 UTC. Catches demos that die between deploys —
+    # the deploy workflow only validates links on push to main.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: demo-link-watchdog
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run demo-link guard
+        id: guard
+        run: |
+          set +e
+          node scripts/check-demo-links.js > /tmp/guard-output.txt 2>&1
+          code=$?
+          set -e
+          cat /tmp/guard-output.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update issue when demos are dead
+        if: steps.guard.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Idempotent label used to dedupe watchdog issues across weekly runs.
+          gh label create demo-link-watch \
+            --description "Dead demo links detected by the weekly demo-link watchdog" \
+            --color d73a4a 2>/dev/null || true
+
+          # Extract the failing links from the guard's stderr block.
+          failures=$(grep -E '^  - ' /tmp/guard-output.txt || true)
+          if [ -z "$failures" ]; then
+            # Crash-before-report fallback: grab the FAILED block verbatim.
+            failures=$(grep -A 100 'demo-link guard FAILED' /tmp/guard-output.txt || true)
+          fi
+          count=$(grep -oE 'FAILED: [0-9]+' /tmp/guard-output.txt | grep -oE '[0-9]+' | head -1)
+          count=${count:-unknown}
+
+          body_file=/tmp/issue-body.md
+          {
+            echo "The weekly demo-link watchdog ([scripts/check-demo-links.js](scripts/check-demo-links.js)) found dead demo link(s) on \`main\` at **$(date -u +%Y-%m-%dT%H:%MZ)**."
+            echo
+            echo "## Failing demo links"
+            echo
+            echo '```'
+            echo "$failures"
+            echo '```'
+            echo
+            echo "Full run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "_Managed by [.github/workflows/check-demo-links.yml](.github/workflows/check-demo-links.yml). This issue is updated on each failing weekly run and closed automatically once all links recover._"
+          } > "$body_file"
+
+          title="⚠️ Demo links down on main ($count dead)"
+          existing=$(gh issue list --label demo-link-watch --state open --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --title "$title" --body-file "$body_file"
+            echo "Updated watchdog issue #$existing"
+          else
+            gh issue create --title "$title" --body-file "$body_file" --label demo-link-watch
+          fi
+
+      - name: Close watchdog issue when demos recover
+        if: steps.guard.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing=$(gh issue list --label demo-link-watch --state open --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" \
+              --comment "All demo links are live again — the watchdog run at $(date -u +%Y-%m-%dT%H:%MZ) found no failures. Closing automatically."
+            echo "Closed watchdog issue #$existing (links recovered)"
+          else
+            echo "No open watchdog issue — all demo links live."
+          fi
