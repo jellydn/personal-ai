@@ -151,10 +151,10 @@ CI guards in [`scripts/`](scripts/) verify the catalog stays consistent:
 `index.html` project list in sync, [`check-category-config.js`](scripts/check-category-config.js)
 ensures every category has a style definition, and
 [`check-demo-links.js`](scripts/check-demo-links.js) HEAD-checks every demo URL
-in the catalog and every demo/repository link in the showcase pages
-([`showcase/index.html`](showcase/index.html) and
-[`showcase/features.html`](showcase/features.html)), failing on dead links,
-expired preview deployments, or login walls. Footer author/social links
+in the catalog and every external link in all showcase pages
+(`index`, `features`, `faq`, `how-it-works`, `blog`, `contact`, `changelog`),
+failing on dead links, expired preview deployments, or login walls. Footer
+author/social links
 (ko-fi, YouTube, productsway) are excluded — they are not demo or repo
 destinations, and ko-fi bot-blocks automated checkers. The demo-link guard
 also runs weekly via
@@ -169,7 +169,7 @@ fuller smoke test asserting the project count and filter behaviour (see
 ```text
 personal-ai/
 ├── index.html                 # Root portfolio: markup, styles, data, and logic
-├── showcase/                  # Dedicated marketing site (index, features, how-it-works, FAQ)
+├── showcase/                  # Dedicated marketing site (7 pages: index, features, faq, how-it-works, blog, contact, changelog)
 ├── scripts/
 │   ├── check-catalog-parity.js    # CI guard: README ↔ catalog parity
 │   ├── check-category-config.js   # CI guard: category ↔ style completeness

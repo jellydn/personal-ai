@@ -9,10 +9,11 @@
 // Vercel preview redirecting to vercel.com/login).
 //
 // Usage: node scripts/check-demo-links.js [catalog.html] [content.html ...]
-// Defaults to ./index.html as the catalog and showcase/index.html +
-// showcase/features.html as content. Content pages are scanned for anchor
-// hrefs, which covers demo links referenced in showcase copy plus the
-// GitHub/author links there. Exits non-zero with a message on any dead link.
+// Defaults to ./index.html as the catalog and every showcase page
+// (index, features, faq, how-it-works, blog, contact, changelog) as content.
+// Content pages are scanned for anchor hrefs, which covers demo links
+// referenced in showcase copy plus the GitHub/author links there. Exits
+// non-zero with a message on any dead link.
 "use strict";
 
 const fs = require("fs");
@@ -20,7 +21,15 @@ const path = require("path");
 const http = require("http");
 const https = require("https");
 
-const DEFAULT_CONTENT_FILES = ["showcase/index.html", "showcase/features.html"];
+const DEFAULT_CONTENT_FILES = [
+  "showcase/index.html",
+  "showcase/features.html",
+  "showcase/faq.html",
+  "showcase/how-it-works.html",
+  "showcase/blog.html",
+  "showcase/contact.html",
+  "showcase/changelog.html",
+];
 
 // Footer author/social links in the showcase pages are not demo or repo
 // destinations, so they must not gate deploys. ko-fi.com in particular sits
