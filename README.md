@@ -158,9 +158,12 @@ expired preview deployments, or login walls. Footer author/social links
 (ko-fi, YouTube, productsway) are excluded — they are not demo or repo
 destinations, and ko-fi bot-blocks automated checkers. The demo-link guard
 also runs weekly via
-[`.github/workflows/check-demo-links.yml`](.github/workflows/check-demo-links.yml),
-which opens (or updates) a GitHub issue when a demo goes dead between deploys
-and closes it automatically once the links recover. A future improvement is a
+[`.github/workflows/check-demo-links.yml`](.github/workflows/check-demo-links.yml)
+in warning-only mode (`--warn`): dead links are reported the same way but the
+run never fails, and the workflow opens (or updates) a GitHub issue when a demo
+goes dead between deploys, closing it automatically once the links recover.
+The deploy-time guard keeps the strict exit code, so a dead demo still blocks
+shipping while the weekly watchdog only surfaces it. A future improvement is a
 fuller smoke test asserting the project count and filter behaviour (see
 [Limitations](#limitations) and [Future improvements](#future-improvements)).
 
