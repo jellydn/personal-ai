@@ -8,12 +8,18 @@
 // mode that previously took down the streaming-chat-demo link (an expired
 // Vercel preview redirecting to vercel.com/login).
 //
-// Usage: node scripts/check-demo-links.js [catalog.html] [content.html ...]
+// Usage: node scripts/check-demo-links.js [--warn] [catalog.html] [content.html ...]
 // Defaults to ./index.html as the catalog and every showcase page
 // (index, features, faq, how-it-works, blog, contact, changelog) as content.
 // Content pages are scanned for anchor hrefs, which covers demo links
 // referenced in showcase copy plus the GitHub/author links there. Exits
 // non-zero with a message on any dead link.
+//
+// --warn: warning-only mode. Dead links are still reported (same FAILED block
+// and `  - label: url → status` lines, so parsers can rely on the shape) but
+// the exit code stays 0, so the weekly watchdog can surface soft failures
+// without ever failing the run. The deploy-time guard omits --warn and keeps
+// hard-failing, so a dead demo still blocks shipping.
 "use strict";
 
 const fs = require("fs");
@@ -281,8 +287,11 @@ async function checkUrls(entries, failures) {
 }
 
 (async () => {
-  const catalogFile = path.resolve(process.argv[2] || "index.html");
-  const contentFiles = (process.argv.slice(3).length ? process.argv.slice(3) : DEFAULT_CONTENT_FILES).map((f) =>
+  const args = process.argv.slice(2);
+  const warnOnly = args.includes("--warn");
+  const positional = args.filter((a) => a !== "--warn");
+  const catalogFile = path.resolve(positional[0] || "index.html");
+  const contentFiles = (positional.length > 1 ? positional.slice(1) : DEFAULT_CONTENT_FILES).map((f) =>
     path.resolve(f)
   );
   const catalogLabel = path.relative(process.cwd(), catalogFile);
@@ -323,6 +332,12 @@ async function checkUrls(entries, failures) {
     );
     for (const f of failures) {
       console.error(`  - ${f.name}: ${f.demo} → ${f.result.status}${f.result.wall ? " (login wall: " + f.result.finalUrl + ")" : ""}`);
+    }
+    if (warnOnly) {
+      console.error(
+        `demo-link guard WARNING: ${failures.length} link(s) dead — warning-only mode (--warn), exiting 0 so the weekly run stays green. The deploy-time guard (without --warn) will still hard-fail on these.`
+      );
+      process.exit(0);
     }
     process.exit(1);
   }

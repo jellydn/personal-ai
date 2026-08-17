@@ -22,18 +22,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run demo-link guard
+      - name: Run demo-link guard (warning-only)
         id: guard
         run: |
           set +e
-          node scripts/check-demo-links.js > /tmp/guard-output.txt 2>&1
+          # --warn: dead links are reported but exit 0, so this run never fails
+          # the workflow — the GitHub issue is the notification channel. A
+          # crash still exits non-zero and is surfaced the same way.
+          node scripts/check-demo-links.js --warn > /tmp/guard-output.txt 2>&1
           code=$?
           set -e
           cat /tmp/guard-output.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if grep -qE '^  - ' /tmp/guard-output.txt; then
+            echo "has_failures=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_failures=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Open or update issue when demos are dead
-        if: steps.guard.outputs.exit_code != '0'
+        if: steps.guard.outputs.exit_code != '0' || steps.guard.outputs.has_failures == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -51,15 +59,25 @@ jobs:
           count=$(grep -oE 'FAILED: [0-9]+' /tmp/guard-output.txt | grep -oE '[0-9]+' | head -1)
           count=${count:-unknown}
 
+          # Each guard failure line already names its source page
+          # (e.g. showcase/faq.html) — render it as a readable markdown bullet
+          # instead of a raw code block, keeping the URL and status intact.
+          failing_links=$(printf '%s\n' "$failures" | sed -E 's/^  - ([^:]+): (https?:\/\/)/- **\1**: \2/')
+          if [ -z "$failing_links" ] && [ -n "$failures" ]; then
+            # Not the expected shape (e.g. guard crash) — keep raw block.
+            failing_links="$failures"
+          fi
+          if [ -z "$failing_links" ]; then
+            failing_links="_The guard did not report structured failures — see the run log below._"
+          fi
+
           body_file=/tmp/issue-body.md
           {
             echo "The weekly demo-link watchdog ([scripts/check-demo-links.js](scripts/check-demo-links.js)) found dead demo link(s) on \`main\` at **$(date -u +%Y-%m-%dT%H:%MZ)**."
             echo
             echo "## Failing demo links"
             echo
-            echo '```'
-            echo "$failures"
-            echo '```'
+            echo "$failing_links"
             echo
             echo "Full run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo
@@ -76,7 +94,7 @@ jobs:
           fi
 
       - name: Close watchdog issue when demos recover
-        if: steps.guard.outputs.exit_code == '0'
+        if: steps.guard.outputs.exit_code == '0' && steps.guard.outputs.has_failures == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
