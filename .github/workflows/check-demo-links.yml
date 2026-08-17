@@ -22,18 +22,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run demo-link guard
+      - name: Run demo-link guard (warning-only)
         id: guard
         run: |
           set +e
-          node scripts/check-demo-links.js > /tmp/guard-output.txt 2>&1
+          # --warn: dead links are reported but exit 0, so this run never fails
+          # the workflow — the GitHub issue is the notification channel. A
+          # crash still exits non-zero and is surfaced the same way.
+          node scripts/check-demo-links.js --warn > /tmp/guard-output.txt 2>&1
           code=$?
           set -e
           cat /tmp/guard-output.txt
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if grep -qE '^  - ' /tmp/guard-output.txt; then
+            echo "has_failures=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_failures=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Open or update issue when demos are dead
-        if: steps.guard.outputs.exit_code != '0'
+        if: steps.guard.outputs.exit_code != '0' || steps.guard.outputs.has_failures == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -76,7 +84,7 @@ jobs:
           fi
 
       - name: Close watchdog issue when demos recover
-        if: steps.guard.outputs.exit_code == '0'
+        if: steps.guard.outputs.exit_code == '0' && steps.guard.outputs.has_failures == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
