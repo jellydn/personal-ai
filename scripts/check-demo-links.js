@@ -7,11 +7,13 @@
 // are caught before the site ships — the exact failure
 // mode that previously took down the streaming-chat-demo link (an expired
 // Vercel preview redirecting to vercel.com/login).
+//
 // Usage: node scripts/check-demo-links.js [--warn] [catalog.html] [content.html ...]
-// Defaults to ./index.html as the catalog and showcase/index.html +
-// showcase/features.html as content. Content pages are scanned for anchor
-// hrefs, which covers demo links referenced in showcase copy plus the
-// GitHub/author links there. Exits non-zero with a message on any dead link.
+// Defaults to ./index.html as the catalog and every showcase page
+// (index, features, faq, how-it-works, blog, contact, changelog) as content.
+// Content pages are scanned for anchor hrefs, which covers demo links
+// referenced in showcase copy plus the GitHub/author links there. Exits
+// non-zero with a message on any dead link.
 //
 // --warn: warning-only mode. Dead links are still reported (same FAILED block
 // and `  - label: url → status` lines, so parsers can rely on the shape) but
@@ -25,7 +27,15 @@ const path = require("path");
 const http = require("http");
 const https = require("https");
 
-const DEFAULT_CONTENT_FILES = ["showcase/index.html", "showcase/features.html"];
+const DEFAULT_CONTENT_FILES = [
+  "showcase/index.html",
+  "showcase/features.html",
+  "showcase/faq.html",
+  "showcase/how-it-works.html",
+  "showcase/blog.html",
+  "showcase/contact.html",
+  "showcase/changelog.html",
+];
 
 // Footer author/social links in the showcase pages are not demo or repo
 // destinations, so they must not gate deploys. ko-fi.com in particular sits
