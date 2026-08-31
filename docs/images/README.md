@@ -8,6 +8,10 @@ This guide describes how to capture the recommended portfolio screenshot for the
 A single wide shot of the portfolio homepage showing the hero, the filter bar,
 and the first two rows of project cards.
 
+`docs/images/demo.png` still shows the previous 40-project grid. Recapture it
+after a catalog change so the README screenshot matches the live 44-project
+counts (19 web apps, 9 AI agents, 13 dev tools, 3 experiments).
+
 ## Setup
 
 1. Start the dev server:
@@ -37,7 +41,7 @@ narrow to the RAG-related projects.
 ## Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **16 web apps**, **9 AI agents**, **13 dev tools**, **2 experiments**.
+- Stat badges: **19 web apps**, **9 AI agents**, **13 dev tools**, **3 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
