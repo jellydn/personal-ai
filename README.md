@@ -6,9 +6,9 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and July 31, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and August 31, 2026**. Forks and private repositories are excluded.
 
-Over nine months: 40 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over ten months: 44 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,12 +110,12 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 40-card grid appears with a staggered entrance
+   immediately; the full 44-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
-3. **User clicks** the "AI agents" filter pill. The grid updates to the 16
+3. **User clicks** the "AI agents" filter pill. The grid updates to the 9
    agent-related projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
@@ -141,8 +141,8 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 40 listed projects match the author's actual
-  public repositories in the October 2025 – July 2026 window.
+- **Data accuracy** — confirm the 44 listed projects match the author's actual
+  public repositories in the October 2025 – August 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
 
@@ -212,7 +212,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guards to assert the 40-card count
+3. **Expand the smoke test** — extend the CI guards to assert the 44-card count
    and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -317,6 +317,24 @@ personal-ai/
 - **Approach**: Turns tweet threads into readable, printable documents.
 - **Demo**: https://twt-print.itman.fyi/
 
+### [foldimals](https://github.com/jellydn/foldimals)
+
+- **Description**: Tablet-first origami learning PWA for children ages 7–12.
+- **Approach**: Turns each animal into a calm one-fold-at-a-time sequence with no account, ads, or scores.
+- **Demo**: https://foldimals.itman.fyi/
+
+### [cube-quest](https://github.com/jellydn/cube-quest)
+
+- **Description**: Interactive Rubik's Cube learning app for kids (ages 6–12).
+- **Approach**: Step-by-step browser tutorial with a 3D cube, practice mode, and progress tracking.
+- **Demo**: https://jellydn.github.io/cube-quest/
+
+### [gclean](https://github.com/jellydn/gclean)
+
+- **Description**: Gmail cleaner for desktop and terminal.
+- **Approach**: Safe-by-default scan, dry-run, and trash workflow with a loopback desktop UI and CLI.
+- **Demo**: Not ready yet.
+
 ## 🤖 AI agents & AI apps
 
 ### [tiny-coding-agent](https://github.com/jellydn/tiny-coding-agent)
@@ -347,7 +365,7 @@ personal-ai/
 
 - **Description**: AI-assisted development and workflow orchestration.
 - **Approach**: Organises repeatable AI-assisted workflows around development tasks.
-- **Demo**: https://ai-flow.itman.fyi/
+- **Demo**: https://ai-flow-staging.itman.fyi/
 
 ### [ai-launcher](https://github.com/jellydn/ai-launcher)
 
@@ -466,6 +484,12 @@ personal-ai/
 
 - **Description**: Daily programming practice project.
 - **Approach**: Consistent practice through repeated exercises and small implementations.
+- **Demo**: Not ready yet.
+
+### [tiny-code-model](https://github.com/jellydn/tiny-code-model)
+
+- **Description**: Train a tiny Transformer from scratch and learn what every stage does.
+- **Approach**: Reproduces a pinned Marin TinyStories/Llama Nano baseline, then varies one training choice at a time.
 - **Demo**: Not ready yet.
 
 ## 📝 Notes

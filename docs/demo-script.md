@@ -11,7 +11,7 @@ does or whether it runs.
 
 ## User action
 
-Open the portfolio site. The homepage loads instantly — 40 projects across four
+Open the portfolio site. The homepage loads instantly — 44 projects across four
 categories with a hero summary and live filter bar.
 
 ## System behaviour
@@ -25,14 +25,14 @@ categories with a hero summary and live filter bar.
   (`rag-blog`) to demonstrate text search.
 - Click the "Dev tools" filter pill: the grid updates to 13 developer-tool
   projects, each with a category-colored left border.
-- Clear the filter to return to all 40 projects. An empty-state message appears
+- Clear the filter to return to all 44 projects. An empty-state message appears
   if a search matches nothing.
 
 ## Result
 
-A visitor can understand nine months of original open-source AI work in under a
+A visitor can understand ten months of original open-source AI work in under a
 minute — what was built, how it was approached, and where to try it — without
-reading 40 separate READMEs.
+reading 44 separate READMEs.
 
 ## Engineering highlights
 
