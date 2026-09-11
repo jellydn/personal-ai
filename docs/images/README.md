@@ -9,8 +9,8 @@ A single wide shot of the portfolio homepage showing the hero, the filter bar,
 and the first two rows of project cards.
 
 `docs/images/demo.png` still shows the previous 40-project grid. Recapture it
-after a catalog change so the README screenshot matches the live 44-project
-counts (19 web apps, 9 AI agents, 13 dev tools, 3 experiments).
+after a catalog change so the README screenshot matches the live 47-project
+counts (20 web apps, 11 AI agents, 13 dev tools, 3 experiments).
 
 ## Setup
 
@@ -34,14 +34,14 @@ counts (19 web apps, 9 AI agents, 13 dev tools, 3 experiments).
 ## Sample input
 
 No input is required. For an alternative shot, click the **"AI agents"** filter
-pill to show only the AI-agent category (9 cards). This demonstrates category
+pill to show only the AI-agent category (11 cards). This demonstrates category
 filtering. To demonstrate text search instead, type `rag` in the filter box to
 narrow to the RAG-related projects.
 
 ## Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **19 web apps**, **9 AI agents**, **13 dev tools**, **3 experiments**.
+- Stat badges: **20 web apps**, **11 AI agents**, **13 dev tools**, **3 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
