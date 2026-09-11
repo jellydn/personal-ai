@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>personal-ai — OG share card source (1200×630)</title>
+<!--
+  Source template for showcase/screenshots/og-card.png.
+
+  This is NOT a page for visitors. It lives in docs/ rather than showcase/
+  because scripts/check-json-ld.js treats every showcase/*.html file as a real
+  page that must carry its own canonical URL and structured data.
+
+  Why it exists: the original card was rendered from a throwaway layout that was
+  never committed, so the branded share image could not be regenerated after the
+  catalog changed. Keeping the layout here makes the card reproducible.
+
+  Regenerate from the repository root:
+
+    python3 -m http.server 4321 --bind 127.0.0.1
+    agent-browser set viewport 1200 630 1
+    agent-browser open http://127.0.0.1:4321/docs/og-card.html
+    agent-browser wait --fn "document.fonts.status === 'loaded'"
+    agent-browser screenshot showcase/screenshots/og-card.png
+
+  Keep the numbers below in sync with the catalog in index.html.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    background: #faf9f6;
+    color: #2a2825;
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    padding: 56px 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Warm bloom in the corner, echoing the site accent without a hard edge. */
+  .glow {
+    position: absolute;
+    width: 520px; height: 520px;
+    right: -140px; top: -180px;
+    background: radial-gradient(circle, rgba(241,149,51,0.18), rgba(241,149,51,0) 68%);
+    border-radius: 50%;
+  }
+  .copy { position: relative; flex: 1 1 auto; max-width: 620px; }
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #b44808;
+    background: #fef7ee;
+    border: 1px solid #fad7a5;
+    border-radius: 999px;
+    padding: 7px 13px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: 47px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #1a1816;
+    margin-bottom: 18px;
+  }
+  h1 .accent { color: #ec7a10; }
+  .sub {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #6b6559;
+    margin-bottom: 30px;
+  }
+  .stats { display: flex; gap: 30px; }
+  .stat em {
+    display: block;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 800;
+    color: #ec7a10;
+    line-height: 1.1;
+  }
+  .stat span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8c8473;
+    margin-top: 3px;
+  }
+  .shot {
+    position: relative;
+    flex: 0 0 400px;
+    width: 400px;
+    border: 1px solid #e2dfd8;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 26px 50px -18px rgba(42,40,37,0.30);
+    transform: rotate(-1.1deg);
+  }
+  .shot-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    background: #f0eeea;
+    border-bottom: 1px solid #e2dfd8;
+  }
+  .shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: #c9c4b8; display: block; }
+  .shot img { display: block; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="copy">
+    <span class="badge">AI-built • Open source • Personal</span>
+    <h1>47 open-source<br>projects, built with <span class="accent">AI</span>.</h1>
+    <p class="sub">Ten months of exploration, catalogued honestly — searchable, every project public and forkable.</p>
+    <div class="stats">
+      <div class="stat"><em>47</em><span>Projects</span></div>
+      <div class="stat"><em>28</em><span>Live demos</span></div>
+      <div class="stat"><em>20</em><span>Web apps</span></div>
+      <div class="stat"><em>3</em><span>Experiments</span></div>
+    </div>
+  </div>
+  <div class="shot">
+    <div class="shot-bar"><i></i><i></i><i></i></div>
+    <img src="../showcase/screenshots/hero.png" alt="The personal-ai tracker homepage">
+  </div>
+</body>
+</html>
