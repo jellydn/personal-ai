@@ -19,11 +19,11 @@ categories with a hero summary and live filter bar.
 - The page renders a responsive card grid, each card showing the project name, a
   one-line description, the engineering approach, and a demo link when one
   exists.
-- Click the "AI agents" category pill: the grid updates to the 11 AI-agent
+- Click the "AI agents & apps" category pill: the grid updates to the 11 AI
   projects in real time, with no page reload.
-- Type `rag` in the filter box: the grid narrows to the matching projects
+- Click "All", then type `rag` in the filter box: the grid narrows to the matching projects
   (`rag-blog`) to demonstrate text search.
-- Click the "Dev tools" filter pill: the grid updates to 13 developer-tool
+- Clear the search and click the "Dev tools" filter pill: the grid updates to 13 developer-tool
   projects, each with a category-colored left border.
 - Clear the filter to return to all 47 projects. An empty-state message appears
   if a search matches nothing.
@@ -49,8 +49,8 @@ reading 47 separate READMEs.
 ## Suggested recording flow
 
 1. Show the full homepage (3s).
-2. Click the "AI agents" category pill, watch the grid filter (5s).
-3. Type `rag` in the search box to demo text search, then clear it (5s).
+2. Click the "AI agents & apps" category pill, watch the grid filter (5s).
+3. Click "All", type `rag` in the search box, then clear it (5s).
 4. Hover a card to show the lift effect, click a demo link to open a live
    project (10s).
 5. Resize the browser narrow to show the responsive single-column layout (5s).

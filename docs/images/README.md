@@ -9,7 +9,7 @@ A single wide shot of the portfolio homepage showing the hero, the filter bar,
 and the first two rows of project cards.
 
 `docs/images/demo.png` was captured for the 47-project catalog (20 web apps,
-11 AI agents, 13 dev tools, 3 experiments). Recapture it after a catalog change
+11 AI agents & apps, 13 dev tools, 3 experiments). Recapture it after a catalog change
 so the README screenshot keeps matching the live counts.
 
 ### Setup
@@ -33,15 +33,15 @@ so the README screenshot keeps matching the live counts.
 
 ### Sample input
 
-No input is required. For an alternative shot, click the **"AI agents"** filter
-pill to show only the AI-agent category (11 cards). This demonstrates category
+No input is required. For an alternative shot, click the **"AI agents & apps"** filter
+pill to show only the AI category (11 cards). This demonstrates category
 filtering. To demonstrate text search instead, type `rag` in the filter box to
 narrow to the RAG-related projects.
 
 ### Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **20 web apps**, **11 AI agents**, **13 dev tools**, **3 experiments**.
+- Stat badges: **20 web apps**, **11 AI agents & apps**, **13 dev tools**, **3 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
@@ -97,23 +97,35 @@ captures of the running site, so they go stale whenever the catalog does.
 Serve the repository root and drive Chrome with `agent-browser`
 (`set viewport <w> <h> <scale>`, then `screenshot [--full]`).
 
-### Two gotchas worth knowing
+### Render all content before capture
 
-1. **Full-page captures go blank below the first screens.** `index.html` and
-   `showcase/styles.css` use `content-visibility: auto` to defer off-screen
-   rendering, so an unscrolled full-page capture leaves those regions empty.
-   Injecting `* { content-visibility: visible !important; }` fixes it, and on
-   `index.html` also removes the `contain-intrinsic-size` placeholder padding
-   (the page's true height is ~4941px, not the ~5202px it reserves).
-2. **Do not use that override on `showcase/how-it-works.html`.** It makes the
-   page's 11,509px-tall phone-frame image contain itself, inflating the document
-   from 7,023px to 16,548px and capturing a layout that is not what visitors
-   see. Capture that page with no override.
+Deferred rendering, lazy images, and scroll-driven animations can leave blank
+regions in full-page captures. Apply this capture-only override on every page:
 
-Both gotchas are inherited from the existing assets: the committed captures
-predate this note and contain the same deferred-rendering gaps.
+```js
+const style = document.createElement('style');
+style.textContent = '* { content-visibility: visible !important; animation: none !important; transition: none !important; }';
+document.head.append(style);
+document.querySelectorAll('img').forEach(image => image.loading = 'eager');
+await document.fonts.ready;
+await Promise.all([...document.images].map(image => image.decode()));
+```
 
-### Verifying a capture without eyeballing it
+Wait for two animation frames before capture. The walkthrough becomes taller
+when its phone image renders at its full aspect ratio; this is real content,
+not a recursive image. Do not preserve deferred placeholder heights.
+
+Capture at 2×, then downsample to the asset widths in the table. Keep the README
+capture at 2×. Capture the catalog images first, then the features and walkthrough
+pages, then the showcase home, which embeds those images. The search GIF is an
+older interaction recording, not part of this static-image refresh.
+
+Check the raw screenshot bounds before resizing. Some browser versions produce
+a full-page canvas twice as wide and tall as the rendered content at 2×. In that
+case, crop to the rendered bounds first; resizing the whole canvas preserves
+empty right and bottom regions.
+
+### Verify dimensions and visible content
 
 Declared dimensions in the HTML must match the files. `width`/`height`
 attributes are set from the real asset sizes, so after recapturing, compare each
@@ -123,10 +135,9 @@ attributes are set from the real asset sizes, so after recapturing, compare each
 sips -g pixelWidth -g pixelHeight showcase/screenshots/<asset>
 ```
 
-`mac-ocr` can confirm a capture shows what it should — for example that
-`hero.png` reads back "47 projects" and the 20/11/13/3 stat chips. It is not
-reliable on very tall images (a 520×11,082 file returns nothing); crop bands
-with ffmpeg and OCR those instead.
+Inspect each capture, including crops from tall images, for blank cards, missing
+images, clipped labels, and stale counts. OCR can help check the 47-project total
+and the 20/11/13/3 chips, but does not replace visual inspection.
 
 ### Regenerating the OG share card
 

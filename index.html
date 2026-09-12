@@ -181,7 +181,7 @@ body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif
         </div>
         <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
           <span class="w-2 h-2 rounded-full bg-ember-400"></span>
-          <span class="text-ink-600"><strong class="text-ink-800" data-cat="ai">11</strong> AI agents</span>
+          <span class="text-ink-600"><strong class="text-ink-800" data-cat="ai">11</strong> AI agents &amp; apps</span>
         </div>
         <div class="flex items-center gap-2 px-3 py-2 bg-white border border-ink-200 rounded-lg">
           <span class="w-2 h-2 rounded-full bg-ink-500"></span>
@@ -206,7 +206,7 @@ body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif
         <div class="flex gap-1.5 flex-wrap" id="filters">
           <button class="filter-pill active px-3 py-1.5 text-sm rounded-full font-medium" data-category="all">All</button>
           <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="web">Web apps</button>
-          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="ai">AI agents</button>
+          <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="ai">AI agents &amp; apps</button>
           <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="dev">Dev tools</button>
           <button class="filter-pill px-3 py-1.5 text-sm rounded-full font-medium text-ink-600" data-category="learn">Experiments</button>
         </div>
@@ -326,7 +326,7 @@ document.querySelectorAll('[data-cat]').forEach(el => {
 
 const CATEGORY_STYLE = {
   web:   { color: 'moss',  border: 'border-l-moss-400',  badge: 'bg-moss-50 text-moss-700',     label: 'Web app' },
-  ai:    { color: 'ember', border: 'border-l-ember-400', badge: 'bg-ember-50 text-ember-700',   label: 'AI agent' },
+  ai:    { color: 'ember', border: 'border-l-ember-400', badge: 'bg-ember-50 text-ember-700',   label: 'AI agent / app' },
   dev:   { color: 'ink',   border: 'border-l-ink-400',   badge: 'bg-ink-100 text-ink-700',      label: 'Dev tool' },
   learn: { color: 'ember', border: 'border-l-ember-300', badge: 'bg-ember-50/50 text-ember-600', label: 'Experiment' }
 };

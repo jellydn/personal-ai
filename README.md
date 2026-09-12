@@ -115,8 +115,8 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
-3. **User clicks** the "AI agents" filter pill. The grid updates to the 9
-   agent-related projects.
+3. **User clears** the search and clicks the "AI agents & apps" filter pill.
+   The grid updates to the 11 AI-agent and AI-app projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
 5. **User clears** the search and returns to "All" to browse the full catalog.
