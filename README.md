@@ -6,9 +6,9 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and August 31, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and September 9, 2026**. Forks and private repositories are excluded.
 
-Over ten months: 44 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over ten months: 47 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,13 +110,13 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 44-card grid appears with a staggered entrance
+   immediately; the full 47-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
-3. **User clicks** the "AI agents" filter pill. The grid updates to the 9
-   agent-related projects.
+3. **User clears** the search and clicks the "AI agents & apps" filter pill.
+   The grid updates to the 11 AI-agent and AI-app projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
 5. **User clears** the search and returns to "All" to browse the full catalog.
@@ -141,8 +141,8 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 44 listed projects match the author's actual
-  public repositories in the October 2025 – August 2026 window.
+- **Data accuracy** — confirm the 47 listed projects match the author's actual
+  public repositories in the October 2025 – September 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
 
@@ -212,7 +212,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guards to assert the 44-card count
+3. **Expand the smoke test** — extend the CI guards to assert the 47-card count
    and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -335,6 +335,12 @@ personal-ai/
 - **Approach**: Safe-by-default scan, dry-run, and trash workflow with a loopback desktop UI and CLI.
 - **Demo**: Not ready yet.
 
+### [brave-buddy](https://github.com/jellydn/brave-buddy)
+
+- **Description**: Playful practice app that helps children aged 6–12 rehearse social situations and asking for help.
+- **Approach**: Human-authored scenarios only — SEE → THINK → RESPOND → GET HELP — with no generative chat, accounts, or tracking.
+- **Demo**: https://brave-buddy.itman.fyi/
+
 ## 🤖 AI agents & AI apps
 
 ### [tiny-coding-agent](https://github.com/jellydn/tiny-coding-agent)
@@ -390,6 +396,18 @@ personal-ai/
 - **Description**: A tool for benchmarking LLM prompts.
 - **Approach**: Compares prompt variants across models on structured metrics.
 - **Demo**: https://prompt-bench.itman.fyi/
+
+### [muse-frame](https://github.com/jellydn/muse-frame)
+
+- **Description**: AI photo frame MVP that turns photos into a framed display experience.
+- **Approach**: Work in progress: a TanStack Start app running on Cloudflare.
+- **Demo**: Not ready yet.
+
+### [imagi](https://github.com/jellydn/imagi)
+
+- **Description**: Native SwiftUI image studio for iPhone, iPad, and Mac — describe, generate variants, compare, refine, save.
+- **Approach**: OpenAI and xAI image APIs behind a local SwiftData library, with API keys held in the Keychain.
+- **Demo**: Not ready yet.
 
 ## 🛠️ Developer & editor tools
 
