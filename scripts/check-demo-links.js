@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Demo-link guard: every non-null demo URL in the catalog's projects array and
 // every absolute http(s) anchor in the showcase pages (except author/social
-// footer hosts, see SKIPPED_HOSTS) must respond with a successful status
+// footer hosts, see SKIPPED_HOSTS) must respond with a successful status. Demo
+// pages hosted in this repository are instead verified as build artifacts, so a
+// new page can pass before GitHub Pages publishes the deployment that contains it.
 // (2xx/3xx after following redirects) and must not land on a login wall or an
 // expired preview deployment. Wired into CI so dead or private destinations
 // are caught before the site ships — the exact failure
@@ -47,6 +49,26 @@ const SKIPPED_HOSTS = new Set(["ko-fi.com", "www.youtube.com", "youtube.com", "p
 const MAX_REDIRECTS = 5;
 const TIMEOUT_MS = 15000;
 const CONCURRENCY = 6;
+const LOCAL_DEMO_PREFIX = "https://jellydn.github.io/personal-ai/demos/";
+
+// Return the source file for a first-party demo page. These pages are part of
+// the artifact currently being built, so HTTP-checking their public URLs before
+// upload would incorrectly test the previous deployment. Resolve only paths
+// below demos/ and reject traversal outside the repository root.
+function localDemoFile(url) {
+  if (!url.startsWith(LOCAL_DEMO_PREFIX)) return null;
+  let pathname;
+  try {
+    pathname = decodeURIComponent(new URL(url).pathname);
+  } catch {
+    return null;
+  }
+  const relative = pathname.slice(new URL(LOCAL_DEMO_PREFIX).pathname.length);
+  const demosRoot = path.resolve("demos");
+  const candidate = path.resolve(demosRoot, relative || ".");
+  if (candidate !== demosRoot && !candidate.startsWith(demosRoot + path.sep)) return null;
+  return path.extname(candidate) ? candidate : path.join(candidate, "index.html");
+}
 
 // Extract a balanced JS array literal after `const projects =`, tolerating
 // strings, comments, and nested brackets. Mirrors the parity guard's scanner.
@@ -272,13 +294,16 @@ function isSkippedHost(url) {
 async function checkUrls(entries, failures) {
   await runPool(
     entries.map((e) => async () => {
-      const pre = isUnreachableAddress(e.url)
-        ? { status: "ERR:private-address", finalUrl: e.url }
-        : await check(e.url);
+      const localFile = localDemoFile(e.url);
+      const pre = localFile
+        ? { status: fs.existsSync(localFile) ? 200 : "ERR:missing-local-page", finalUrl: e.url, localFile }
+        : isUnreachableAddress(e.url)
+          ? { status: "ERR:private-address", finalUrl: e.url }
+          : await check(e.url);
       const ok = typeof pre.status === "number" && pre.status >= 200 && pre.status < 400 && !pre.wall;
       const mark = ok ? "✓" : "✗";
       console.log(
-        `${mark} ${String(pre.status).padEnd(18)} ${String(e.label).padEnd(26)} ${e.url}${pre.wall ? "  → login wall: " + pre.finalUrl : ""}`
+        `${mark} ${String(pre.status).padEnd(18)} ${String(e.label).padEnd(26)} ${e.url}${pre.localFile ? "  → local artifact: " + path.relative(process.cwd(), pre.localFile) : pre.wall ? "  → login wall: " + pre.finalUrl : ""}`
       );
       if (!ok) failures.push({ name: e.label, demo: e.url, result: pre });
     }),

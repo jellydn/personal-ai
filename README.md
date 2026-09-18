@@ -353,7 +353,7 @@ personal-ai/
 
 - **Description**: AI-assisted unit-test generation for Node.js and TypeScript applications.
 - **Approach**: Uses Pythagora to turn source functions into generated unit tests.
-- **Demo**: https://gyazo.com/5563528f5b41d126257a573f84631097.gif
+- **Demo**: https://jellydn.github.io/personal-ai/demos/auto-testgen-nodejs/
 
 ### [hermes-hub](https://github.com/jellydn/hermes-hub)
 
@@ -421,7 +421,7 @@ personal-ai/
 
 - **Description**: VS Code tool for multiplexing terminals or coding sessions.
 - **Approach**: Organises concurrent terminals and coding workflows inside the editor.
-- **Demo**: https://gyazo.com/758e3521de6079f91d05b4b900b05573.gif
+- **Demo**: https://jellydn.github.io/personal-ai/demos/vscode-mux/
 
 ### [vscode-seal-code](https://github.com/jellydn/vscode-seal-code)
 
@@ -463,13 +463,13 @@ personal-ai/
 
 - **Description**: Small Neovim utility for hiding or protecting sensitive values.
 - **Approach**: Minimises accidental exposure of secrets in the editor.
-- **Demo**: https://gyazo.com/0e0f1c253ad07f932b8f48deda54a7f0
+- **Demo**: https://jellydn.github.io/personal-ai/demos/tiny-cloak.nvim/
 
 ### [tiny-term.nvim](https://github.com/jellydn/tiny-term.nvim)
 
 - **Description**: Minimal terminal-management plugin for Neovim.
 - **Approach**: Adds lightweight terminal handling inside Neovim.
-- **Demo**: https://gyazo.com/084d884839a3e3e84525a2d527ecec6b.gif
+- **Demo**: https://jellydn.github.io/personal-ai/demos/tiny-term.nvim/
 
 ### [minui-easy-installer](https://github.com/jellydn/minui-easy-installer)
 

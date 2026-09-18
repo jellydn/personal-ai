@@ -7,6 +7,30 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://jellydn.github.io/personal-ai/demos/auto-testgen-nodejs/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jellydn.github.io/personal-ai/demos/vscode-mux/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jellydn.github.io/personal-ai/demos/tiny-cloak.nvim/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jellydn.github.io/personal-ai/demos/tiny-term.nvim/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jellydn.github.io/personal-ai/showcase/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>

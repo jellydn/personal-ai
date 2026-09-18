@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A practical guide to using Pythagora to generate unit tests for Node.js and TypeScript projects.">
+  <link rel="canonical" href="https://jellydn.github.io/personal-ai/demos/auto-testgen-nodejs/">
+  <title>auto-testgen-nodejs — AI-assisted unit tests</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://jellydn.github.io/personal-ai/demos/auto-testgen-nodejs/#app","url":"https://jellydn.github.io/personal-ai/demos/auto-testgen-nodejs/","name":"auto-testgen-nodejs","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","codeRepository":"https://github.com/jellydn/auto-testgen-nodejs"}
+  </script>
+</head>
+<body class="auto-testgen">
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../../index.html">Dung Huynh / personal-ai</a><a class="back-link" href="../../index.html">← All projects</a></div></header>
+  <main>
+    <section class="hero">
+      <div><span class="eyebrow">AI developer workflow</span><h1>Tests, generated from the function out.</h1><p class="hero-copy">auto-testgen-nodejs is a focused example of using Pythagora to turn a TypeScript or Node.js function into a starting set of unit tests.</p><div class="actions"><a class="button primary" href="https://github.com/jellydn/auto-testgen-nodejs">View source on GitHub ↗</a><a class="button" href="#start">See the workflow</a></div></div>
+      <div class="terminal" aria-label="Example Pythagora unit-test generation command"><div class="terminal-bar">auto-testgen-nodejs</div><pre><code><span class="prompt">$</span> npx pythagora --unit-tests \
+  --func divide --path src/math.ts
+
+<span class="accent">✓</span> Analysed src/math.ts
+<span class="accent">✓</span> Generated divide.test.ts
+<span class="dim">  Review, refine, and run the tests.</span></code></pre></div>
+    </section>
+    <section class="section" id="start"><div class="section-heading"><h2>Keep the developer in the loop.</h2><p>Generation removes repetitive setup. Review still decides whether the test cases express the required behaviour.</p></div><div class="grid"><article class="card"><h3>Point at a function</h3><p>Select the source file and function that need coverage.</p></article><article class="card"><h3>Generate a baseline</h3><p>Pythagora produces unit-test scaffolding and cases for inspection.</p></article><article class="card"><h3>Make it yours</h3><p>Run the result, add domain cases, and commit only trusted tests.</p></article></div><div class="install"><h2>Start locally</h2><pre><code><span class="prompt">$</span> pnpm install
+<span class="prompt">$</span> npx pythagora --config --pythagora-api-key YOUR_API_KEY</code></pre></div></section>
+  </main>
+  <footer class="site-footer"><span>Open-source project by Dung Huynh</span><a href="https://github.com/jellydn/auto-testgen-nodejs">Repository ↗</a></footer>
+</body>
+</html>

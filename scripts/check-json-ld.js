@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// JSON-LD smoke test: every showcase page must carry at least one
+// JSON-LD smoke test: every showcase and first-party demo page must carry at least one
 // application/ld+json block that (a) parses as valid JSON, (b) declares an
 // @context, and (c) agrees with the page's canonical URL — its `url` field
 // must equal the canonical exactly, and its `@id` must be the canonical URL
@@ -7,7 +7,7 @@
 // malformed block or a drifted canonical can't ship silently.
 //
 // Usage: node scripts/check-json-ld.js [path-to-page-or-dir ...]
-// Defaults to scanning ./showcase/*.html. Exits non-zero on any failure.
+// Defaults to scanning every .html file below ./showcase and ./demos. Exits non-zero on any failure.
 "use strict";
 
 const fs = require("fs");
@@ -19,15 +19,21 @@ function rel(p) {
 
 // Collect .html files: explicit args (files or dirs), else the showcase dir.
 function collectPages(args) {
-  const targets = args.length ? args : ["showcase"];
+  const targets = args.length ? args : ["showcase", "demos"];
   const pages = [];
   for (const t of targets) {
     const p = path.resolve(t);
     const st = fs.statSync(p);
     if (st.isDirectory()) {
-      for (const f of fs.readdirSync(p).sort()) {
-        if (f.endsWith(".html")) pages.push(path.join(p, f));
-      }
+      const collectDirectory = (dir) => {
+        for (const name of fs.readdirSync(dir).sort()) {
+          const child = path.join(dir, name);
+          const childStat = fs.statSync(child);
+          if (childStat.isDirectory()) collectDirectory(child);
+          else if (childStat.isFile() && child.endsWith(".html")) pages.push(child);
+        }
+      };
+      collectDirectory(p);
     } else if (st.isFile() && p.endsWith(".html")) {
       pages.push(p);
     }

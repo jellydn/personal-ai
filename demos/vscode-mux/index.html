@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeMux connects VS Code terminals to persistent tmux or zellij sessions named from the current workspace.">
+  <link rel="canonical" href="https://jellydn.github.io/personal-ai/demos/vscode-mux/">
+  <title>vscode-mux — persistent terminals in VS Code</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://jellydn.github.io/personal-ai/demos/vscode-mux/#app","url":"https://jellydn.github.io/personal-ai/demos/vscode-mux/","name":"vscode-mux","applicationCategory":"DeveloperApplication","operatingSystem":"macOS and Linux","codeRepository":"https://github.com/jellydn/vscode-mux"}
+  </script>
+</head>
+<body class="vscode-mux">
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../../index.html">Dung Huynh / personal-ai</a><a class="back-link" href="../../index.html">← All projects</a></div></header>
+  <main>
+    <section class="hero"><div><span class="eyebrow">VS Code extension</span><h1>Your workspace. Your persistent terminal.</h1><p class="hero-copy">vscode-mux opens VS Code terminals inside tmux or zellij. Each workspace gets a predictable session, so panes and running processes stay available between terminals.</p><div class="actions"><a class="button primary" href="https://github.com/jellydn/vscode-mux">View source on GitHub ↗</a><a class="button" href="https://marketplace.visualstudio.com/items?itemName=jellydn.vscode-mux">Install from Marketplace ↗</a></div></div><div class="terminal" aria-label="CodeMux terminal session example"><div class="terminal-bar">VS Code / CodeMux</div><pre><code><span class="prompt">$</span> code .
+<span class="dim">Open terminal → CodeMux profile</span>
+
+<span class="accent">✓</span> tmux session: personal-ai
+<span class="accent">✓</span> attached to existing session
+
+<span class="prompt">$</span> npm run dev</code></pre></div></section>
+    <section class="section"><div class="section-heading"><h2>One terminal flow across editor windows.</h2><p>CodeMux makes the multiplexer the terminal default instead of an extra manual step.</p></div><div class="steps"><article class="step"><h3>Open a terminal</h3><p>CodeMux selects tmux or zellij from your extension settings.</p></article><article class="step"><h3>Reuse the workspace session</h3><p>The first terminal creates it; later terminals attach to it.</p></article><article class="step"><h3>Keep working</h3><p>Close and reopen a terminal without losing the running session.</p></article></div><div class="install"><h2>Requirements</h2><pre><code><span class="prompt">$</span> brew install tmux   <span class="dim"># or: brew install zellij</span>
+<span class="prompt">$</span> code --install-extension jellydn.vscode-mux</code></pre></div></section>
+  </main>
+  <footer class="site-footer"><span>Open-source project by Dung Huynh</span><a href="https://github.com/jellydn/vscode-mux">Repository ↗</a></footer>
+</body>
+</html>

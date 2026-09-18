@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="tiny-term.nvim is a minimal Neovim 0.11+ terminal plugin with floating and split terminal windows.">
+  <link rel="canonical" href="https://jellydn.github.io/personal-ai/demos/tiny-term.nvim/">
+  <title>tiny-term.nvim — a focused Neovim terminal</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://jellydn.github.io/personal-ai/demos/tiny-term.nvim/#app","url":"https://jellydn.github.io/personal-ai/demos/tiny-term.nvim/","name":"tiny-term.nvim","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","codeRepository":"https://github.com/jellydn/tiny-term.nvim"}
+  </script>
+</head>
+<body class="tiny-term">
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../../index.html">Dung Huynh / personal-ai</a><a class="back-link" href="../../index.html">← All projects</a></div></header>
+  <main>
+    <section class="hero"><div><span class="eyebrow">Neovim plugin</span><h1>A terminal that stays out of your way.</h1><p class="hero-copy">tiny-term.nvim provides floating and split terminal windows for Neovim 0.11+. It is small, dependency-free, and compatible with the familiar `Snacks.terminal` API shape.</p><div class="actions"><a class="button primary" href="https://github.com/jellydn/tiny-term.nvim">View source on GitHub ↗</a><a class="button" href="#install">Installation</a></div></div><div class="terminal" aria-label="tiny-term Neovim terminal example"><div class="terminal-bar">tiny-term.nvim</div><pre><code><span class="prompt">&gt;</span> <span class="accent">npm run dev</span>
+
+  Local:   http://localhost:5173/
+  Network: use --host to expose
+
+<span class="dim">[ terminal: npm run dev ] [ × ]</span>
+<span class="prompt">&gt;</span> <span class="dim">Press &lt;C-/&gt; to toggle</span></code></pre></div></section>
+    <section class="section" id="install"><div class="section-heading"><h2>Terminal management with a small surface area.</h2><p>Open a shell, run a command, select a window style, and return to your editing flow.</p></div><div class="grid"><article class="card"><h3>Float or split</h3><p>Choose a floating terminal or a bottom, top, left, or right split.</p></article><article class="card"><h3>Stable terminal IDs</h3><p>Commands, working directories, environments, and counts identify terminal instances.</p></article><article class="card"><h3>Drop-in API shape</h3><p>Use `toggle()`, `open()`, `get()`, and `list()`, or override `Snacks.terminal`.</p></article></div><div class="install"><h2>Install with lazy.nvim</h2><pre><code>{
+  "jellydn/tiny-term.nvim",
+  opts = {},
+}
+
+require("tiny-term").toggle()</code></pre></div></section>
+  </main>
+  <footer class="site-footer"><span>Open-source project by Dung Huynh</span><a href="https://github.com/jellydn/tiny-term.nvim">Repository ↗</a></footer>
+</body>
+</html>

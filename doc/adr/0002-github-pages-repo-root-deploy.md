@@ -25,7 +25,7 @@ as the canonical site root:
 - All internal navigation uses **relative** links (`index.html`, `features.html`, …)
   so the site works under any subpath or host without rewriting.
 - All canonical, OG, Twitter, and JSON-LD URLs use the absolute `https://jellydn.github.io/personal-ai/...` form.
-- `sitemap.xml` lists exactly the four canonical URLs (root + three showcase pages);
+- `sitemap.xml` lists every canonical page URL, including project demo pages;
   `robots.txt` points at the sitemap.
 - Brand links use `index.html` (never `href="/"`, which would escape to the apex).
 

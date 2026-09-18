@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="tiny-cloak.nvim masks secrets in Neovim buffers without changing the underlying file.">
+  <link rel="canonical" href="https://jellydn.github.io/personal-ai/demos/tiny-cloak.nvim/">
+  <title>tiny-cloak.nvim — protect secrets in Neovim</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://jellydn.github.io/personal-ai/demos/tiny-cloak.nvim/#app","url":"https://jellydn.github.io/personal-ai/demos/tiny-cloak.nvim/","name":"tiny-cloak.nvim","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","codeRepository":"https://github.com/jellydn/tiny-cloak.nvim"}
+  </script>
+</head>
+<body class="tiny-cloak">
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../../index.html">Dung Huynh / personal-ai</a><a class="back-link" href="../../index.html">← All projects</a></div></header>
+  <main>
+    <section class="hero"><div><span class="eyebrow">Neovim plugin</span><h1>Share the buffer, not the secret.</h1><p class="hero-copy">tiny-cloak.nvim masks sensitive values in `.env`, JSON, and YAML files. It uses Neovim extmarks, so the file content remains unchanged while the buffer stays safe to present.</p><div class="actions"><a class="button primary" href="https://github.com/jellydn/tiny-cloak.nvim">View source on GitHub ↗</a><a class="button" href="#install">Installation</a></div></div><div class="terminal" aria-label="A masked environment file in Neovim"><div class="terminal-bar">.env — Neovim</div><pre><code><span class="dim"># buffer display</span>
+API_KEY=<span class="accent">****************</span>
+SECRET_TOKEN=<span class="accent">**************</span>
+DATABASE_URL=<span class="accent">************************</span>
+
+<span class="dim">i → reveal while editing
+Esc → cloak again</span></code></pre></div></section>
+    <section class="section" id="install"><div class="section-heading"><h2>Safe by default, editable when needed.</h2><p>Common credential names and configuration formats work without setup. Toggle or configure the plugin when a buffer needs different rules.</p></div><div class="grid"><article class="card"><h3>Mask common keys</h3><p>`API_KEY`, `SECRET`, `PASSWORD`, `TOKEN`, `CREDENTIAL`, and `AUTH` are recognised.</p></article><article class="card"><h3>Keep file content intact</h3><p>Extmarks change the display only; no values are replaced on disk.</p></article><article class="card"><h3>Reveal while editing</h3><p>Enter insert mode to inspect a value, then leave it to cloak again.</p></article></div><div class="install"><h2>Install with lazy.nvim</h2><pre><code>{
+  "jellydn/tiny-cloak.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {},
+}</code></pre></div></section>
+  </main>
+  <footer class="site-footer"><span>Open-source project by Dung Huynh</span><a href="https://github.com/jellydn/tiny-cloak.nvim">Repository ↗</a></footer>
+</body>
+</html>
