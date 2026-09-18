@@ -6,9 +6,9 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and September 9, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and September 17, 2026**. Forks and private repositories are excluded.
 
-Over ten months: 47 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over eleven months: 50 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,13 +110,13 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 47-card grid appears with a staggered entrance
+   immediately; the full 50-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
 3. **User clears** the search and clicks the "AI agents & apps" filter pill.
-   The grid updates to the 11 AI-agent and AI-app projects.
+   The grid updates to the 13 AI-agent and AI-app projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
 5. **User clears** the search and returns to "All" to browse the full catalog.
@@ -141,7 +141,7 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 47 listed projects match the author's actual
+- **Data accuracy** — confirm the 50 listed projects match the author's actual
   public repositories in the October 2025 – September 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
@@ -212,7 +212,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guards to assert the 47-card count
+3. **Expand the smoke test** — extend the CI guards to assert the 50-card count
    and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -409,6 +409,18 @@ personal-ai/
 - **Approach**: OpenAI and xAI image APIs behind a local SwiftData library, with API keys held in the Keychain.
 - **Demo**: Not ready yet.
 
+### [token-pulse](https://github.com/jellydn/token-pulse)
+
+- **Description**: Local-first token usage dashboard for CodexBar.
+- **Approach**: Reads CodexBar JSON into a Bun/Hono dashboard with SQLite history, limits, costs, and burn charts.
+- **Demo**: Not ready yet.
+
+### [signal-gate](https://github.com/jellydn/signal-gate)
+
+- **Description**: One-Bench evaluation harness comparing TypeSafe System One, deterministic rules, and a general-purpose LLM.
+- **Approach**: Runs labeled synthetic behavioral scenarios and measures accuracy, latency, cost, and calibration with deterministic safety overrides.
+- **Demo**: Not ready yet.
+
 ## 🛠️ Developer & editor tools
 
 ### [zed-codemux](https://github.com/jellydn/zed-codemux)
@@ -509,6 +521,12 @@ personal-ai/
 - **Description**: Train a tiny Transformer from scratch and learn what every stage does.
 - **Approach**: Reproduces a pinned Marin TinyStories/Llama Nano baseline, then varies one training choice at a time.
 - **Demo**: Not ready yet.
+
+### [learning-hub](https://github.com/jellydn/learning-hub)
+
+- **Description**: Local-first learning dashboard for Web App Security, Executive Communication, and Train My First LLM.
+- **Approach**: Bite-sized static curricula with localStorage progress, search, and active-recall review on GitHub Pages.
+- **Demo**: https://jellydn.github.io/learning-hub/
 
 ## 📝 Notes
 
