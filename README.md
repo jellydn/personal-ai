@@ -237,7 +237,7 @@ personal-ai/
 
 - **Description**: Lightweight note-taking with voice or AI-oriented workflows.
 - **Approach**: Captures spoken or conversational input and turns it into usable notes.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/echo-note/
 
 ### [little-writing](https://github.com/jellydn/little-writing)
 
@@ -279,25 +279,25 @@ personal-ai/
 
 - **Description**: Developer app for investigating and understanding application logs.
 - **Approach**: Uses AI to summarise and reason about logs during debugging.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/logpilot/
 
 ### [sky-alert](https://github.com/jellydn/sky-alert)
 
 - **Description**: Alerting / monitoring application.
 - **Approach**: Lightweight utility focused on notifications and monitoring workflows.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/sky-alert/
 
 ### [activity-tracker](https://github.com/jellydn/activity-tracker)
 
 - **Description**: Lightweight personal activity tracking.
 - **Approach**: Captures and organises activity data with a simple user-facing interface.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/activity-tracker/
 
 ### [streaming-chat-demo](https://github.com/jellydn/streaming-chat-demo)
 
 - **Description**: Side-by-side comparison of streaming vs non-streaming AI chat responses.
 - **Approach**: Measures how streaming improves perceived latency and UX.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/streaming-chat-demo/
 
 ### [sellsnap](https://github.com/jellydn/sellsnap)
 
@@ -309,7 +309,7 @@ personal-ai/
 
 - **Description**: English Rhythm Coach.
 - **Approach**: Guides learners through English prosody and rhythm practice.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/prosody/
 
 ### [tweet-print](https://github.com/jellydn/tweet-print)
 
@@ -333,7 +333,7 @@ personal-ai/
 
 - **Description**: Gmail cleaner for desktop and terminal.
 - **Approach**: Safe-by-default scan, dry-run, and trash workflow with a loopback desktop UI and CLI.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/gclean/
 
 ### [brave-buddy](https://github.com/jellydn/brave-buddy)
 
@@ -347,7 +347,7 @@ personal-ai/
 
 - **Description**: Minimal coding agent for learning and demonstrating agent loops.
 - **Approach**: Small agent loop focused on tool execution and iteration.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/tiny-coding-agent/
 
 ### [auto-testgen-nodejs](https://github.com/jellydn/auto-testgen-nodejs)
 
@@ -383,7 +383,7 @@ personal-ai/
 
 - **Description**: Minimal environment for experimenting with locally hosted models.
 - **Approach**: Lightweight local setup for model testing and iteration.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/tiny-local-ai/
 
 ### [flowly](https://github.com/jellydn/flowly)
 
@@ -401,25 +401,25 @@ personal-ai/
 
 - **Description**: AI photo frame MVP that turns photos into a framed display experience.
 - **Approach**: Work in progress: a TanStack Start app running on Cloudflare.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/muse-frame/
 
 ### [imagi](https://github.com/jellydn/imagi)
 
 - **Description**: Native SwiftUI image studio for iPhone, iPad, and Mac — describe, generate variants, compare, refine, save.
 - **Approach**: OpenAI and xAI image APIs behind a local SwiftData library, with API keys held in the Keychain.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/imagi/
 
 ### [token-pulse](https://github.com/jellydn/token-pulse)
 
 - **Description**: Local-first token usage dashboard for CodexBar.
 - **Approach**: Reads CodexBar JSON into a Bun/Hono dashboard with SQLite history, limits, costs, and burn charts.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/token-pulse/
 
 ### [signal-gate](https://github.com/jellydn/signal-gate)
 
 - **Description**: One-Bench evaluation harness comparing TypeSafe System One, deterministic rules, and a general-purpose LLM.
 - **Approach**: Runs labeled synthetic behavioral scenarios and measures accuracy, latency, cost, and calibration with deterministic safety overrides.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/signal-gate/
 
 ## 🛠️ Developer & editor tools
 
@@ -427,7 +427,7 @@ personal-ai/
 
 - **Description**: Zed-based interface for parallel coding-agent sessions.
 - **Approach**: Helps manage several coding sessions in parallel.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/zed-codemux/
 
 ### [vscode-mux](https://github.com/jellydn/vscode-mux)
 
@@ -463,13 +463,13 @@ personal-ai/
 
 - **Description**: Terminal interface for managing environment variables.
 - **Approach**: TUI for editing and organising env data.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/dotenv-tui/
 
 ### [keybinder](https://github.com/jellydn/keybinder)
 
 - **Description**: Keyboard shortcut and binding utility.
 - **Approach**: Simplifies creation and management of keyboard bindings.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/keybinder/
 
 ### [tiny-cloak.nvim](https://github.com/jellydn/tiny-cloak.nvim)
 
@@ -487,7 +487,7 @@ personal-ai/
 
 - **Description**: Simplified installer for MinUI.
 - **Approach**: Streamlines setup and installation into a simpler flow.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/minui-easy-installer/
 
 ### [opencode-qwencloud-provider](https://github.com/jellydn/opencode-qwencloud-provider)
 
@@ -499,7 +499,7 @@ personal-ai/
 
 - **Description**: Pi provider for Google Antigravity.
 - **Approach**: Bridges Google Antigravity into pi agent tooling.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/pi-agy-provider/
 
 ## 📚 Learning & experiments
 
@@ -507,20 +507,20 @@ personal-ai/
 
 - **Description**: Four-week practical AI architecture programme.
 - **Approach**: Breaks AI architecture learning into hands-on weekly milestones.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/ai-architect-4-weeks/
 
 
 ### [daily-exercism-quad](https://github.com/jellydn/daily-exercism-quad)
 
 - **Description**: Daily programming practice project.
 - **Approach**: Consistent practice through repeated exercises and small implementations.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/daily-exercism-quad/
 
 ### [tiny-code-model](https://github.com/jellydn/tiny-code-model)
 
 - **Description**: Train a tiny Transformer from scratch and learn what every stage does.
 - **Approach**: Reproduces a pinned Marin TinyStories/Llama Nano baseline, then varies one training choice at a time.
-- **Demo**: Not ready yet.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/tiny-code-model/
 
 ### [learning-hub](https://github.com/jellydn/learning-hub)
 

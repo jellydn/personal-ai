@@ -35,7 +35,7 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
 .hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(22rem, .9fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); padding: clamp(4rem, 10vw, 7.5rem) 0 4rem; }
 .eyebrow { display: inline-flex; align-items: center; gap: .5rem; color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 .eyebrow::before { width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 1rem var(--accent); content: ""; }
-h1 { max-width: 12ch; margin: .65rem 0 1.25rem; font-size: clamp(2.65rem, 7vw, 5.5rem); letter-spacing: -.075em; line-height: .94; }
+h1 { max-width: 12ch; margin: .65rem 0 1.25rem; font-size: clamp(2.65rem, 7vw, 5.5rem); letter-spacing: -.075em; line-height: .94; text-wrap: balance; }
 .hero-copy { max-width: 56ch; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); }
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.8rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .6rem 1rem; border: 1px solid var(--line); border-radius: .6rem; color: var(--text); font-size: .92rem; font-weight: 700; text-decoration: none; }
