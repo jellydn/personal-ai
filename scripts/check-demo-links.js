@@ -67,7 +67,9 @@ function localDemoFile(url) {
   const demosRoot = path.resolve("demos");
   const candidate = path.resolve(demosRoot, relative || ".");
   if (candidate !== demosRoot && !candidate.startsWith(demosRoot + path.sep)) return null;
-  return path.extname(candidate) ? candidate : path.join(candidate, "index.html");
+  // The trailing slash identifies a directory URL. Do not use path.extname:
+  // project slugs such as tiny-cloak.nvim contain a dot but are directories.
+  return pathname.endsWith("/") ? path.join(candidate, "index.html") : candidate;
 }
 
 // Extract a balanced JS array literal after `const projects =`, tolerating
