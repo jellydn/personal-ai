@@ -34,14 +34,14 @@ so the README screenshot keeps matching the live counts.
 ### Sample input
 
 No input is required. For an alternative shot, click the **"AI agents & apps"** filter
-pill to show only the AI category (11 cards). This demonstrates category
+pill to show only the AI category (14 cards). This demonstrates category
 filtering. To demonstrate text search instead, type `rag` in the filter box to
 narrow to the RAG-related projects.
 
 ### Expected output
 
 - Hero headline: **"AI-built. Open source. Personal."**
-- Stat badges: **20 web apps**, **11 AI agents & apps**, **13 dev tools**, **3 experiments**.
+- Stat badges: **20 web apps**, **14 AI agents & apps**, **13 dev tools**, **4 experiments**.
 - A responsive 3-column card grid (on desktop) with category badges, project
   names, descriptions, and demo links.
 - Cards have a colored left border keyed to their category and a hover lift
@@ -136,8 +136,8 @@ sips -g pixelWidth -g pixelHeight showcase/screenshots/<asset>
 ```
 
 Inspect each capture, including crops from tall images, for blank cards, missing
-images, clipped labels, and stale counts. OCR can help check the 47-project total
-and the 20/11/13/3 chips, but does not replace visual inspection.
+images, clipped labels, and stale counts. OCR can help check the 51-project total
+and the 20/14/13/4 chips, but does not replace visual inspection.
 
 ### Regenerating the OG share card
 
