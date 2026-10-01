@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jellydn.github.io/personal-ai/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -153,6 +153,12 @@
   <url>
     <loc>https://jellydn.github.io/personal-ai/demos/tiny-code-model/</loc>
     <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jellydn.github.io/personal-ai/demos/awesome-ai-agent-orchestrators/</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

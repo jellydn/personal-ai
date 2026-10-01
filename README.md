@@ -6,9 +6,9 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and September 17, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and October 1, 2026**. Forks and private repositories are excluded.
 
-Over eleven months: 50 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over eleven months: 51 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,13 +110,13 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 50-card grid appears with a staggered entrance
+   immediately; the full 51-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
 3. **User clears** the search and clicks the "AI agents & apps" filter pill.
-   The grid updates to the 13 AI-agent and AI-app projects.
+   The grid updates to the 14 AI-agent and AI-app projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
 5. **User clears** the search and returns to "All" to browse the full catalog.
@@ -141,8 +141,8 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 50 listed projects match the author's actual
-  public repositories in the October 2025 – September 2026 window.
+- **Data accuracy** — confirm the 51 listed projects match the author's actual
+  public repositories in the October 2025 – October 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
 
@@ -212,7 +212,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guards to assert the 50-card count
+3. **Expand the smoke test** — extend the CI guards to assert the 51-card count
    and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -420,6 +420,12 @@ personal-ai/
 - **Description**: One-Bench evaluation harness comparing TypeSafe System One, deterministic rules, and a general-purpose LLM.
 - **Approach**: Runs labeled synthetic behavioral scenarios and measures accuracy, latency, cost, and calibration with deterministic safety overrides.
 - **Demo**: https://jellydn.github.io/personal-ai/demos/signal-gate/
+
+### [awesome-ai-agent-orchestrators](https://github.com/jellydn/awesome-ai-agent-orchestrators)
+
+- **Description**: Curated list of AI coding-agent orchestrators and the companion tools around them.
+- **Approach**: Groups desktop, terminal, and Kanban orchestrators, with companion tools kept separate and a 1,000-star threshold last verified on 1 October 2026.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/awesome-ai-agent-orchestrators/
 
 ## 🛠️ Developer & editor tools
 
