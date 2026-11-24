@@ -6,9 +6,9 @@
 
 > **A living tracker of open-source projects built with AI** — public original work from active AI exploration.
 
-This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and October 27, 2026**. Forks and private repositories are excluded.
+This repo catalogues **public original** repositories created while exploring AI-assisted development between **October 20, 2025 and November 23, 2026**. Forks and private repositories are excluded.
 
-Over twelve months: 52 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
+Over thirteen months: 56 public original projects spanning web apps, AI agents, RAG systems, developer tools, editor extensions, local-model utilities, and productivity apps.
 
 ![Application screenshot](docs/images/demo.png)
 
@@ -110,13 +110,13 @@ the Amp sandbox is generated automatically by the sandbox manager, is ignored by
 ## 🧪 Example workflow
 
 1. **User visits** the homepage. The hero, summary stats, and filter bar render
-   immediately; the full 52-card grid appears with a staggered entrance
+   immediately; the full 56-card grid appears with a staggered entrance
    animation.
 2. **User searches** by typing `rag` in the filter box. The grid narrows to the
    matching projects (`rag-blog`) in real time — no network
    request, no reload.
 3. **User clears** the search and clicks the "AI agents & apps" filter pill.
-   The grid updates to the 15 AI-agent and AI-app projects.
+   The grid updates to the 18 AI-agent and AI-app projects.
 4. **User clicks** a "Demo →" badge on a card to open that project's live demo
    in a new tab, or the repo link to view its source on GitHub.
 5. **User clears** the search and returns to "All" to browse the full catalog.
@@ -141,8 +141,8 @@ catalog, not an AI runtime. Quality is assessed manually:
 - **Visual review** — load the site at 1440×900 and 375×812; confirm the grid,
   filters, search, and empty state behave correctly.
 - **Link integrity** — verify that demo and repo links resolve.
-- **Data accuracy** — confirm the 52 listed projects match the author's actual
-  public repositories in the October 2025 – October 2026 window.
+- **Data accuracy** — confirm the 56 listed projects match the author's actual
+  public repositories in the October 2025 – November 2026 window.
 - **Accessibility check** — run Lighthouse and confirm the page scores well on
   accessibility and best-practices.
 
@@ -212,7 +212,7 @@ personal-ai/
    `projects.json` file fetched at runtime, so content edits do not touch markup.
 2. **Fetch live GitHub metadata** — pull stars, language, and last-updated dates
    from the GitHub API to keep the catalog current automatically.
-3. **Expand the smoke test** — extend the CI guards to assert the 52-card count
+3. **Expand the smoke test** — extend the CI guards to assert the 56-card count
    and filter behaviour end-to-end in a headless browser.
 4. **Self-host Tailwind** — replace the CDN with a built CSS file so the site
    works offline and avoids a render-blocking external request.
@@ -341,6 +341,12 @@ personal-ai/
 - **Approach**: Human-authored scenarios only — SEE → THINK → RESPOND → GET HELP — with no generative chat, accounts, or tracking.
 - **Demo**: https://brave-buddy.itman.fyi/
 
+### [folderlens](https://github.com/jellydn/folderlens)
+
+- **Description**: Notch-first macOS app for reviewing cleanup candidates, disk space, and system usage.
+- **Approach**: Record choice records a selection and moves nothing; Move to Trash confirms every item. Optional agent analysis adds AI sorting and private Pi/OpenCode runs.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/folderlens/
+
 ## 🤖 AI agents & AI apps
 
 ### [tiny-coding-agent](https://github.com/jellydn/tiny-coding-agent)
@@ -432,6 +438,24 @@ personal-ai/
 - **Description**: Curated research on affordable, self-hostable autonomous AI assistants as alternatives to Grok Bot.
 - **Approach**: Compares assistants for Slack, Gmail, GitHub, and Sentry. Snapshot 1 November 2026: OpenMausBot is the current trial.
 - **Demo**: https://jellydn.github.io/personal-ai/demos/awesome-bot/
+
+### [awesome-software-factories](https://github.com/jellydn/awesome-software-factories)
+
+- **Description**: Curated list of AI-powered software factories that automate stages of the software delivery lifecycle.
+- **Approach**: Separates complete factories from factory-building platforms and learning resources, with contribution criteria and cost case studies.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/awesome-software-factories/
+
+### [retone](https://github.com/jellydn/retone)
+
+- **Description**: Rewrites the text you select in any macOS app with a local model or your own AI CLI.
+- **Approach**: Hotkey-driven style picker with a preview and in-place replacement, built in Rust with a Rune UI; 0.1 is a beta.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/retone/
+
+### [cadivo](https://github.com/jellydn/cadivo)
+
+- **Description**: Local-first AI speaking coach for Mac and iPhone with on-device speech-to-text and feedback.
+- **Approach**: Swift package and macOS CLI using Parakeet STT and 4-bit MLX coach models, with guided JSON output checked against the talk's checklist.
+- **Demo**: https://jellydn.github.io/personal-ai/demos/cadivo/
 
 ## 🛠️ Developer & editor tools
 
