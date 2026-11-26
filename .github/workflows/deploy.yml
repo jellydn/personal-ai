@@ -31,7 +31,7 @@ jobs:
         run: node scripts/check-showcase-interactions.js
       - name: Verify JSON-LD structured data
         run: node scripts/check-json-ld.js
-      - uses: actions/configure-pages@v4
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
